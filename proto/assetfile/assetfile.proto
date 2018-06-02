@@ -19,18 +19,19 @@ message AssetsResponse {
   string house_id = 1;
   string app_name = 2;
   int64 mod_epoch = 3;
-  repeated Package packages = 4;
+  repeated File files = 4;
 }
 
-message Package {
-  string name = 1;
-  repeated File files = 2;
-}
+//message Package {
+//  string name = 1;
+//  repeated File files = 2;
+//}
 
 message File {
   string name = 1;
   string path = 2;
-  string content = 3;
+  string group = 3;
+  //string content = 3;
   string md5 = 4;
   int64 mod_epoch = 5;
   int64 size = 6;
