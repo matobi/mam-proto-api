@@ -30,7 +30,7 @@ message AssetsResponse {
 message File {
   string name = 1;
   string path = 2;
-  string group = 3;
+  string package = 3;
   //string content = 3;
   string md5 = 4;
   int64 mod_epoch = 5;
