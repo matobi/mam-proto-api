@@ -1,25 +1,22 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.mtg.mam.proto.assetfile";
-option java_outer_classname = "AssetFileProto";
+option java_package = "com.mtg.mam.proto.assets";
+option java_outer_classname = "AssetsProto";
 
-package assetfile;
+package assets;
 
-service AssetFile {
-  rpc GetAssets(AssetsRequest) returns (AssetsResponse) {}
+service Assets {
+  rpc GetFiles(FilesRequest) returns (FilesResponse) {}
 }
 
-message AssetsRequest {
+message FilesRequest {
   string house_id = 1;
   string app_name = 2;
 }
 
-message AssetsResponse {
-  string house_id = 1;
-  string app_name = 2;
-  int64 mod_epoch = 3;
-  repeated File files = 4;
+message FilesResponse {
+  repeated File files = 1;
 }
 
 //message Package {
