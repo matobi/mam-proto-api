@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.nent.mam.proto.vidispine";
+option java_outer_classname = "VidispineProto";
+
+package vidispine;
+
+service Vidispine {
+  rpc GetJob(JobRequest) returns (JobResponse) {}
+  //rpc GetFiles(FilesRequest) returns (FilesResponse) {}
+}
+
+message JobRequest {
+  string job_id = 1;
+}
+
+message JobResponse {
+  Job job = 1;
+}
+
+message Job {
+  string id = 1;
+  string user = 2;
+  string status = 3;
+  string type = 4;
+  string prio = 5;
+  int64 started = 6;
+  int64 finished = 7;
+}
+
+// type Job struct {
+// 	ID       string `json:"id`
+// 	User     string `json:"User"`
+// 	Status   string `json:"status"`
+// 	Type     string `json:"type"`
+// 	Priority string `json:"priority"`
+// 	Started  string `json:"started"`
+// 	Finished string `json:"finished"`
+// }
+
+//message Package {
+//  string name = 1;
+//  repeated File files = 2;
+//}
+
+// message File {
+//   string name = 1;
+//   string path = 2;
+//   string package = 3;
+//   //string content = 3;
+//   string md5 = 4;
+//   int64 mod_epoch = 5;
+//   int64 size = 6;
+// }
