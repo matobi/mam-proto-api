@@ -8,11 +8,62 @@ package vidispine;
 
 service Vidispine {
   rpc GetJob(JobRequest) returns (JobResponse) {}
+  rpc GetItem(ItemRequest) returns (ItemResponse) {}
+  //rpc ExportIMF(ExportRequest) returns (ExportResponse) {}
   //rpc GetFiles(FilesRequest) returns (FilesResponse) {}
 }
 
+//////////////////
+
+message ItemRequest {
+  string item_id = 1;
+  string shape_tag = 2;
+}
+
+message ItemResponse {
+  Item item = 1;
+}
+
+message Item {
+  string id = 1;
+  repeated Shape shapes = 2;
+}
+
+message Shape {
+	string id = 1;
+  int32 version = 2;
+	string title = 3;
+	string orgFilename = 4;
+  repeated string tags = 5;
+  repeated Video videos = 6;
+  repeated Audio audios = 7;
+}
+
+message Audio {
+	string id = 1;
+	string language = 2;
+	int32 channelCount = 3;
+	string channelLayout = 4;
+	repeated File files = 5;
+}
+
+message Video {
+	string id = 1;
+	repeated File files = 2;
+}
+
+message File {
+	string id = 1;
+	string storageID = 2;
+	string orgFilename = 3;
+	int64 size = 4;
+	string hash = 5;
+}
+
+//////////////////
+
 message JobRequest {
-  int64 job_id = 1;
+  string job_id = 1;
 }
 
 message JobResponse {
@@ -20,7 +71,7 @@ message JobResponse {
 }
 
 message Job {
-  int64 id = 1;
+  string id = 1;
   string user = 2;
   string status = 3;
   string type = 4;
@@ -28,28 +79,3 @@ message Job {
   int64 started = 6;
   int64 finished = 7;
 }
-
-// type Job struct {
-// 	ID       string `json:"id`
-// 	User     string `json:"User"`
-// 	Status   string `json:"status"`
-// 	Type     string `json:"type"`
-// 	Priority string `json:"priority"`
-// 	Started  string `json:"started"`
-// 	Finished string `json:"finished"`
-// }
-
-//message Package {
-//  string name = 1;
-//  repeated File files = 2;
-//}
-
-// message File {
-//   string name = 1;
-//   string path = 2;
-//   string package = 3;
-//   //string content = 3;
-//   string md5 = 4;
-//   int64 mod_epoch = 5;
-//   int64 size = 6;
-// }
