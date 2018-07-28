@@ -7,8 +7,8 @@ option java_outer_classname = "VidispineProto";
 package vidispine;
 
 service Vidispine {
-  rpc Job(JobRequest) returns (JobResponse) {}
-  rpc Item(ItemRequest) returns (ItemResponse) {}
+  rpc GetJob(JobRequest) returns (JobResponse) {}
+  rpc GetItem(ItemRequest) returns (ItemResponse) {}
   //rpc CreateJobExportIMF(ExportRequest) returns (ExportResponse) {}
   //rpc GetFiles(FilesRequest) returns (FilesResponse) {}
 }
