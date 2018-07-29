@@ -8,6 +8,7 @@ package hybrik;
 
 service Hybrik {
   rpc GetJob(JobRequest) returns (JobResponse) {}
+  rpc CreateJob(CreateJobRequest) returns (CreateJobResponse) {}
   //rpc GetItem(ItemRequest) returns (ItemResponse) {}
   //rpc ExportIMF(ExportRequest) returns (ExportResponse) {}
   //rpc GetFiles(FilesRequest) returns (FilesResponse) {}
@@ -63,7 +64,7 @@ service Hybrik {
 //////////////////
 
 message JobRequest {
-  int64 job_id = 1;
+  string job_id = 1;
 }
 
 message JobResponse {
@@ -71,7 +72,7 @@ message JobResponse {
 }
 
 message Job {
-  int64 id = 1;
+  string id = 1;
   string name = 2;
   string status = 3;
   int64 started = 4;
@@ -80,6 +81,15 @@ message Job {
 }
 
 //////////////////////
+
+message CreateJobRequest {
+  string dir = 1;
+  string file = 2;
+}
+
+message CreateJobResponse {
+  string job_id = 1;
+}
 
 // message ExportRequest {
 //   string item_id = 1;
