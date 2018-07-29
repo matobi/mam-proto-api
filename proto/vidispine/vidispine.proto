@@ -9,7 +9,7 @@ package vidispine;
 service Vidispine {
   rpc GetJob(JobRequest) returns (JobResponse) {}
   rpc GetItem(ItemRequest) returns (ItemResponse) {}
-  //rpc CreateJobExportIMF(ExportRequest) returns (ExportResponse) {}
+  rpc ExportIMF(ExportRequest) returns (ExportResponse) {}
   //rpc GetFiles(FilesRequest) returns (FilesResponse) {}
 }
 
@@ -78,4 +78,16 @@ message Job {
   string prio = 5;
   int64 started = 6;
   int64 finished = 7;
+}
+
+//////////////////////
+
+message ExportRequest {
+  string item_id = 1;
+  string shape_id = 2;
+  string path = 3;
+}
+
+message ExportResponse {
+  string job_id = 1;
 }
