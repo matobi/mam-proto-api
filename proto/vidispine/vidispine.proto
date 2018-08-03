@@ -7,21 +7,45 @@ option java_outer_classname = "VidispineProto";
 package vidispine;
 
 service Vidispine {
-  rpc GetJob(JobRequest) returns (JobResponse) {}
-  rpc GetShapes(ShapeRequest) returns (ShapeResponse) {}
-  rpc ExportIMF(ExportRequest) returns (ExportResponse) {}
+  rpc GetJob(JobIn) returns (JobOut) {}
+  rpc GetItem(ItemIn) returns (ItemOut) {}
+  rpc GetShape(ShapeIn) returns (ShapeOut) {}
+  rpc ExportIMF(ExportIn) returns (ExportOut) {}
   //rpc GetFiles(FilesRequest) returns (FilesResponse) {}
 }
 
 //////////////////
 
-message ShapeRequest {
+message ItemIn {
   string item_id = 1;
   string shape_tag = 2;
 }
 
-message ShapeResponse {
-  repeated Shape shapes = 1;
+message ItemOut {
+  Item item = 1;
+}
+
+message Item {
+  string item_id = 1;
+  string asset_id = 2;
+  repeated ShapeTag shape_tags = 3;
+}
+
+message ShapeTag {
+  string id = 1;
+  repeated string tags = 2; 
+}
+
+//////////////////
+
+
+message ShapeIn {
+  string item_id = 1;
+  string shape_id = 2;
+}
+
+message ShapeOut {
+  Shape shape = 1;
 }
 
 //message Item {
@@ -63,11 +87,11 @@ message File {
 
 //////////////////
 
-message JobRequest {
+message JobIn {
   string job_id = 1;
 }
 
-message JobResponse {
+message JobOut {
   Job job = 1;
 }
 
@@ -83,12 +107,12 @@ message Job {
 
 //////////////////////
 
-message ExportRequest {
+message ExportIn {
   string item_id = 1;
   string shape_id = 2;
   string path = 3;
 }
 
-message ExportResponse {
+message ExportOut {
   string job_id = 1;
 }

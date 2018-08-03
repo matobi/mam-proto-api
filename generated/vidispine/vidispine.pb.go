@@ -23,7 +23,7 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type ShapeRequest struct {
+type ItemIn struct {
 	ItemId               string   `protobuf:"bytes,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	ShapeTag             string   `protobuf:"bytes,2,opt,name=shape_tag,json=shapeTag,proto3" json:"shape_tag,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -31,78 +31,262 @@ type ShapeRequest struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ShapeRequest) Reset()         { *m = ShapeRequest{} }
-func (m *ShapeRequest) String() string { return proto.CompactTextString(m) }
-func (*ShapeRequest) ProtoMessage()    {}
-func (*ShapeRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{0}
+func (m *ItemIn) Reset()         { *m = ItemIn{} }
+func (m *ItemIn) String() string { return proto.CompactTextString(m) }
+func (*ItemIn) ProtoMessage()    {}
+func (*ItemIn) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{0}
 }
-func (m *ShapeRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ShapeRequest.Unmarshal(m, b)
+func (m *ItemIn) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ItemIn.Unmarshal(m, b)
 }
-func (m *ShapeRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ShapeRequest.Marshal(b, m, deterministic)
+func (m *ItemIn) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ItemIn.Marshal(b, m, deterministic)
 }
-func (dst *ShapeRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ShapeRequest.Merge(dst, src)
+func (dst *ItemIn) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ItemIn.Merge(dst, src)
 }
-func (m *ShapeRequest) XXX_Size() int {
-	return xxx_messageInfo_ShapeRequest.Size(m)
+func (m *ItemIn) XXX_Size() int {
+	return xxx_messageInfo_ItemIn.Size(m)
 }
-func (m *ShapeRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ShapeRequest.DiscardUnknown(m)
+func (m *ItemIn) XXX_DiscardUnknown() {
+	xxx_messageInfo_ItemIn.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ShapeRequest proto.InternalMessageInfo
+var xxx_messageInfo_ItemIn proto.InternalMessageInfo
 
-func (m *ShapeRequest) GetItemId() string {
+func (m *ItemIn) GetItemId() string {
 	if m != nil {
 		return m.ItemId
 	}
 	return ""
 }
 
-func (m *ShapeRequest) GetShapeTag() string {
+func (m *ItemIn) GetShapeTag() string {
 	if m != nil {
 		return m.ShapeTag
 	}
 	return ""
 }
 
-type ShapeResponse struct {
-	Shapes               []*Shape `protobuf:"bytes,1,rep,name=shapes,proto3" json:"shapes,omitempty"`
+type ItemOut struct {
+	Item                 *Item    `protobuf:"bytes,1,opt,name=item,proto3" json:"item,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ShapeResponse) Reset()         { *m = ShapeResponse{} }
-func (m *ShapeResponse) String() string { return proto.CompactTextString(m) }
-func (*ShapeResponse) ProtoMessage()    {}
-func (*ShapeResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{1}
+func (m *ItemOut) Reset()         { *m = ItemOut{} }
+func (m *ItemOut) String() string { return proto.CompactTextString(m) }
+func (*ItemOut) ProtoMessage()    {}
+func (*ItemOut) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{1}
 }
-func (m *ShapeResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ShapeResponse.Unmarshal(m, b)
+func (m *ItemOut) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ItemOut.Unmarshal(m, b)
 }
-func (m *ShapeResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ShapeResponse.Marshal(b, m, deterministic)
+func (m *ItemOut) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ItemOut.Marshal(b, m, deterministic)
 }
-func (dst *ShapeResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ShapeResponse.Merge(dst, src)
+func (dst *ItemOut) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ItemOut.Merge(dst, src)
 }
-func (m *ShapeResponse) XXX_Size() int {
-	return xxx_messageInfo_ShapeResponse.Size(m)
+func (m *ItemOut) XXX_Size() int {
+	return xxx_messageInfo_ItemOut.Size(m)
 }
-func (m *ShapeResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ShapeResponse.DiscardUnknown(m)
+func (m *ItemOut) XXX_DiscardUnknown() {
+	xxx_messageInfo_ItemOut.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ShapeResponse proto.InternalMessageInfo
+var xxx_messageInfo_ItemOut proto.InternalMessageInfo
 
-func (m *ShapeResponse) GetShapes() []*Shape {
+func (m *ItemOut) GetItem() *Item {
 	if m != nil {
-		return m.Shapes
+		return m.Item
+	}
+	return nil
+}
+
+type Item struct {
+	ItemId               string      `protobuf:"bytes,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
+	AssetId              string      `protobuf:"bytes,2,opt,name=asset_id,json=assetId,proto3" json:"asset_id,omitempty"`
+	ShapeTags            []*ShapeTag `protobuf:"bytes,3,rep,name=shape_tags,json=shapeTags,proto3" json:"shape_tags,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}    `json:"-"`
+	XXX_unrecognized     []byte      `json:"-"`
+	XXX_sizecache        int32       `json:"-"`
+}
+
+func (m *Item) Reset()         { *m = Item{} }
+func (m *Item) String() string { return proto.CompactTextString(m) }
+func (*Item) ProtoMessage()    {}
+func (*Item) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{2}
+}
+func (m *Item) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Item.Unmarshal(m, b)
+}
+func (m *Item) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Item.Marshal(b, m, deterministic)
+}
+func (dst *Item) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Item.Merge(dst, src)
+}
+func (m *Item) XXX_Size() int {
+	return xxx_messageInfo_Item.Size(m)
+}
+func (m *Item) XXX_DiscardUnknown() {
+	xxx_messageInfo_Item.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Item proto.InternalMessageInfo
+
+func (m *Item) GetItemId() string {
+	if m != nil {
+		return m.ItemId
+	}
+	return ""
+}
+
+func (m *Item) GetAssetId() string {
+	if m != nil {
+		return m.AssetId
+	}
+	return ""
+}
+
+func (m *Item) GetShapeTags() []*ShapeTag {
+	if m != nil {
+		return m.ShapeTags
+	}
+	return nil
+}
+
+type ShapeTag struct {
+	Id                   string   `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Tags                 []string `protobuf:"bytes,2,rep,name=tags,proto3" json:"tags,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ShapeTag) Reset()         { *m = ShapeTag{} }
+func (m *ShapeTag) String() string { return proto.CompactTextString(m) }
+func (*ShapeTag) ProtoMessage()    {}
+func (*ShapeTag) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{3}
+}
+func (m *ShapeTag) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ShapeTag.Unmarshal(m, b)
+}
+func (m *ShapeTag) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ShapeTag.Marshal(b, m, deterministic)
+}
+func (dst *ShapeTag) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ShapeTag.Merge(dst, src)
+}
+func (m *ShapeTag) XXX_Size() int {
+	return xxx_messageInfo_ShapeTag.Size(m)
+}
+func (m *ShapeTag) XXX_DiscardUnknown() {
+	xxx_messageInfo_ShapeTag.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ShapeTag proto.InternalMessageInfo
+
+func (m *ShapeTag) GetId() string {
+	if m != nil {
+		return m.Id
+	}
+	return ""
+}
+
+func (m *ShapeTag) GetTags() []string {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
+type ShapeIn struct {
+	ItemId               string   `protobuf:"bytes,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
+	ShapeId              string   `protobuf:"bytes,2,opt,name=shape_id,json=shapeId,proto3" json:"shape_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ShapeIn) Reset()         { *m = ShapeIn{} }
+func (m *ShapeIn) String() string { return proto.CompactTextString(m) }
+func (*ShapeIn) ProtoMessage()    {}
+func (*ShapeIn) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{4}
+}
+func (m *ShapeIn) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ShapeIn.Unmarshal(m, b)
+}
+func (m *ShapeIn) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ShapeIn.Marshal(b, m, deterministic)
+}
+func (dst *ShapeIn) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ShapeIn.Merge(dst, src)
+}
+func (m *ShapeIn) XXX_Size() int {
+	return xxx_messageInfo_ShapeIn.Size(m)
+}
+func (m *ShapeIn) XXX_DiscardUnknown() {
+	xxx_messageInfo_ShapeIn.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ShapeIn proto.InternalMessageInfo
+
+func (m *ShapeIn) GetItemId() string {
+	if m != nil {
+		return m.ItemId
+	}
+	return ""
+}
+
+func (m *ShapeIn) GetShapeId() string {
+	if m != nil {
+		return m.ShapeId
+	}
+	return ""
+}
+
+type ShapeOut struct {
+	Shape                *Shape   `protobuf:"bytes,1,opt,name=shape,proto3" json:"shape,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *ShapeOut) Reset()         { *m = ShapeOut{} }
+func (m *ShapeOut) String() string { return proto.CompactTextString(m) }
+func (*ShapeOut) ProtoMessage()    {}
+func (*ShapeOut) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{5}
+}
+func (m *ShapeOut) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ShapeOut.Unmarshal(m, b)
+}
+func (m *ShapeOut) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ShapeOut.Marshal(b, m, deterministic)
+}
+func (dst *ShapeOut) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ShapeOut.Merge(dst, src)
+}
+func (m *ShapeOut) XXX_Size() int {
+	return xxx_messageInfo_ShapeOut.Size(m)
+}
+func (m *ShapeOut) XXX_DiscardUnknown() {
+	xxx_messageInfo_ShapeOut.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_ShapeOut proto.InternalMessageInfo
+
+func (m *ShapeOut) GetShape() *Shape {
+	if m != nil {
+		return m.Shape
 	}
 	return nil
 }
@@ -125,7 +309,7 @@ func (m *Shape) Reset()         { *m = Shape{} }
 func (m *Shape) String() string { return proto.CompactTextString(m) }
 func (*Shape) ProtoMessage()    {}
 func (*Shape) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{2}
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{6}
 }
 func (m *Shape) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Shape.Unmarshal(m, b)
@@ -216,7 +400,7 @@ func (m *Audio) Reset()         { *m = Audio{} }
 func (m *Audio) String() string { return proto.CompactTextString(m) }
 func (*Audio) ProtoMessage()    {}
 func (*Audio) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{3}
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{7}
 }
 func (m *Audio) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Audio.Unmarshal(m, b)
@@ -276,7 +460,7 @@ func (m *Video) Reset()         { *m = Video{} }
 func (m *Video) String() string { return proto.CompactTextString(m) }
 func (*Video) ProtoMessage()    {}
 func (*Video) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{4}
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{8}
 }
 func (m *Video) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Video.Unmarshal(m, b)
@@ -325,7 +509,7 @@ func (m *File) Reset()         { *m = File{} }
 func (m *File) String() string { return proto.CompactTextString(m) }
 func (*File) ProtoMessage()    {}
 func (*File) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{5}
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{9}
 }
 func (m *File) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_File.Unmarshal(m, b)
@@ -380,76 +564,76 @@ func (m *File) GetHash() string {
 	return ""
 }
 
-type JobRequest struct {
+type JobIn struct {
 	JobId                string   `protobuf:"bytes,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *JobRequest) Reset()         { *m = JobRequest{} }
-func (m *JobRequest) String() string { return proto.CompactTextString(m) }
-func (*JobRequest) ProtoMessage()    {}
-func (*JobRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{6}
+func (m *JobIn) Reset()         { *m = JobIn{} }
+func (m *JobIn) String() string { return proto.CompactTextString(m) }
+func (*JobIn) ProtoMessage()    {}
+func (*JobIn) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{10}
 }
-func (m *JobRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_JobRequest.Unmarshal(m, b)
+func (m *JobIn) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JobIn.Unmarshal(m, b)
 }
-func (m *JobRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_JobRequest.Marshal(b, m, deterministic)
+func (m *JobIn) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JobIn.Marshal(b, m, deterministic)
 }
-func (dst *JobRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_JobRequest.Merge(dst, src)
+func (dst *JobIn) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JobIn.Merge(dst, src)
 }
-func (m *JobRequest) XXX_Size() int {
-	return xxx_messageInfo_JobRequest.Size(m)
+func (m *JobIn) XXX_Size() int {
+	return xxx_messageInfo_JobIn.Size(m)
 }
-func (m *JobRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_JobRequest.DiscardUnknown(m)
+func (m *JobIn) XXX_DiscardUnknown() {
+	xxx_messageInfo_JobIn.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_JobRequest proto.InternalMessageInfo
+var xxx_messageInfo_JobIn proto.InternalMessageInfo
 
-func (m *JobRequest) GetJobId() string {
+func (m *JobIn) GetJobId() string {
 	if m != nil {
 		return m.JobId
 	}
 	return ""
 }
 
-type JobResponse struct {
+type JobOut struct {
 	Job                  *Job     `protobuf:"bytes,1,opt,name=job,proto3" json:"job,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *JobResponse) Reset()         { *m = JobResponse{} }
-func (m *JobResponse) String() string { return proto.CompactTextString(m) }
-func (*JobResponse) ProtoMessage()    {}
-func (*JobResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{7}
+func (m *JobOut) Reset()         { *m = JobOut{} }
+func (m *JobOut) String() string { return proto.CompactTextString(m) }
+func (*JobOut) ProtoMessage()    {}
+func (*JobOut) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{11}
 }
-func (m *JobResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_JobResponse.Unmarshal(m, b)
+func (m *JobOut) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_JobOut.Unmarshal(m, b)
 }
-func (m *JobResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_JobResponse.Marshal(b, m, deterministic)
+func (m *JobOut) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_JobOut.Marshal(b, m, deterministic)
 }
-func (dst *JobResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_JobResponse.Merge(dst, src)
+func (dst *JobOut) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_JobOut.Merge(dst, src)
 }
-func (m *JobResponse) XXX_Size() int {
-	return xxx_messageInfo_JobResponse.Size(m)
+func (m *JobOut) XXX_Size() int {
+	return xxx_messageInfo_JobOut.Size(m)
 }
-func (m *JobResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_JobResponse.DiscardUnknown(m)
+func (m *JobOut) XXX_DiscardUnknown() {
+	xxx_messageInfo_JobOut.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_JobResponse proto.InternalMessageInfo
+var xxx_messageInfo_JobOut proto.InternalMessageInfo
 
-func (m *JobResponse) GetJob() *Job {
+func (m *JobOut) GetJob() *Job {
 	if m != nil {
 		return m.Job
 	}
@@ -473,7 +657,7 @@ func (m *Job) Reset()         { *m = Job{} }
 func (m *Job) String() string { return proto.CompactTextString(m) }
 func (*Job) ProtoMessage()    {}
 func (*Job) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{8}
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{12}
 }
 func (m *Job) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Job.Unmarshal(m, b)
@@ -542,7 +726,7 @@ func (m *Job) GetFinished() int64 {
 	return 0
 }
 
-type ExportRequest struct {
+type ExportIn struct {
 	ItemId               string   `protobuf:"bytes,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
 	ShapeId              string   `protobuf:"bytes,2,opt,name=shape_id,json=shapeId,proto3" json:"shape_id,omitempty"`
 	Path                 string   `protobuf:"bytes,3,opt,name=path,proto3" json:"path,omitempty"`
@@ -551,83 +735,83 @@ type ExportRequest struct {
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ExportRequest) Reset()         { *m = ExportRequest{} }
-func (m *ExportRequest) String() string { return proto.CompactTextString(m) }
-func (*ExportRequest) ProtoMessage()    {}
-func (*ExportRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{9}
+func (m *ExportIn) Reset()         { *m = ExportIn{} }
+func (m *ExportIn) String() string { return proto.CompactTextString(m) }
+func (*ExportIn) ProtoMessage()    {}
+func (*ExportIn) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{13}
 }
-func (m *ExportRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ExportRequest.Unmarshal(m, b)
+func (m *ExportIn) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ExportIn.Unmarshal(m, b)
 }
-func (m *ExportRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ExportRequest.Marshal(b, m, deterministic)
+func (m *ExportIn) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ExportIn.Marshal(b, m, deterministic)
 }
-func (dst *ExportRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExportRequest.Merge(dst, src)
+func (dst *ExportIn) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ExportIn.Merge(dst, src)
 }
-func (m *ExportRequest) XXX_Size() int {
-	return xxx_messageInfo_ExportRequest.Size(m)
+func (m *ExportIn) XXX_Size() int {
+	return xxx_messageInfo_ExportIn.Size(m)
 }
-func (m *ExportRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_ExportRequest.DiscardUnknown(m)
+func (m *ExportIn) XXX_DiscardUnknown() {
+	xxx_messageInfo_ExportIn.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ExportRequest proto.InternalMessageInfo
+var xxx_messageInfo_ExportIn proto.InternalMessageInfo
 
-func (m *ExportRequest) GetItemId() string {
+func (m *ExportIn) GetItemId() string {
 	if m != nil {
 		return m.ItemId
 	}
 	return ""
 }
 
-func (m *ExportRequest) GetShapeId() string {
+func (m *ExportIn) GetShapeId() string {
 	if m != nil {
 		return m.ShapeId
 	}
 	return ""
 }
 
-func (m *ExportRequest) GetPath() string {
+func (m *ExportIn) GetPath() string {
 	if m != nil {
 		return m.Path
 	}
 	return ""
 }
 
-type ExportResponse struct {
+type ExportOut struct {
 	JobId                string   `protobuf:"bytes,1,opt,name=job_id,json=jobId,proto3" json:"job_id,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *ExportResponse) Reset()         { *m = ExportResponse{} }
-func (m *ExportResponse) String() string { return proto.CompactTextString(m) }
-func (*ExportResponse) ProtoMessage()    {}
-func (*ExportResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_vidispine_6eff15881236bb82, []int{10}
+func (m *ExportOut) Reset()         { *m = ExportOut{} }
+func (m *ExportOut) String() string { return proto.CompactTextString(m) }
+func (*ExportOut) ProtoMessage()    {}
+func (*ExportOut) Descriptor() ([]byte, []int) {
+	return fileDescriptor_vidispine_dfa348843fd67a4f, []int{14}
 }
-func (m *ExportResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ExportResponse.Unmarshal(m, b)
+func (m *ExportOut) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_ExportOut.Unmarshal(m, b)
 }
-func (m *ExportResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ExportResponse.Marshal(b, m, deterministic)
+func (m *ExportOut) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_ExportOut.Marshal(b, m, deterministic)
 }
-func (dst *ExportResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExportResponse.Merge(dst, src)
+func (dst *ExportOut) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ExportOut.Merge(dst, src)
 }
-func (m *ExportResponse) XXX_Size() int {
-	return xxx_messageInfo_ExportResponse.Size(m)
+func (m *ExportOut) XXX_Size() int {
+	return xxx_messageInfo_ExportOut.Size(m)
 }
-func (m *ExportResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_ExportResponse.DiscardUnknown(m)
+func (m *ExportOut) XXX_DiscardUnknown() {
+	xxx_messageInfo_ExportOut.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_ExportResponse proto.InternalMessageInfo
+var xxx_messageInfo_ExportOut proto.InternalMessageInfo
 
-func (m *ExportResponse) GetJobId() string {
+func (m *ExportOut) GetJobId() string {
 	if m != nil {
 		return m.JobId
 	}
@@ -635,17 +819,21 @@ func (m *ExportResponse) GetJobId() string {
 }
 
 func init() {
-	proto.RegisterType((*ShapeRequest)(nil), "vidispine.ShapeRequest")
-	proto.RegisterType((*ShapeResponse)(nil), "vidispine.ShapeResponse")
+	proto.RegisterType((*ItemIn)(nil), "vidispine.ItemIn")
+	proto.RegisterType((*ItemOut)(nil), "vidispine.ItemOut")
+	proto.RegisterType((*Item)(nil), "vidispine.Item")
+	proto.RegisterType((*ShapeTag)(nil), "vidispine.ShapeTag")
+	proto.RegisterType((*ShapeIn)(nil), "vidispine.ShapeIn")
+	proto.RegisterType((*ShapeOut)(nil), "vidispine.ShapeOut")
 	proto.RegisterType((*Shape)(nil), "vidispine.Shape")
 	proto.RegisterType((*Audio)(nil), "vidispine.Audio")
 	proto.RegisterType((*Video)(nil), "vidispine.Video")
 	proto.RegisterType((*File)(nil), "vidispine.File")
-	proto.RegisterType((*JobRequest)(nil), "vidispine.JobRequest")
-	proto.RegisterType((*JobResponse)(nil), "vidispine.JobResponse")
+	proto.RegisterType((*JobIn)(nil), "vidispine.JobIn")
+	proto.RegisterType((*JobOut)(nil), "vidispine.JobOut")
 	proto.RegisterType((*Job)(nil), "vidispine.Job")
-	proto.RegisterType((*ExportRequest)(nil), "vidispine.ExportRequest")
-	proto.RegisterType((*ExportResponse)(nil), "vidispine.ExportResponse")
+	proto.RegisterType((*ExportIn)(nil), "vidispine.ExportIn")
+	proto.RegisterType((*ExportOut)(nil), "vidispine.ExportOut")
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -660,9 +848,10 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type VidispineClient interface {
-	GetJob(ctx context.Context, in *JobRequest, opts ...grpc.CallOption) (*JobResponse, error)
-	GetShapes(ctx context.Context, in *ShapeRequest, opts ...grpc.CallOption) (*ShapeResponse, error)
-	ExportIMF(ctx context.Context, in *ExportRequest, opts ...grpc.CallOption) (*ExportResponse, error)
+	GetJob(ctx context.Context, in *JobIn, opts ...grpc.CallOption) (*JobOut, error)
+	GetItem(ctx context.Context, in *ItemIn, opts ...grpc.CallOption) (*ItemOut, error)
+	GetShape(ctx context.Context, in *ShapeIn, opts ...grpc.CallOption) (*ShapeOut, error)
+	ExportIMF(ctx context.Context, in *ExportIn, opts ...grpc.CallOption) (*ExportOut, error)
 }
 
 type vidispineClient struct {
@@ -673,8 +862,8 @@ func NewVidispineClient(cc *grpc.ClientConn) VidispineClient {
 	return &vidispineClient{cc}
 }
 
-func (c *vidispineClient) GetJob(ctx context.Context, in *JobRequest, opts ...grpc.CallOption) (*JobResponse, error) {
-	out := new(JobResponse)
+func (c *vidispineClient) GetJob(ctx context.Context, in *JobIn, opts ...grpc.CallOption) (*JobOut, error) {
+	out := new(JobOut)
 	err := c.cc.Invoke(ctx, "/vidispine.Vidispine/GetJob", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -682,17 +871,26 @@ func (c *vidispineClient) GetJob(ctx context.Context, in *JobRequest, opts ...gr
 	return out, nil
 }
 
-func (c *vidispineClient) GetShapes(ctx context.Context, in *ShapeRequest, opts ...grpc.CallOption) (*ShapeResponse, error) {
-	out := new(ShapeResponse)
-	err := c.cc.Invoke(ctx, "/vidispine.Vidispine/GetShapes", in, out, opts...)
+func (c *vidispineClient) GetItem(ctx context.Context, in *ItemIn, opts ...grpc.CallOption) (*ItemOut, error) {
+	out := new(ItemOut)
+	err := c.cc.Invoke(ctx, "/vidispine.Vidispine/GetItem", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *vidispineClient) ExportIMF(ctx context.Context, in *ExportRequest, opts ...grpc.CallOption) (*ExportResponse, error) {
-	out := new(ExportResponse)
+func (c *vidispineClient) GetShape(ctx context.Context, in *ShapeIn, opts ...grpc.CallOption) (*ShapeOut, error) {
+	out := new(ShapeOut)
+	err := c.cc.Invoke(ctx, "/vidispine.Vidispine/GetShape", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *vidispineClient) ExportIMF(ctx context.Context, in *ExportIn, opts ...grpc.CallOption) (*ExportOut, error) {
+	out := new(ExportOut)
 	err := c.cc.Invoke(ctx, "/vidispine.Vidispine/ExportIMF", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -702,9 +900,10 @@ func (c *vidispineClient) ExportIMF(ctx context.Context, in *ExportRequest, opts
 
 // VidispineServer is the server API for Vidispine service.
 type VidispineServer interface {
-	GetJob(context.Context, *JobRequest) (*JobResponse, error)
-	GetShapes(context.Context, *ShapeRequest) (*ShapeResponse, error)
-	ExportIMF(context.Context, *ExportRequest) (*ExportResponse, error)
+	GetJob(context.Context, *JobIn) (*JobOut, error)
+	GetItem(context.Context, *ItemIn) (*ItemOut, error)
+	GetShape(context.Context, *ShapeIn) (*ShapeOut, error)
+	ExportIMF(context.Context, *ExportIn) (*ExportOut, error)
 }
 
 func RegisterVidispineServer(s *grpc.Server, srv VidispineServer) {
@@ -712,7 +911,7 @@ func RegisterVidispineServer(s *grpc.Server, srv VidispineServer) {
 }
 
 func _Vidispine_GetJob_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(JobRequest)
+	in := new(JobIn)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -724,31 +923,49 @@ func _Vidispine_GetJob_Handler(srv interface{}, ctx context.Context, dec func(in
 		FullMethod: "/vidispine.Vidispine/GetJob",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VidispineServer).GetJob(ctx, req.(*JobRequest))
+		return srv.(VidispineServer).GetJob(ctx, req.(*JobIn))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Vidispine_GetShapes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ShapeRequest)
+func _Vidispine_GetItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ItemIn)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(VidispineServer).GetShapes(ctx, in)
+		return srv.(VidispineServer).GetItem(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/vidispine.Vidispine/GetShapes",
+		FullMethod: "/vidispine.Vidispine/GetItem",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VidispineServer).GetShapes(ctx, req.(*ShapeRequest))
+		return srv.(VidispineServer).GetItem(ctx, req.(*ItemIn))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Vidispine_GetShape_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ShapeIn)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VidispineServer).GetShape(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/vidispine.Vidispine/GetShape",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VidispineServer).GetShape(ctx, req.(*ShapeIn))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _Vidispine_ExportIMF_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ExportRequest)
+	in := new(ExportIn)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -760,7 +977,7 @@ func _Vidispine_ExportIMF_Handler(srv interface{}, ctx context.Context, dec func
 		FullMethod: "/vidispine.Vidispine/ExportIMF",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VidispineServer).ExportIMF(ctx, req.(*ExportRequest))
+		return srv.(VidispineServer).ExportIMF(ctx, req.(*ExportIn))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -774,8 +991,12 @@ var _Vidispine_serviceDesc = grpc.ServiceDesc{
 			Handler:    _Vidispine_GetJob_Handler,
 		},
 		{
-			MethodName: "GetShapes",
-			Handler:    _Vidispine_GetShapes_Handler,
+			MethodName: "GetItem",
+			Handler:    _Vidispine_GetItem_Handler,
+		},
+		{
+			MethodName: "GetShape",
+			Handler:    _Vidispine_GetShape_Handler,
 		},
 		{
 			MethodName: "ExportIMF",
@@ -786,48 +1007,53 @@ var _Vidispine_serviceDesc = grpc.ServiceDesc{
 	Metadata: "vidispine.proto",
 }
 
-func init() { proto.RegisterFile("vidispine.proto", fileDescriptor_vidispine_6eff15881236bb82) }
+func init() { proto.RegisterFile("vidispine.proto", fileDescriptor_vidispine_dfa348843fd67a4f) }
 
-var fileDescriptor_vidispine_6eff15881236bb82 = []byte{
-	// 625 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x54, 0xc1, 0x6e, 0xd3, 0x4c,
-	0x10, 0xfe, 0x1d, 0xc7, 0x4e, 0x3d, 0x69, 0xd3, 0x5f, 0x2b, 0xda, 0x6e, 0x0b, 0x48, 0xc1, 0x15,
-	0x22, 0xa7, 0x80, 0xc2, 0xa9, 0x17, 0x04, 0x01, 0x5a, 0xa5, 0x12, 0x52, 0x65, 0x50, 0x39, 0x46,
-	0xeb, 0x78, 0x6b, 0x6f, 0x94, 0x78, 0x8d, 0x77, 0x1d, 0x01, 0x17, 0x78, 0x13, 0x5e, 0x88, 0xe7,
-	0xe1, 0x8c, 0x76, 0xbd, 0x76, 0x42, 0x1d, 0xca, 0x6d, 0xe6, 0xfb, 0x66, 0xc6, 0xf3, 0xcd, 0x8c,
-	0x17, 0xf6, 0x57, 0x2c, 0x62, 0x22, 0x63, 0x29, 0x1d, 0x66, 0x39, 0x97, 0x1c, 0x79, 0x35, 0xe0,
-	0xbf, 0x81, 0xdd, 0xf7, 0x09, 0xc9, 0x68, 0x40, 0x3f, 0x15, 0x54, 0x48, 0x74, 0x04, 0x1d, 0x26,
-	0xe9, 0x72, 0xca, 0x22, 0x6c, 0xf5, 0xad, 0x81, 0x17, 0xb8, 0xca, 0x9d, 0x44, 0xe8, 0x3e, 0x78,
-	0x42, 0x05, 0x4e, 0x25, 0x89, 0x71, 0x4b, 0x53, 0x3b, 0x1a, 0xf8, 0x40, 0x62, 0xff, 0x0c, 0xf6,
-	0x4c, 0x15, 0x91, 0xf1, 0x54, 0x50, 0x34, 0x00, 0x57, 0x93, 0x02, 0x5b, 0x7d, 0x7b, 0xd0, 0x1d,
-	0xfd, 0x3f, 0x5c, 0xf7, 0x50, 0x46, 0x1a, 0xde, 0xff, 0x65, 0x81, 0xa3, 0x91, 0xbf, 0x7f, 0xfa,
-	0x18, 0xca, 0x2f, 0x29, 0xa6, 0xfc, 0x72, 0x47, 0xfb, 0x93, 0x08, 0x61, 0xe8, 0xac, 0x68, 0x2e,
-	0x18, 0x4f, 0xb1, 0xdd, 0xb7, 0x06, 0x4e, 0x50, 0xb9, 0xe8, 0x1e, 0x38, 0x92, 0xc9, 0x05, 0xc5,
-	0x6d, 0x9d, 0x51, 0x3a, 0xe8, 0x11, 0xec, 0xf2, 0x3c, 0x9e, 0xde, 0xb0, 0x05, 0x4d, 0xc9, 0x92,
-	0x62, 0x47, 0x93, 0x5d, 0x9e, 0xc7, 0xe7, 0x06, 0x42, 0x08, 0xda, 0x92, 0xc4, 0x02, 0xbb, 0x7d,
-	0x7b, 0xe0, 0x05, 0xda, 0x56, 0x72, 0x56, 0x2c, 0xa2, 0x5c, 0xe0, 0x4e, 0x43, 0xce, 0xb5, 0x22,
-	0x02, 0xc3, 0xab, 0x48, 0x52, 0x44, 0x8c, 0x0b, 0xbc, 0xd3, 0x88, 0x7c, 0xa5, 0x88, 0xc0, 0xf0,
-	0xfe, 0x37, 0x70, 0x34, 0x80, 0x7a, 0xd0, 0xaa, 0x25, 0xb7, 0x58, 0x84, 0x4e, 0x60, 0x67, 0x41,
-	0xd2, 0xb8, 0x20, 0x31, 0xad, 0x06, 0x5d, 0xf9, 0xe8, 0x14, 0xf6, 0x66, 0x09, 0x49, 0x53, 0xba,
-	0x98, 0xce, 0x78, 0x91, 0x4a, 0xa3, 0x7a, 0xd7, 0x80, 0xaf, 0x15, 0x86, 0x1e, 0x83, 0xa3, 0x04,
-	0x0a, 0xdc, 0xd6, 0x2d, 0xec, 0x6f, 0xb4, 0xa0, 0x54, 0x06, 0x25, 0xeb, 0xbf, 0x00, 0x47, 0xf7,
-	0xde, 0x68, 0xa0, 0xce, 0x6f, 0xdd, 0x99, 0xff, 0xdd, 0x82, 0xb6, 0xf2, 0x1b, 0xf9, 0x0f, 0x01,
-	0x84, 0xe4, 0x39, 0x89, 0x37, 0x36, 0xe6, 0x19, 0x64, 0x12, 0x35, 0x76, 0x60, 0x6f, 0xdd, 0x81,
-	0x60, 0x5f, 0xcb, 0xdd, 0xd9, 0x81, 0xb6, 0x15, 0x96, 0x10, 0x91, 0x98, 0x95, 0x69, 0xdb, 0x3f,
-	0x05, 0xb8, 0xe4, 0x61, 0x75, 0xbb, 0x07, 0xe0, 0xce, 0x79, 0xb8, 0xbe, 0x1f, 0x67, 0xce, 0xc3,
-	0x49, 0xe4, 0x3f, 0x85, 0xae, 0x0e, 0x32, 0xa7, 0xd9, 0x07, 0x7b, 0xce, 0x43, 0x1d, 0xd2, 0x1d,
-	0xf5, 0x36, 0xb4, 0xa9, 0x20, 0x45, 0xf9, 0x3f, 0x2c, 0xb0, 0x2f, 0x79, 0xd8, 0xd0, 0x85, 0xa0,
-	0x5d, 0x08, 0x9a, 0x1b, 0x45, 0xda, 0x46, 0x87, 0xe0, 0x0a, 0x49, 0x64, 0x21, 0x8c, 0x0c, 0xe3,
-	0xe9, 0x2b, 0xfa, 0x92, 0x55, 0xd7, 0xa7, 0x6d, 0x85, 0x65, 0x39, 0xe3, 0x95, 0x02, 0x65, 0xab,
-	0x03, 0x16, 0x92, 0xe4, 0x92, 0x46, 0xd8, 0xd5, 0x62, 0x2b, 0x57, 0x9d, 0xc1, 0x0d, 0x4b, 0x99,
-	0x48, 0x68, 0x84, 0x3b, 0x9a, 0xaa, 0x7d, 0xff, 0x23, 0xec, 0xbd, 0xfd, 0x9c, 0xf1, 0x5c, 0xfe,
-	0xf3, 0xb7, 0xbd, 0xe3, 0xdf, 0x51, 0xed, 0x10, 0x99, 0x98, 0xc6, 0xb5, 0xed, 0x3f, 0x81, 0x5e,
-	0x55, 0xd8, 0x8c, 0x6b, 0xfb, 0x50, 0x47, 0x3f, 0x2d, 0xf0, 0xae, 0xab, 0xd1, 0xa1, 0x33, 0x70,
-	0x2f, 0xa8, 0x54, 0x33, 0x3b, 0xb8, 0x35, 0xd0, 0xb2, 0xbf, 0x93, 0xc3, 0xdb, 0x70, 0x59, 0xdd,
-	0xff, 0x0f, 0xbd, 0x04, 0xef, 0x82, 0x4a, 0xfd, 0x02, 0x08, 0x74, 0xd4, 0x78, 0x26, 0x4c, 0x3e,
-	0x6e, 0x12, 0x75, 0x85, 0x31, 0x78, 0x65, 0xcf, 0x93, 0x77, 0xe7, 0x68, 0x33, 0xf0, 0x8f, 0x11,
-	0x9d, 0x1c, 0x6f, 0x61, 0xaa, 0x1a, 0xe3, 0x67, 0xf0, 0x60, 0xc6, 0x97, 0xc3, 0x94, 0xa6, 0x72,
-	0xb8, 0x24, 0xcb, 0xf2, 0x9d, 0x5c, 0x27, 0x8c, 0x7b, 0xb5, 0xd6, 0x2b, 0xc5, 0x5c, 0x59, 0xa1,
-	0xab, 0x43, 0x9e, 0xff, 0x0e, 0x00, 0x00, 0xff, 0xff, 0xed, 0x90, 0xc9, 0x0f, 0x5d, 0x05, 0x00,
+var fileDescriptor_vidispine_dfa348843fd67a4f = []byte{
+	// 705 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x55, 0xcd, 0x6e, 0xd3, 0x40,
+	0x10, 0xc6, 0x71, 0x6c, 0xc7, 0xd3, 0xd2, 0x9f, 0xa5, 0x80, 0x1b, 0x7e, 0x14, 0xb6, 0x02, 0x45,
+	0x1c, 0x02, 0x0a, 0x42, 0xe2, 0x42, 0x25, 0x8a, 0x68, 0xe5, 0x48, 0xa8, 0x95, 0x41, 0xbd, 0x46,
+	0x76, 0xbd, 0x4d, 0xb6, 0x4a, 0x76, 0x23, 0xef, 0xa6, 0x02, 0x2e, 0xf0, 0x26, 0x3c, 0x1b, 0x2f,
+	0xc1, 0x19, 0xed, 0x78, 0x9d, 0xa4, 0x49, 0xe9, 0xa1, 0xb7, 0x99, 0xef, 0x9b, 0xc9, 0xcc, 0x7c,
+	0x33, 0xde, 0xc0, 0xe6, 0x25, 0xcf, 0xb9, 0x9a, 0x70, 0xc1, 0x3a, 0x93, 0x42, 0x6a, 0x49, 0xc2,
+	0x19, 0x40, 0xf7, 0xc1, 0x8f, 0x35, 0x1b, 0xc7, 0x82, 0x3c, 0x84, 0x80, 0x6b, 0x36, 0xee, 0xf3,
+	0x3c, 0x72, 0x5a, 0x4e, 0x3b, 0x4c, 0x7c, 0xe3, 0xc6, 0x39, 0x79, 0x04, 0xa1, 0x1a, 0xa6, 0x13,
+	0xd6, 0xd7, 0xe9, 0x20, 0xaa, 0x21, 0xd5, 0x40, 0xe0, 0x6b, 0x3a, 0xa0, 0x1d, 0x08, 0x4c, 0xfe,
+	0xf1, 0x54, 0x93, 0x3d, 0xa8, 0x9b, 0x0c, 0xcc, 0x5e, 0xeb, 0x6e, 0x76, 0xe6, 0x55, 0x4d, 0x44,
+	0x82, 0x24, 0x15, 0x50, 0x37, 0xde, 0xff, 0xab, 0xed, 0x42, 0x23, 0x55, 0x8a, 0x69, 0xc3, 0x94,
+	0xc5, 0x02, 0xf4, 0xe3, 0x9c, 0x74, 0x01, 0x66, 0x8d, 0xa8, 0xc8, 0x6d, 0xb9, 0xed, 0xb5, 0xee,
+	0xbd, 0x85, 0x32, 0x5f, 0x6c, 0x53, 0x49, 0x58, 0xb5, 0xa7, 0x68, 0x07, 0x1a, 0x15, 0x4c, 0x36,
+	0xa0, 0x36, 0x2b, 0x57, 0xe3, 0x39, 0x21, 0x50, 0xc7, 0x5f, 0xaa, 0xb5, 0xdc, 0x76, 0x98, 0xa0,
+	0x4d, 0xdf, 0x43, 0x80, 0xf1, 0x37, 0x09, 0xb2, 0x0b, 0xe5, 0xfc, 0x0b, 0x2d, 0xa2, 0x1f, 0xe7,
+	0xb4, 0x6b, 0xcb, 0x19, 0x3d, 0x5e, 0x80, 0x87, 0xb0, 0x15, 0x64, 0x6b, 0xb9, 0xd3, 0xa4, 0xa4,
+	0xe9, 0x5f, 0x07, 0x3c, 0x04, 0x6e, 0x53, 0x91, 0x44, 0x10, 0x5c, 0xb2, 0x42, 0x71, 0x29, 0x22,
+	0xb7, 0xe5, 0xb4, 0xbd, 0xa4, 0x72, 0xc9, 0x0e, 0x78, 0x9a, 0xeb, 0x11, 0x8b, 0xea, 0x98, 0x51,
+	0x3a, 0xe4, 0x19, 0xac, 0xcb, 0x62, 0xd0, 0x3f, 0xe7, 0x23, 0x26, 0xd2, 0x31, 0x8b, 0x3c, 0x24,
+	0xd7, 0x64, 0x31, 0x38, 0xb4, 0xd0, 0x4c, 0x17, 0x7f, 0xae, 0x0b, 0x69, 0x83, 0x7f, 0xc9, 0x73,
+	0x26, 0x55, 0x14, 0xa0, 0xee, 0x8b, 0xd3, 0x9c, 0x1a, 0x22, 0xb1, 0xbc, 0x89, 0x4c, 0xa7, 0x39,
+	0x97, 0x2a, 0x6a, 0xac, 0x44, 0x7e, 0x30, 0x44, 0x62, 0x79, 0xfa, 0x13, 0x3c, 0x04, 0x56, 0x16,
+	0xd3, 0x84, 0xc6, 0x28, 0x15, 0x83, 0x69, 0x3a, 0x60, 0xd5, 0xc1, 0x55, 0x3e, 0xd9, 0x83, 0xbb,
+	0x67, 0xc3, 0x54, 0x08, 0x36, 0xea, 0x9f, 0xc9, 0xa9, 0xd0, 0x76, 0xea, 0x75, 0x0b, 0x7e, 0x34,
+	0x18, 0x79, 0x0e, 0x9e, 0x19, 0x50, 0x45, 0x75, 0x6c, 0x61, 0xf1, 0x16, 0xcd, 0x94, 0x49, 0xc9,
+	0xd2, 0x7d, 0xf0, 0xb0, 0xf7, 0x95, 0x06, 0x66, 0xf9, 0xb5, 0x1b, 0xf3, 0x7f, 0x39, 0x50, 0x37,
+	0xfe, 0x4a, 0xfe, 0x13, 0x00, 0xa5, 0x65, 0x91, 0x0e, 0x16, 0x36, 0x16, 0x5a, 0x24, 0xce, 0x57,
+	0x76, 0xe0, 0x5e, 0xbb, 0x03, 0xc5, 0x7f, 0x94, 0xbb, 0x73, 0x13, 0xb4, 0x0d, 0x36, 0x4c, 0xd5,
+	0xd0, 0xae, 0x0c, 0x6d, 0xfa, 0x14, 0xbc, 0x9e, 0xcc, 0x62, 0x41, 0xee, 0x83, 0x7f, 0x21, 0xb3,
+	0xf9, 0xe9, 0x78, 0x17, 0x32, 0x8b, 0x73, 0xfa, 0x12, 0xfc, 0x9e, 0xcc, 0xcc, 0x39, 0xb6, 0xc0,
+	0xbd, 0x90, 0x99, 0x3d, 0xc6, 0x8d, 0x85, 0x89, 0x7a, 0x32, 0x4b, 0x0c, 0x45, 0x7f, 0x3b, 0xe0,
+	0xf6, 0x64, 0x76, 0xdd, 0x77, 0x32, 0x55, 0xac, 0xb0, 0x73, 0xa0, 0x4d, 0x1e, 0x80, 0xaf, 0x74,
+	0xaa, 0xa7, 0xca, 0x36, 0x6f, 0x3d, 0xbc, 0x9d, 0xef, 0x93, 0xea, 0xe6, 0xd0, 0x36, 0xd8, 0xa4,
+	0xe0, 0xb2, 0xea, 0xdb, 0xd8, 0xe6, 0x6c, 0x95, 0x4e, 0x0b, 0xcd, 0xf2, 0xc8, 0xc7, 0x11, 0x2b,
+	0xd7, 0x2c, 0xff, 0x9c, 0x0b, 0xae, 0x86, 0x2c, 0x8f, 0x02, 0xa4, 0x66, 0x3e, 0x4d, 0xa0, 0xf1,
+	0xe9, 0xdb, 0x44, 0x16, 0xfa, 0x76, 0x9f, 0x27, 0x76, 0x92, 0xea, 0xa1, 0xed, 0x19, 0x6d, 0x4a,
+	0x21, 0x2c, 0x7f, 0xd3, 0x88, 0x74, 0xbd, 0x8a, 0xdd, 0x3f, 0x0e, 0x84, 0xa7, 0x95, 0x60, 0xe4,
+	0x15, 0xf8, 0x47, 0x4c, 0x1b, 0xa5, 0xb6, 0xae, 0xca, 0x18, 0x8b, 0xe6, 0xf6, 0x55, 0xe4, 0x78,
+	0xaa, 0xe9, 0x1d, 0xd2, 0x85, 0xe0, 0x88, 0x69, 0x7c, 0xf7, 0xb6, 0x97, 0x9e, 0xc5, 0x58, 0x34,
+	0xc9, 0x12, 0x54, 0xe6, 0xbc, 0x85, 0xc6, 0x11, 0xd3, 0xe5, 0xbb, 0x40, 0x96, 0x9f, 0x8e, 0x58,
+	0x34, 0x57, 0x1e, 0xbe, 0x32, 0xed, 0x5d, 0x35, 0x4d, 0xfc, 0xf9, 0x90, 0x2c, 0xc6, 0x54, 0xba,
+	0x35, 0x77, 0x56, 0x40, 0xcc, 0x3c, 0x78, 0x0d, 0x8f, 0xcf, 0xe4, 0xb8, 0x23, 0x98, 0xd0, 0x9d,
+	0x71, 0x3a, 0x2e, 0xff, 0x2a, 0xe6, 0xb1, 0x07, 0x1b, 0x33, 0x01, 0x4e, 0x0c, 0x73, 0xe2, 0x64,
+	0x3e, 0x86, 0xbc, 0xf9, 0x17, 0x00, 0x00, 0xff, 0xff, 0x30, 0xd2, 0xe8, 0x1f, 0x60, 0x06, 0x00,
 	0x00,
 }
