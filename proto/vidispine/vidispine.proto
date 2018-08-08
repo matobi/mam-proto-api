@@ -11,7 +11,6 @@ service Vidispine {
   rpc GetItem(ItemIn) returns (ItemOut) {}
   rpc GetShape(ShapeIn) returns (ShapeOut) {}
   rpc ExportIMF(ExportIn) returns (ExportOut) {}
-  //rpc GetFiles(FilesRequest) returns (FilesResponse) {}
 }
 
 //////////////////
@@ -32,12 +31,11 @@ message Item {
 }
 
 message ShapeTag {
-  string id = 1;
+  string shape_id = 1;
   repeated string tags = 2; 
 }
 
 //////////////////
-
 
 message ShapeIn {
   string item_id = 1;
@@ -47,11 +45,6 @@ message ShapeIn {
 message ShapeOut {
   Shape shape = 1;
 }
-
-//message Item {
-//  string id = 1;
-//  repeated Shape shapes = 2;
-//}
 
 message Shape {
   string item_id = 1;
@@ -68,7 +61,6 @@ message Audio {
 	string id = 1;
 	string language = 2;
 	int32 channel_count = 3;
-	//tring channel_layout = 4;
 	repeated File files = 4;
 }
 

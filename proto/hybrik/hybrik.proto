@@ -7,67 +7,15 @@ option java_outer_classname = "HybrikProto";
 package hybrik;
 
 service Hybrik {
-  rpc GetJob(JobRequest) returns (JobResponse) {}
-  rpc CreateJob(CreateJobRequest) returns (CreateJobResponse) {}
-  //rpc GetItem(ItemRequest) returns (ItemResponse) {}
-  //rpc ExportIMF(ExportRequest) returns (ExportResponse) {}
-  //rpc GetFiles(FilesRequest) returns (FilesResponse) {}
+  rpc GetJob(JobIn) returns (JobOut) {}
+  rpc CreateJob(CreateJobIn) returns (CreateJobOut) {}
 }
 
-//////////////////
-
-// message ItemRequest {
-//   string item_id = 1;
-//   string shape_tag = 2;
-// }
-
-// message ItemResponse {
-//   Item item = 1;
-// }
-
-// message Item {
-//   string id = 1;
-//   repeated Shape shapes = 2;
-// }
-
-// message Shape {
-// 	string id = 1;
-//   int32 version = 2;
-// 	string title = 3;
-// 	string org_filename = 4;
-//   repeated string tags = 5;
-//   repeated Video videos = 6;
-//   repeated Audio audios = 7;
-// }
-
-// message Audio {
-// 	string id = 1;
-// 	string language = 2;
-// 	int32 channel_count = 3;
-// 	//tring channel_layout = 4;
-// 	repeated File files = 4;
-// }
-
-// message Video {
-// 	string id = 1;
-// 	repeated File files = 2;
-// }
-
-// message File {
-// 	string id = 1;
-// 	string storage_id = 2;
-// 	string org_filename = 3;
-// 	int64 size = 4;
-// 	string hash = 5;
-// }
-
-//////////////////
-
-message JobRequest {
+message JobIn {
   string job_id = 1;
 }
 
-message JobResponse {
+message JobOut {
   Job job = 1;
 }
 
@@ -82,21 +30,11 @@ message Job {
 
 //////////////////////
 
-message CreateJobRequest {
+message CreateJobIn {
   string dir = 1;
   string file = 2;
 }
 
-message CreateJobResponse {
+message CreateJobOut {
   string job_id = 1;
 }
-
-// message ExportRequest {
-//   string item_id = 1;
-//   string shape_id = 2;
-//   string path = 3;
-// }
-
-// message ExportResponse {
-//   string job_id = 1;
-// }
