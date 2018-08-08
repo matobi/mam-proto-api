@@ -1,2 +1,11 @@
 /Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/vidispine ./proto/vidispine/vidispine.proto --go_out=plugins=grpc:generated/vidispine
 /Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/hybrik ./proto/hybrik/hybrik.proto --go_out=plugins=grpc:generated/hybrik
+
+
+
+
+/Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/hybrik hybrik.proto --go_out=plugins=grpc:generated/go/hybrik
+/Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/hybrik hybrik.proto --java_out=generated/java/hybrik
+
+/Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/vidispine vidispine.proto --go_out=plugins=grpc:generated/go/vidispine
+/Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/vidispine vidispine.proto --java_out=generated/java/vidispine
