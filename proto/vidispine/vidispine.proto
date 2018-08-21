@@ -55,6 +55,7 @@ message Shape {
   repeated string tags = 6;
   repeated Video videos = 7;
   repeated Audio audios = 8;
+  repeated Subtitle subtitles = 9;
 }
 
 message Audio {
@@ -67,6 +68,12 @@ message Audio {
 message Video {
 	string id = 1;
 	repeated File files = 2;
+}
+
+message Subtitle {
+	string id = 1;
+	string language = 2;
+	repeated File files = 3;
 }
 
 message File {

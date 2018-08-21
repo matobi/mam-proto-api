@@ -118,4 +118,28 @@ public interface ShapeOrBuilder extends
    */
   com.nent.mam.proto.vidispineproto.AudioOrBuilder getAudiosOrBuilder(
       int index);
+
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> 
+      getSubtitlesList();
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  com.nent.mam.proto.vidispineproto.Subtitle getSubtitles(int index);
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  int getSubtitlesCount();
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  java.util.List<? extends com.nent.mam.proto.vidispineproto.SubtitleOrBuilder> 
+      getSubtitlesOrBuilderList();
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  com.nent.mam.proto.vidispineproto.SubtitleOrBuilder getSubtitlesOrBuilder(
+      int index);
 }

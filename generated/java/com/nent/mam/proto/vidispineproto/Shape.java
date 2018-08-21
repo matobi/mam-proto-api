@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     videos_ = java.util.Collections.emptyList();
     audios_ = java.util.Collections.emptyList();
+    subtitles_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -113,6 +114,15 @@ private static final long serialVersionUID = 0L;
                 input.readMessage(com.nent.mam.proto.vidispineproto.Audio.parser(), extensionRegistry));
             break;
           }
+          case 74: {
+            if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+              subtitles_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Subtitle>();
+              mutable_bitField0_ |= 0x00000100;
+            }
+            subtitles_.add(
+                input.readMessage(com.nent.mam.proto.vidispineproto.Subtitle.parser(), extensionRegistry));
+            break;
+          }
         }
       }
     } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -129,6 +139,9 @@ private static final long serialVersionUID = 0L;
       }
       if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
         audios_ = java.util.Collections.unmodifiableList(audios_);
+      }
+      if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+        subtitles_ = java.util.Collections.unmodifiableList(subtitles_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -391,6 +404,41 @@ private static final long serialVersionUID = 0L;
     return audios_.get(index);
   }
 
+  public static final int SUBTITLES_FIELD_NUMBER = 9;
+  private java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> subtitles_;
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  public java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> getSubtitlesList() {
+    return subtitles_;
+  }
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  public java.util.List<? extends com.nent.mam.proto.vidispineproto.SubtitleOrBuilder> 
+      getSubtitlesOrBuilderList() {
+    return subtitles_;
+  }
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  public int getSubtitlesCount() {
+    return subtitles_.size();
+  }
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  public com.nent.mam.proto.vidispineproto.Subtitle getSubtitles(int index) {
+    return subtitles_.get(index);
+  }
+  /**
+   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   */
+  public com.nent.mam.proto.vidispineproto.SubtitleOrBuilder getSubtitlesOrBuilder(
+      int index) {
+    return subtitles_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -426,6 +474,9 @@ private static final long serialVersionUID = 0L;
     }
     for (int i = 0; i < audios_.size(); i++) {
       output.writeMessage(8, audios_.get(i));
+    }
+    for (int i = 0; i < subtitles_.size(); i++) {
+      output.writeMessage(9, subtitles_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -467,6 +518,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, audios_.get(i));
     }
+    for (int i = 0; i < subtitles_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(9, subtitles_.get(i));
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -499,6 +554,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVideosList());
     result = result && getAudiosList()
         .equals(other.getAudiosList());
+    result = result && getSubtitlesList()
+        .equals(other.getSubtitlesList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -531,6 +588,10 @@ private static final long serialVersionUID = 0L;
     if (getAudiosCount() > 0) {
       hash = (37 * hash) + AUDIOS_FIELD_NUMBER;
       hash = (53 * hash) + getAudiosList().hashCode();
+    }
+    if (getSubtitlesCount() > 0) {
+      hash = (37 * hash) + SUBTITLES_FIELD_NUMBER;
+      hash = (53 * hash) + getSubtitlesList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -659,6 +720,7 @@ private static final long serialVersionUID = 0L;
               .alwaysUseFieldBuilders) {
         getVideosFieldBuilder();
         getAudiosFieldBuilder();
+        getSubtitlesFieldBuilder();
       }
     }
     public Builder clear() {
@@ -686,6 +748,12 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000080);
       } else {
         audiosBuilder_.clear();
+      }
+      if (subtitlesBuilder_ == null) {
+        subtitles_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000100);
+      } else {
+        subtitlesBuilder_.clear();
       }
       return this;
     }
@@ -738,6 +806,15 @@ private static final long serialVersionUID = 0L;
         result.audios_ = audios_;
       } else {
         result.audios_ = audiosBuilder_.build();
+      }
+      if (subtitlesBuilder_ == null) {
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          subtitles_ = java.util.Collections.unmodifiableList(subtitles_);
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.subtitles_ = subtitles_;
+      } else {
+        result.subtitles_ = subtitlesBuilder_.build();
       }
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -859,6 +936,32 @@ private static final long serialVersionUID = 0L;
                  getAudiosFieldBuilder() : null;
           } else {
             audiosBuilder_.addAllMessages(other.audios_);
+          }
+        }
+      }
+      if (subtitlesBuilder_ == null) {
+        if (!other.subtitles_.isEmpty()) {
+          if (subtitles_.isEmpty()) {
+            subtitles_ = other.subtitles_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+          } else {
+            ensureSubtitlesIsMutable();
+            subtitles_.addAll(other.subtitles_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.subtitles_.isEmpty()) {
+          if (subtitlesBuilder_.isEmpty()) {
+            subtitlesBuilder_.dispose();
+            subtitlesBuilder_ = null;
+            subtitles_ = other.subtitles_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+            subtitlesBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getSubtitlesFieldBuilder() : null;
+          } else {
+            subtitlesBuilder_.addAllMessages(other.subtitles_);
           }
         }
       }
@@ -1764,6 +1867,246 @@ private static final long serialVersionUID = 0L;
         audios_ = null;
       }
       return audiosBuilder_;
+    }
+
+    private java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> subtitles_ =
+      java.util.Collections.emptyList();
+    private void ensureSubtitlesIsMutable() {
+      if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+        subtitles_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Subtitle>(subtitles_);
+        bitField0_ |= 0x00000100;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.nent.mam.proto.vidispineproto.Subtitle, com.nent.mam.proto.vidispineproto.Subtitle.Builder, com.nent.mam.proto.vidispineproto.SubtitleOrBuilder> subtitlesBuilder_;
+
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> getSubtitlesList() {
+      if (subtitlesBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(subtitles_);
+      } else {
+        return subtitlesBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public int getSubtitlesCount() {
+      if (subtitlesBuilder_ == null) {
+        return subtitles_.size();
+      } else {
+        return subtitlesBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.Subtitle getSubtitles(int index) {
+      if (subtitlesBuilder_ == null) {
+        return subtitles_.get(index);
+      } else {
+        return subtitlesBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder setSubtitles(
+        int index, com.nent.mam.proto.vidispineproto.Subtitle value) {
+      if (subtitlesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSubtitlesIsMutable();
+        subtitles_.set(index, value);
+        onChanged();
+      } else {
+        subtitlesBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder setSubtitles(
+        int index, com.nent.mam.proto.vidispineproto.Subtitle.Builder builderForValue) {
+      if (subtitlesBuilder_ == null) {
+        ensureSubtitlesIsMutable();
+        subtitles_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        subtitlesBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder addSubtitles(com.nent.mam.proto.vidispineproto.Subtitle value) {
+      if (subtitlesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSubtitlesIsMutable();
+        subtitles_.add(value);
+        onChanged();
+      } else {
+        subtitlesBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder addSubtitles(
+        int index, com.nent.mam.proto.vidispineproto.Subtitle value) {
+      if (subtitlesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureSubtitlesIsMutable();
+        subtitles_.add(index, value);
+        onChanged();
+      } else {
+        subtitlesBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder addSubtitles(
+        com.nent.mam.proto.vidispineproto.Subtitle.Builder builderForValue) {
+      if (subtitlesBuilder_ == null) {
+        ensureSubtitlesIsMutable();
+        subtitles_.add(builderForValue.build());
+        onChanged();
+      } else {
+        subtitlesBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder addSubtitles(
+        int index, com.nent.mam.proto.vidispineproto.Subtitle.Builder builderForValue) {
+      if (subtitlesBuilder_ == null) {
+        ensureSubtitlesIsMutable();
+        subtitles_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        subtitlesBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder addAllSubtitles(
+        java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.Subtitle> values) {
+      if (subtitlesBuilder_ == null) {
+        ensureSubtitlesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, subtitles_);
+        onChanged();
+      } else {
+        subtitlesBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder clearSubtitles() {
+      if (subtitlesBuilder_ == null) {
+        subtitles_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onChanged();
+      } else {
+        subtitlesBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public Builder removeSubtitles(int index) {
+      if (subtitlesBuilder_ == null) {
+        ensureSubtitlesIsMutable();
+        subtitles_.remove(index);
+        onChanged();
+      } else {
+        subtitlesBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.Subtitle.Builder getSubtitlesBuilder(
+        int index) {
+      return getSubtitlesFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.SubtitleOrBuilder getSubtitlesOrBuilder(
+        int index) {
+      if (subtitlesBuilder_ == null) {
+        return subtitles_.get(index);  } else {
+        return subtitlesBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public java.util.List<? extends com.nent.mam.proto.vidispineproto.SubtitleOrBuilder> 
+         getSubtitlesOrBuilderList() {
+      if (subtitlesBuilder_ != null) {
+        return subtitlesBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(subtitles_);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.Subtitle.Builder addSubtitlesBuilder() {
+      return getSubtitlesFieldBuilder().addBuilder(
+          com.nent.mam.proto.vidispineproto.Subtitle.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.Subtitle.Builder addSubtitlesBuilder(
+        int index) {
+      return getSubtitlesFieldBuilder().addBuilder(
+          index, com.nent.mam.proto.vidispineproto.Subtitle.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     */
+    public java.util.List<com.nent.mam.proto.vidispineproto.Subtitle.Builder> 
+         getSubtitlesBuilderList() {
+      return getSubtitlesFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.nent.mam.proto.vidispineproto.Subtitle, com.nent.mam.proto.vidispineproto.Subtitle.Builder, com.nent.mam.proto.vidispineproto.SubtitleOrBuilder> 
+        getSubtitlesFieldBuilder() {
+      if (subtitlesBuilder_ == null) {
+        subtitlesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.nent.mam.proto.vidispineproto.Subtitle, com.nent.mam.proto.vidispineproto.Subtitle.Builder, com.nent.mam.proto.vidispineproto.SubtitleOrBuilder>(
+                subtitles_,
+                ((bitField0_ & 0x00000100) == 0x00000100),
+                getParentForChildren(),
+                isClean());
+        subtitles_ = null;
+      }
+      return subtitlesBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
