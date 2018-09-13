@@ -1,8 +1,8 @@
-/Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/vidispine ./proto/vidispine/vidispine.proto --go_out=plugins=grpc:generated/vidispine
-/Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/hybrik ./proto/hybrik/hybrik.proto --go_out=plugins=grpc:generated/hybrik
 
 
-
+mkdir -p generated/java
+mkdir -p generated/go/vidispineproto
+mkdir -p generated/go/hybrikproto
 
 /Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/hybrik hybrik.proto --go_out=plugins=grpc:generated/go/hybrikproto
 /Users/mtobiass/tools/protoc-3.5.1-osx-x86_64/bin/protoc -I ./proto/hybrik hybrik.proto --java_out=generated/java

@@ -33,6 +33,7 @@ message Job {
 message CreateJobIn {
   string dir = 1;
   string file = 2;
+  string house_id = 3;
 }
 
 message CreateJobOut {
