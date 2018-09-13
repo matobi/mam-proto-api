@@ -28,26 +28,26 @@ public interface ItemOrBuilder extends
       getAssetIdBytes();
 
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  java.util.List<com.nent.mam.proto.vidispineproto.ShapeTag> 
-      getShapeTagsList();
+  java.util.List<com.nent.mam.proto.vidispineproto.ShapeHeader> 
+      getShapeHeadersList();
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  com.nent.mam.proto.vidispineproto.ShapeTag getShapeTags(int index);
+  com.nent.mam.proto.vidispineproto.ShapeHeader getShapeHeaders(int index);
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  int getShapeTagsCount();
+  int getShapeHeadersCount();
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  java.util.List<? extends com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder> 
-      getShapeTagsOrBuilderList();
+  java.util.List<? extends com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder> 
+      getShapeHeadersOrBuilderList();
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder getShapeTagsOrBuilder(
+  com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder getShapeHeadersOrBuilder(
       int index);
 }

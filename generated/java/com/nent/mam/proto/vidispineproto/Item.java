@@ -18,7 +18,7 @@ private static final long serialVersionUID = 0L;
   private Item() {
     itemId_ = "";
     assetId_ = "";
-    shapeTags_ = java.util.Collections.emptyList();
+    shapeHeaders_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -66,11 +66,11 @@ private static final long serialVersionUID = 0L;
           }
           case 26: {
             if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-              shapeTags_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.ShapeTag>();
+              shapeHeaders_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.ShapeHeader>();
               mutable_bitField0_ |= 0x00000004;
             }
-            shapeTags_.add(
-                input.readMessage(com.nent.mam.proto.vidispineproto.ShapeTag.parser(), extensionRegistry));
+            shapeHeaders_.add(
+                input.readMessage(com.nent.mam.proto.vidispineproto.ShapeHeader.parser(), extensionRegistry));
             break;
           }
         }
@@ -82,7 +82,7 @@ private static final long serialVersionUID = 0L;
           e).setUnfinishedMessage(this);
     } finally {
       if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-        shapeTags_ = java.util.Collections.unmodifiableList(shapeTags_);
+        shapeHeaders_ = java.util.Collections.unmodifiableList(shapeHeaders_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -169,39 +169,39 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SHAPE_TAGS_FIELD_NUMBER = 3;
-  private java.util.List<com.nent.mam.proto.vidispineproto.ShapeTag> shapeTags_;
+  public static final int SHAPE_HEADERS_FIELD_NUMBER = 3;
+  private java.util.List<com.nent.mam.proto.vidispineproto.ShapeHeader> shapeHeaders_;
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  public java.util.List<com.nent.mam.proto.vidispineproto.ShapeTag> getShapeTagsList() {
-    return shapeTags_;
+  public java.util.List<com.nent.mam.proto.vidispineproto.ShapeHeader> getShapeHeadersList() {
+    return shapeHeaders_;
   }
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  public java.util.List<? extends com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder> 
-      getShapeTagsOrBuilderList() {
-    return shapeTags_;
+  public java.util.List<? extends com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder> 
+      getShapeHeadersOrBuilderList() {
+    return shapeHeaders_;
   }
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  public int getShapeTagsCount() {
-    return shapeTags_.size();
+  public int getShapeHeadersCount() {
+    return shapeHeaders_.size();
   }
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  public com.nent.mam.proto.vidispineproto.ShapeTag getShapeTags(int index) {
-    return shapeTags_.get(index);
+  public com.nent.mam.proto.vidispineproto.ShapeHeader getShapeHeaders(int index) {
+    return shapeHeaders_.get(index);
   }
   /**
-   * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+   * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
    */
-  public com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder getShapeTagsOrBuilder(
+  public com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder getShapeHeadersOrBuilder(
       int index) {
-    return shapeTags_.get(index);
+    return shapeHeaders_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -222,8 +222,8 @@ private static final long serialVersionUID = 0L;
     if (!getAssetIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, assetId_);
     }
-    for (int i = 0; i < shapeTags_.size(); i++) {
-      output.writeMessage(3, shapeTags_.get(i));
+    for (int i = 0; i < shapeHeaders_.size(); i++) {
+      output.writeMessage(3, shapeHeaders_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -239,9 +239,9 @@ private static final long serialVersionUID = 0L;
     if (!getAssetIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, assetId_);
     }
-    for (int i = 0; i < shapeTags_.size(); i++) {
+    for (int i = 0; i < shapeHeaders_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, shapeTags_.get(i));
+        .computeMessageSize(3, shapeHeaders_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -263,8 +263,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getItemId());
     result = result && getAssetId()
         .equals(other.getAssetId());
-    result = result && getShapeTagsList()
-        .equals(other.getShapeTagsList());
+    result = result && getShapeHeadersList()
+        .equals(other.getShapeHeadersList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -280,9 +280,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getItemId().hashCode();
     hash = (37 * hash) + ASSET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getAssetId().hashCode();
-    if (getShapeTagsCount() > 0) {
-      hash = (37 * hash) + SHAPE_TAGS_FIELD_NUMBER;
-      hash = (53 * hash) + getShapeTagsList().hashCode();
+    if (getShapeHeadersCount() > 0) {
+      hash = (37 * hash) + SHAPE_HEADERS_FIELD_NUMBER;
+      hash = (53 * hash) + getShapeHeadersList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -409,7 +409,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getShapeTagsFieldBuilder();
+        getShapeHeadersFieldBuilder();
       }
     }
     public Builder clear() {
@@ -418,11 +418,11 @@ private static final long serialVersionUID = 0L;
 
       assetId_ = "";
 
-      if (shapeTagsBuilder_ == null) {
-        shapeTags_ = java.util.Collections.emptyList();
+      if (shapeHeadersBuilder_ == null) {
+        shapeHeaders_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
       } else {
-        shapeTagsBuilder_.clear();
+        shapeHeadersBuilder_.clear();
       }
       return this;
     }
@@ -450,14 +450,14 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       result.itemId_ = itemId_;
       result.assetId_ = assetId_;
-      if (shapeTagsBuilder_ == null) {
+      if (shapeHeadersBuilder_ == null) {
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          shapeTags_ = java.util.Collections.unmodifiableList(shapeTags_);
+          shapeHeaders_ = java.util.Collections.unmodifiableList(shapeHeaders_);
           bitField0_ = (bitField0_ & ~0x00000004);
         }
-        result.shapeTags_ = shapeTags_;
+        result.shapeHeaders_ = shapeHeaders_;
       } else {
-        result.shapeTags_ = shapeTagsBuilder_.build();
+        result.shapeHeaders_ = shapeHeadersBuilder_.build();
       }
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -509,29 +509,29 @@ private static final long serialVersionUID = 0L;
         assetId_ = other.assetId_;
         onChanged();
       }
-      if (shapeTagsBuilder_ == null) {
-        if (!other.shapeTags_.isEmpty()) {
-          if (shapeTags_.isEmpty()) {
-            shapeTags_ = other.shapeTags_;
+      if (shapeHeadersBuilder_ == null) {
+        if (!other.shapeHeaders_.isEmpty()) {
+          if (shapeHeaders_.isEmpty()) {
+            shapeHeaders_ = other.shapeHeaders_;
             bitField0_ = (bitField0_ & ~0x00000004);
           } else {
-            ensureShapeTagsIsMutable();
-            shapeTags_.addAll(other.shapeTags_);
+            ensureShapeHeadersIsMutable();
+            shapeHeaders_.addAll(other.shapeHeaders_);
           }
           onChanged();
         }
       } else {
-        if (!other.shapeTags_.isEmpty()) {
-          if (shapeTagsBuilder_.isEmpty()) {
-            shapeTagsBuilder_.dispose();
-            shapeTagsBuilder_ = null;
-            shapeTags_ = other.shapeTags_;
+        if (!other.shapeHeaders_.isEmpty()) {
+          if (shapeHeadersBuilder_.isEmpty()) {
+            shapeHeadersBuilder_.dispose();
+            shapeHeadersBuilder_ = null;
+            shapeHeaders_ = other.shapeHeaders_;
             bitField0_ = (bitField0_ & ~0x00000004);
-            shapeTagsBuilder_ = 
+            shapeHeadersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getShapeTagsFieldBuilder() : null;
+                 getShapeHeadersFieldBuilder() : null;
           } else {
-            shapeTagsBuilder_.addAllMessages(other.shapeTags_);
+            shapeHeadersBuilder_.addAllMessages(other.shapeHeaders_);
           }
         }
       }
@@ -701,244 +701,244 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.util.List<com.nent.mam.proto.vidispineproto.ShapeTag> shapeTags_ =
+    private java.util.List<com.nent.mam.proto.vidispineproto.ShapeHeader> shapeHeaders_ =
       java.util.Collections.emptyList();
-    private void ensureShapeTagsIsMutable() {
+    private void ensureShapeHeadersIsMutable() {
       if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-        shapeTags_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.ShapeTag>(shapeTags_);
+        shapeHeaders_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.ShapeHeader>(shapeHeaders_);
         bitField0_ |= 0x00000004;
        }
     }
 
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.nent.mam.proto.vidispineproto.ShapeTag, com.nent.mam.proto.vidispineproto.ShapeTag.Builder, com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder> shapeTagsBuilder_;
+        com.nent.mam.proto.vidispineproto.ShapeHeader, com.nent.mam.proto.vidispineproto.ShapeHeader.Builder, com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder> shapeHeadersBuilder_;
 
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public java.util.List<com.nent.mam.proto.vidispineproto.ShapeTag> getShapeTagsList() {
-      if (shapeTagsBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(shapeTags_);
+    public java.util.List<com.nent.mam.proto.vidispineproto.ShapeHeader> getShapeHeadersList() {
+      if (shapeHeadersBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(shapeHeaders_);
       } else {
-        return shapeTagsBuilder_.getMessageList();
+        return shapeHeadersBuilder_.getMessageList();
       }
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public int getShapeTagsCount() {
-      if (shapeTagsBuilder_ == null) {
-        return shapeTags_.size();
+    public int getShapeHeadersCount() {
+      if (shapeHeadersBuilder_ == null) {
+        return shapeHeaders_.size();
       } else {
-        return shapeTagsBuilder_.getCount();
+        return shapeHeadersBuilder_.getCount();
       }
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public com.nent.mam.proto.vidispineproto.ShapeTag getShapeTags(int index) {
-      if (shapeTagsBuilder_ == null) {
-        return shapeTags_.get(index);
+    public com.nent.mam.proto.vidispineproto.ShapeHeader getShapeHeaders(int index) {
+      if (shapeHeadersBuilder_ == null) {
+        return shapeHeaders_.get(index);
       } else {
-        return shapeTagsBuilder_.getMessage(index);
+        return shapeHeadersBuilder_.getMessage(index);
       }
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder setShapeTags(
-        int index, com.nent.mam.proto.vidispineproto.ShapeTag value) {
-      if (shapeTagsBuilder_ == null) {
+    public Builder setShapeHeaders(
+        int index, com.nent.mam.proto.vidispineproto.ShapeHeader value) {
+      if (shapeHeadersBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureShapeTagsIsMutable();
-        shapeTags_.set(index, value);
+        ensureShapeHeadersIsMutable();
+        shapeHeaders_.set(index, value);
         onChanged();
       } else {
-        shapeTagsBuilder_.setMessage(index, value);
+        shapeHeadersBuilder_.setMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder setShapeTags(
-        int index, com.nent.mam.proto.vidispineproto.ShapeTag.Builder builderForValue) {
-      if (shapeTagsBuilder_ == null) {
-        ensureShapeTagsIsMutable();
-        shapeTags_.set(index, builderForValue.build());
+    public Builder setShapeHeaders(
+        int index, com.nent.mam.proto.vidispineproto.ShapeHeader.Builder builderForValue) {
+      if (shapeHeadersBuilder_ == null) {
+        ensureShapeHeadersIsMutable();
+        shapeHeaders_.set(index, builderForValue.build());
         onChanged();
       } else {
-        shapeTagsBuilder_.setMessage(index, builderForValue.build());
+        shapeHeadersBuilder_.setMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder addShapeTags(com.nent.mam.proto.vidispineproto.ShapeTag value) {
-      if (shapeTagsBuilder_ == null) {
+    public Builder addShapeHeaders(com.nent.mam.proto.vidispineproto.ShapeHeader value) {
+      if (shapeHeadersBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureShapeTagsIsMutable();
-        shapeTags_.add(value);
+        ensureShapeHeadersIsMutable();
+        shapeHeaders_.add(value);
         onChanged();
       } else {
-        shapeTagsBuilder_.addMessage(value);
+        shapeHeadersBuilder_.addMessage(value);
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder addShapeTags(
-        int index, com.nent.mam.proto.vidispineproto.ShapeTag value) {
-      if (shapeTagsBuilder_ == null) {
+    public Builder addShapeHeaders(
+        int index, com.nent.mam.proto.vidispineproto.ShapeHeader value) {
+      if (shapeHeadersBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureShapeTagsIsMutable();
-        shapeTags_.add(index, value);
+        ensureShapeHeadersIsMutable();
+        shapeHeaders_.add(index, value);
         onChanged();
       } else {
-        shapeTagsBuilder_.addMessage(index, value);
+        shapeHeadersBuilder_.addMessage(index, value);
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder addShapeTags(
-        com.nent.mam.proto.vidispineproto.ShapeTag.Builder builderForValue) {
-      if (shapeTagsBuilder_ == null) {
-        ensureShapeTagsIsMutable();
-        shapeTags_.add(builderForValue.build());
+    public Builder addShapeHeaders(
+        com.nent.mam.proto.vidispineproto.ShapeHeader.Builder builderForValue) {
+      if (shapeHeadersBuilder_ == null) {
+        ensureShapeHeadersIsMutable();
+        shapeHeaders_.add(builderForValue.build());
         onChanged();
       } else {
-        shapeTagsBuilder_.addMessage(builderForValue.build());
+        shapeHeadersBuilder_.addMessage(builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder addShapeTags(
-        int index, com.nent.mam.proto.vidispineproto.ShapeTag.Builder builderForValue) {
-      if (shapeTagsBuilder_ == null) {
-        ensureShapeTagsIsMutable();
-        shapeTags_.add(index, builderForValue.build());
+    public Builder addShapeHeaders(
+        int index, com.nent.mam.proto.vidispineproto.ShapeHeader.Builder builderForValue) {
+      if (shapeHeadersBuilder_ == null) {
+        ensureShapeHeadersIsMutable();
+        shapeHeaders_.add(index, builderForValue.build());
         onChanged();
       } else {
-        shapeTagsBuilder_.addMessage(index, builderForValue.build());
+        shapeHeadersBuilder_.addMessage(index, builderForValue.build());
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder addAllShapeTags(
-        java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.ShapeTag> values) {
-      if (shapeTagsBuilder_ == null) {
-        ensureShapeTagsIsMutable();
+    public Builder addAllShapeHeaders(
+        java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.ShapeHeader> values) {
+      if (shapeHeadersBuilder_ == null) {
+        ensureShapeHeadersIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, shapeTags_);
+            values, shapeHeaders_);
         onChanged();
       } else {
-        shapeTagsBuilder_.addAllMessages(values);
+        shapeHeadersBuilder_.addAllMessages(values);
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder clearShapeTags() {
-      if (shapeTagsBuilder_ == null) {
-        shapeTags_ = java.util.Collections.emptyList();
+    public Builder clearShapeHeaders() {
+      if (shapeHeadersBuilder_ == null) {
+        shapeHeaders_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
-        shapeTagsBuilder_.clear();
+        shapeHeadersBuilder_.clear();
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public Builder removeShapeTags(int index) {
-      if (shapeTagsBuilder_ == null) {
-        ensureShapeTagsIsMutable();
-        shapeTags_.remove(index);
+    public Builder removeShapeHeaders(int index) {
+      if (shapeHeadersBuilder_ == null) {
+        ensureShapeHeadersIsMutable();
+        shapeHeaders_.remove(index);
         onChanged();
       } else {
-        shapeTagsBuilder_.remove(index);
+        shapeHeadersBuilder_.remove(index);
       }
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public com.nent.mam.proto.vidispineproto.ShapeTag.Builder getShapeTagsBuilder(
+    public com.nent.mam.proto.vidispineproto.ShapeHeader.Builder getShapeHeadersBuilder(
         int index) {
-      return getShapeTagsFieldBuilder().getBuilder(index);
+      return getShapeHeadersFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder getShapeTagsOrBuilder(
+    public com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder getShapeHeadersOrBuilder(
         int index) {
-      if (shapeTagsBuilder_ == null) {
-        return shapeTags_.get(index);  } else {
-        return shapeTagsBuilder_.getMessageOrBuilder(index);
+      if (shapeHeadersBuilder_ == null) {
+        return shapeHeaders_.get(index);  } else {
+        return shapeHeadersBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public java.util.List<? extends com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder> 
-         getShapeTagsOrBuilderList() {
-      if (shapeTagsBuilder_ != null) {
-        return shapeTagsBuilder_.getMessageOrBuilderList();
+    public java.util.List<? extends com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder> 
+         getShapeHeadersOrBuilderList() {
+      if (shapeHeadersBuilder_ != null) {
+        return shapeHeadersBuilder_.getMessageOrBuilderList();
       } else {
-        return java.util.Collections.unmodifiableList(shapeTags_);
+        return java.util.Collections.unmodifiableList(shapeHeaders_);
       }
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public com.nent.mam.proto.vidispineproto.ShapeTag.Builder addShapeTagsBuilder() {
-      return getShapeTagsFieldBuilder().addBuilder(
-          com.nent.mam.proto.vidispineproto.ShapeTag.getDefaultInstance());
+    public com.nent.mam.proto.vidispineproto.ShapeHeader.Builder addShapeHeadersBuilder() {
+      return getShapeHeadersFieldBuilder().addBuilder(
+          com.nent.mam.proto.vidispineproto.ShapeHeader.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public com.nent.mam.proto.vidispineproto.ShapeTag.Builder addShapeTagsBuilder(
+    public com.nent.mam.proto.vidispineproto.ShapeHeader.Builder addShapeHeadersBuilder(
         int index) {
-      return getShapeTagsFieldBuilder().addBuilder(
-          index, com.nent.mam.proto.vidispineproto.ShapeTag.getDefaultInstance());
+      return getShapeHeadersFieldBuilder().addBuilder(
+          index, com.nent.mam.proto.vidispineproto.ShapeHeader.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.ShapeTag shape_tags = 3;</code>
+     * <code>repeated .vidispineproto.ShapeHeader shape_headers = 3;</code>
      */
-    public java.util.List<com.nent.mam.proto.vidispineproto.ShapeTag.Builder> 
-         getShapeTagsBuilderList() {
-      return getShapeTagsFieldBuilder().getBuilderList();
+    public java.util.List<com.nent.mam.proto.vidispineproto.ShapeHeader.Builder> 
+         getShapeHeadersBuilderList() {
+      return getShapeHeadersFieldBuilder().getBuilderList();
     }
     private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.nent.mam.proto.vidispineproto.ShapeTag, com.nent.mam.proto.vidispineproto.ShapeTag.Builder, com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder> 
-        getShapeTagsFieldBuilder() {
-      if (shapeTagsBuilder_ == null) {
-        shapeTagsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.nent.mam.proto.vidispineproto.ShapeTag, com.nent.mam.proto.vidispineproto.ShapeTag.Builder, com.nent.mam.proto.vidispineproto.ShapeTagOrBuilder>(
-                shapeTags_,
+        com.nent.mam.proto.vidispineproto.ShapeHeader, com.nent.mam.proto.vidispineproto.ShapeHeader.Builder, com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder> 
+        getShapeHeadersFieldBuilder() {
+      if (shapeHeadersBuilder_ == null) {
+        shapeHeadersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.nent.mam.proto.vidispineproto.ShapeHeader, com.nent.mam.proto.vidispineproto.ShapeHeader.Builder, com.nent.mam.proto.vidispineproto.ShapeHeaderOrBuilder>(
+                shapeHeaders_,
                 ((bitField0_ & 0x00000004) == 0x00000004),
                 getParentForChildren(),
                 isClean());
-        shapeTags_ = null;
+        shapeHeaders_ = null;
       }
-      return shapeTagsBuilder_;
+      return shapeHeadersBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
