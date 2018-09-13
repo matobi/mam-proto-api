@@ -26,4 +26,14 @@ public interface CreateJobInOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFileBytes();
+
+  /**
+   * <code>string house_id = 3;</code>
+   */
+  java.lang.String getHouseId();
+  /**
+   * <code>string house_id = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getHouseIdBytes();
 }

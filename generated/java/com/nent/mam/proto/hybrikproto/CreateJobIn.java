@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private CreateJobIn() {
     dir_ = "";
     file_ = "";
+    houseId_ = "";
   }
 
   @java.lang.Override
@@ -61,6 +62,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             file_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            houseId_ = s;
             break;
           }
         }
@@ -155,6 +162,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int HOUSE_ID_FIELD_NUMBER = 3;
+  private volatile java.lang.Object houseId_;
+  /**
+   * <code>string house_id = 3;</code>
+   */
+  public java.lang.String getHouseId() {
+    java.lang.Object ref = houseId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      houseId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string house_id = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getHouseIdBytes() {
+    java.lang.Object ref = houseId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      houseId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -173,6 +214,9 @@ private static final long serialVersionUID = 0L;
     if (!getFileBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, file_);
     }
+    if (!getHouseIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, houseId_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -186,6 +230,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getFileBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, file_);
+    }
+    if (!getHouseIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, houseId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -207,6 +254,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDir());
     result = result && getFile()
         .equals(other.getFile());
+    result = result && getHouseId()
+        .equals(other.getHouseId());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -222,6 +271,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDir().hashCode();
     hash = (37 * hash) + FILE_FIELD_NUMBER;
     hash = (53 * hash) + getFile().hashCode();
+    hash = (37 * hash) + HOUSE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getHouseId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -355,6 +406,8 @@ private static final long serialVersionUID = 0L;
 
       file_ = "";
 
+      houseId_ = "";
+
       return this;
     }
 
@@ -379,6 +432,7 @@ private static final long serialVersionUID = 0L;
       com.nent.mam.proto.hybrikproto.CreateJobIn result = new com.nent.mam.proto.hybrikproto.CreateJobIn(this);
       result.dir_ = dir_;
       result.file_ = file_;
+      result.houseId_ = houseId_;
       onBuilt();
       return result;
     }
@@ -426,6 +480,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getFile().isEmpty()) {
         file_ = other.file_;
+        onChanged();
+      }
+      if (!other.getHouseId().isEmpty()) {
+        houseId_ = other.houseId_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -589,6 +647,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       file_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object houseId_ = "";
+    /**
+     * <code>string house_id = 3;</code>
+     */
+    public java.lang.String getHouseId() {
+      java.lang.Object ref = houseId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        houseId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string house_id = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHouseIdBytes() {
+      java.lang.Object ref = houseId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        houseId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string house_id = 3;</code>
+     */
+    public Builder setHouseId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      houseId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string house_id = 3;</code>
+     */
+    public Builder clearHouseId() {
+      
+      houseId_ = getDefaultInstance().getHouseId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string house_id = 3;</code>
+     */
+    public Builder setHouseIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      houseId_ = value;
       onChanged();
       return this;
     }
