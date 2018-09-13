@@ -17,7 +17,9 @@ private static final long serialVersionUID = 0L;
   }
   private ShapeTag() {
     shapeId_ = "";
+    version_ = 0;
     tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    metadata_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -57,13 +59,27 @@ private static final long serialVersionUID = 0L;
             shapeId_ = s;
             break;
           }
-          case 18: {
+          case 16: {
+
+            version_ = input.readInt32();
+            break;
+          }
+          case 26: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
               tags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
+              mutable_bitField0_ |= 0x00000004;
             }
             tags_.add(s);
+            break;
+          }
+          case 34: {
+            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              metadata_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.KeyValue>();
+              mutable_bitField0_ |= 0x00000008;
+            }
+            metadata_.add(
+                input.readMessage(com.nent.mam.proto.vidispineproto.KeyValue.parser(), extensionRegistry));
             break;
           }
         }
@@ -74,8 +90,11 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
         tags_ = tags_.getUnmodifiableView();
+      }
+      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        metadata_ = java.util.Collections.unmodifiableList(metadata_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -128,33 +147,77 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int TAGS_FIELD_NUMBER = 2;
+  public static final int VERSION_FIELD_NUMBER = 2;
+  private int version_;
+  /**
+   * <code>int32 version = 2;</code>
+   */
+  public int getVersion() {
+    return version_;
+  }
+
+  public static final int TAGS_FIELD_NUMBER = 3;
   private com.google.protobuf.LazyStringList tags_;
   /**
-   * <code>repeated string tags = 2;</code>
+   * <code>repeated string tags = 3;</code>
    */
   public com.google.protobuf.ProtocolStringList
       getTagsList() {
     return tags_;
   }
   /**
-   * <code>repeated string tags = 2;</code>
+   * <code>repeated string tags = 3;</code>
    */
   public int getTagsCount() {
     return tags_.size();
   }
   /**
-   * <code>repeated string tags = 2;</code>
+   * <code>repeated string tags = 3;</code>
    */
   public java.lang.String getTags(int index) {
     return tags_.get(index);
   }
   /**
-   * <code>repeated string tags = 2;</code>
+   * <code>repeated string tags = 3;</code>
    */
   public com.google.protobuf.ByteString
       getTagsBytes(int index) {
     return tags_.getByteString(index);
+  }
+
+  public static final int METADATA_FIELD_NUMBER = 4;
+  private java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> metadata_;
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+   */
+  public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> getMetadataList() {
+    return metadata_;
+  }
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+   */
+  public java.util.List<? extends com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
+      getMetadataOrBuilderList() {
+    return metadata_;
+  }
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+   */
+  public int getMetadataCount() {
+    return metadata_.size();
+  }
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+   */
+  public com.nent.mam.proto.vidispineproto.KeyValue getMetadata(int index) {
+    return metadata_.get(index);
+  }
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+   */
+  public com.nent.mam.proto.vidispineproto.KeyValueOrBuilder getMetadataOrBuilder(
+      int index) {
+    return metadata_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -172,8 +235,14 @@ private static final long serialVersionUID = 0L;
     if (!getShapeIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, shapeId_);
     }
+    if (version_ != 0) {
+      output.writeInt32(2, version_);
+    }
     for (int i = 0; i < tags_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tags_.getRaw(i));
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tags_.getRaw(i));
+    }
+    for (int i = 0; i < metadata_.size(); i++) {
+      output.writeMessage(4, metadata_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -186,6 +255,10 @@ private static final long serialVersionUID = 0L;
     if (!getShapeIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, shapeId_);
     }
+    if (version_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(2, version_);
+    }
     {
       int dataSize = 0;
       for (int i = 0; i < tags_.size(); i++) {
@@ -193,6 +266,10 @@ private static final long serialVersionUID = 0L;
       }
       size += dataSize;
       size += 1 * getTagsList().size();
+    }
+    for (int i = 0; i < metadata_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(4, metadata_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -212,8 +289,12 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getShapeId()
         .equals(other.getShapeId());
+    result = result && (getVersion()
+        == other.getVersion());
     result = result && getTagsList()
         .equals(other.getTagsList());
+    result = result && getMetadataList()
+        .equals(other.getMetadataList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -227,9 +308,15 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + SHAPE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getShapeId().hashCode();
+    hash = (37 * hash) + VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + getVersion();
     if (getTagsCount() > 0) {
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
+    }
+    if (getMetadataCount() > 0) {
+      hash = (37 * hash) + METADATA_FIELD_NUMBER;
+      hash = (53 * hash) + getMetadataList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -356,14 +443,23 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getMetadataFieldBuilder();
       }
     }
     public Builder clear() {
       super.clear();
       shapeId_ = "";
 
+      version_ = 0;
+
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
+      if (metadataBuilder_ == null) {
+        metadata_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      } else {
+        metadataBuilder_.clear();
+      }
       return this;
     }
 
@@ -389,11 +485,21 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.shapeId_ = shapeId_;
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      result.version_ = version_;
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         tags_ = tags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.tags_ = tags_;
+      if (metadataBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          metadata_ = java.util.Collections.unmodifiableList(metadata_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.metadata_ = metadata_;
+      } else {
+        result.metadata_ = metadataBuilder_.build();
+      }
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -440,15 +546,44 @@ private static final long serialVersionUID = 0L;
         shapeId_ = other.shapeId_;
         onChanged();
       }
+      if (other.getVersion() != 0) {
+        setVersion(other.getVersion());
+      }
       if (!other.tags_.isEmpty()) {
         if (tags_.isEmpty()) {
           tags_ = other.tags_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureTagsIsMutable();
           tags_.addAll(other.tags_);
         }
         onChanged();
+      }
+      if (metadataBuilder_ == null) {
+        if (!other.metadata_.isEmpty()) {
+          if (metadata_.isEmpty()) {
+            metadata_ = other.metadata_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureMetadataIsMutable();
+            metadata_.addAll(other.metadata_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.metadata_.isEmpty()) {
+          if (metadataBuilder_.isEmpty()) {
+            metadataBuilder_.dispose();
+            metadataBuilder_ = null;
+            metadata_ = other.metadata_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            metadataBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getMetadataFieldBuilder() : null;
+          } else {
+            metadataBuilder_.addAllMessages(other.metadata_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -547,41 +682,67 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int version_ ;
+    /**
+     * <code>int32 version = 2;</code>
+     */
+    public int getVersion() {
+      return version_;
+    }
+    /**
+     * <code>int32 version = 2;</code>
+     */
+    public Builder setVersion(int value) {
+      
+      version_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 version = 2;</code>
+     */
+    public Builder clearVersion() {
+      
+      version_ = 0;
+      onChanged();
+      return this;
+    }
+
     private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTagsIsMutable() {
-      if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (!((bitField0_ & 0x00000004) == 0x00000004)) {
         tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getTagsList() {
       return tags_.getUnmodifiableView();
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public int getTagsCount() {
       return tags_.size();
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public java.lang.String getTags(int index) {
       return tags_.get(index);
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public com.google.protobuf.ByteString
         getTagsBytes(int index) {
       return tags_.getByteString(index);
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public Builder setTags(
         int index, java.lang.String value) {
@@ -594,7 +755,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public Builder addTags(
         java.lang.String value) {
@@ -607,7 +768,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public Builder addAllTags(
         java.lang.Iterable<java.lang.String> values) {
@@ -618,16 +779,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public Builder clearTags() {
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string tags = 2;</code>
+     * <code>repeated string tags = 3;</code>
      */
     public Builder addTagsBytes(
         com.google.protobuf.ByteString value) {
@@ -639,6 +800,246 @@ private static final long serialVersionUID = 0L;
       tags_.add(value);
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> metadata_ =
+      java.util.Collections.emptyList();
+    private void ensureMetadataIsMutable() {
+      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        metadata_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.KeyValue>(metadata_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> metadataBuilder_;
+
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> getMetadataList() {
+      if (metadataBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(metadata_);
+      } else {
+        return metadataBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public int getMetadataCount() {
+      if (metadataBuilder_ == null) {
+        return metadata_.size();
+      } else {
+        return metadataBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValue getMetadata(int index) {
+      if (metadataBuilder_ == null) {
+        return metadata_.get(index);
+      } else {
+        return metadataBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder setMetadata(
+        int index, com.nent.mam.proto.vidispineproto.KeyValue value) {
+      if (metadataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMetadataIsMutable();
+        metadata_.set(index, value);
+        onChanged();
+      } else {
+        metadataBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder setMetadata(
+        int index, com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        metadata_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        metadataBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder addMetadata(com.nent.mam.proto.vidispineproto.KeyValue value) {
+      if (metadataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMetadataIsMutable();
+        metadata_.add(value);
+        onChanged();
+      } else {
+        metadataBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder addMetadata(
+        int index, com.nent.mam.proto.vidispineproto.KeyValue value) {
+      if (metadataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMetadataIsMutable();
+        metadata_.add(index, value);
+        onChanged();
+      } else {
+        metadataBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder addMetadata(
+        com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        metadata_.add(builderForValue.build());
+        onChanged();
+      } else {
+        metadataBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder addMetadata(
+        int index, com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        metadata_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        metadataBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder addAllMetadata(
+        java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.KeyValue> values) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, metadata_);
+        onChanged();
+      } else {
+        metadataBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder clearMetadata() {
+      if (metadataBuilder_ == null) {
+        metadata_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+      } else {
+        metadataBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public Builder removeMetadata(int index) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        metadata_.remove(index);
+        onChanged();
+      } else {
+        metadataBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValue.Builder getMetadataBuilder(
+        int index) {
+      return getMetadataFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValueOrBuilder getMetadataOrBuilder(
+        int index) {
+      if (metadataBuilder_ == null) {
+        return metadata_.get(index);  } else {
+        return metadataBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public java.util.List<? extends com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
+         getMetadataOrBuilderList() {
+      if (metadataBuilder_ != null) {
+        return metadataBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(metadata_);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValue.Builder addMetadataBuilder() {
+      return getMetadataFieldBuilder().addBuilder(
+          com.nent.mam.proto.vidispineproto.KeyValue.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValue.Builder addMetadataBuilder(
+        int index) {
+      return getMetadataFieldBuilder().addBuilder(
+          index, com.nent.mam.proto.vidispineproto.KeyValue.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 4;</code>
+     */
+    public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue.Builder> 
+         getMetadataBuilderList() {
+      return getMetadataFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
+        getMetadataFieldBuilder() {
+      if (metadataBuilder_ == null) {
+        metadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder>(
+                metadata_,
+                ((bitField0_ & 0x00000008) == 0x00000008),
+                getParentForChildren(),
+                isClean());
+        metadata_ = null;
+      }
+      return metadataBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

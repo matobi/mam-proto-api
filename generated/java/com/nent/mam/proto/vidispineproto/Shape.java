@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     title_ = "";
     orgFilename_ = "";
     tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    metadata_ = java.util.Collections.emptyList();
     videos_ = java.util.Collections.emptyList();
     audios_ = java.util.Collections.emptyList();
     subtitles_ = java.util.Collections.emptyList();
@@ -98,26 +99,35 @@ private static final long serialVersionUID = 0L;
           }
           case 58: {
             if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-              videos_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Video>();
+              metadata_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.KeyValue>();
               mutable_bitField0_ |= 0x00000040;
+            }
+            metadata_.add(
+                input.readMessage(com.nent.mam.proto.vidispineproto.KeyValue.parser(), extensionRegistry));
+            break;
+          }
+          case 66: {
+            if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+              videos_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Video>();
+              mutable_bitField0_ |= 0x00000080;
             }
             videos_.add(
                 input.readMessage(com.nent.mam.proto.vidispineproto.Video.parser(), extensionRegistry));
             break;
           }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          case 74: {
+            if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
               audios_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Audio>();
-              mutable_bitField0_ |= 0x00000080;
+              mutable_bitField0_ |= 0x00000100;
             }
             audios_.add(
                 input.readMessage(com.nent.mam.proto.vidispineproto.Audio.parser(), extensionRegistry));
             break;
           }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+          case 82: {
+            if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
               subtitles_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Subtitle>();
-              mutable_bitField0_ |= 0x00000100;
+              mutable_bitField0_ |= 0x00000200;
             }
             subtitles_.add(
                 input.readMessage(com.nent.mam.proto.vidispineproto.Subtitle.parser(), extensionRegistry));
@@ -135,12 +145,15 @@ private static final long serialVersionUID = 0L;
         tags_ = tags_.getUnmodifiableView();
       }
       if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-        videos_ = java.util.Collections.unmodifiableList(videos_);
+        metadata_ = java.util.Collections.unmodifiableList(metadata_);
       }
       if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-        audios_ = java.util.Collections.unmodifiableList(audios_);
+        videos_ = java.util.Collections.unmodifiableList(videos_);
       }
       if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+        audios_ = java.util.Collections.unmodifiableList(audios_);
+      }
+      if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
         subtitles_ = java.util.Collections.unmodifiableList(subtitles_);
       }
       this.unknownFields = unknownFields.build();
@@ -334,105 +347,140 @@ private static final long serialVersionUID = 0L;
     return tags_.getByteString(index);
   }
 
-  public static final int VIDEOS_FIELD_NUMBER = 7;
+  public static final int METADATA_FIELD_NUMBER = 7;
+  private java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> metadata_;
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+   */
+  public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> getMetadataList() {
+    return metadata_;
+  }
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+   */
+  public java.util.List<? extends com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
+      getMetadataOrBuilderList() {
+    return metadata_;
+  }
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+   */
+  public int getMetadataCount() {
+    return metadata_.size();
+  }
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+   */
+  public com.nent.mam.proto.vidispineproto.KeyValue getMetadata(int index) {
+    return metadata_.get(index);
+  }
+  /**
+   * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+   */
+  public com.nent.mam.proto.vidispineproto.KeyValueOrBuilder getMetadataOrBuilder(
+      int index) {
+    return metadata_.get(index);
+  }
+
+  public static final int VIDEOS_FIELD_NUMBER = 8;
   private java.util.List<com.nent.mam.proto.vidispineproto.Video> videos_;
   /**
-   * <code>repeated .vidispineproto.Video videos = 7;</code>
+   * <code>repeated .vidispineproto.Video videos = 8;</code>
    */
   public java.util.List<com.nent.mam.proto.vidispineproto.Video> getVideosList() {
     return videos_;
   }
   /**
-   * <code>repeated .vidispineproto.Video videos = 7;</code>
+   * <code>repeated .vidispineproto.Video videos = 8;</code>
    */
   public java.util.List<? extends com.nent.mam.proto.vidispineproto.VideoOrBuilder> 
       getVideosOrBuilderList() {
     return videos_;
   }
   /**
-   * <code>repeated .vidispineproto.Video videos = 7;</code>
+   * <code>repeated .vidispineproto.Video videos = 8;</code>
    */
   public int getVideosCount() {
     return videos_.size();
   }
   /**
-   * <code>repeated .vidispineproto.Video videos = 7;</code>
+   * <code>repeated .vidispineproto.Video videos = 8;</code>
    */
   public com.nent.mam.proto.vidispineproto.Video getVideos(int index) {
     return videos_.get(index);
   }
   /**
-   * <code>repeated .vidispineproto.Video videos = 7;</code>
+   * <code>repeated .vidispineproto.Video videos = 8;</code>
    */
   public com.nent.mam.proto.vidispineproto.VideoOrBuilder getVideosOrBuilder(
       int index) {
     return videos_.get(index);
   }
 
-  public static final int AUDIOS_FIELD_NUMBER = 8;
+  public static final int AUDIOS_FIELD_NUMBER = 9;
   private java.util.List<com.nent.mam.proto.vidispineproto.Audio> audios_;
   /**
-   * <code>repeated .vidispineproto.Audio audios = 8;</code>
+   * <code>repeated .vidispineproto.Audio audios = 9;</code>
    */
   public java.util.List<com.nent.mam.proto.vidispineproto.Audio> getAudiosList() {
     return audios_;
   }
   /**
-   * <code>repeated .vidispineproto.Audio audios = 8;</code>
+   * <code>repeated .vidispineproto.Audio audios = 9;</code>
    */
   public java.util.List<? extends com.nent.mam.proto.vidispineproto.AudioOrBuilder> 
       getAudiosOrBuilderList() {
     return audios_;
   }
   /**
-   * <code>repeated .vidispineproto.Audio audios = 8;</code>
+   * <code>repeated .vidispineproto.Audio audios = 9;</code>
    */
   public int getAudiosCount() {
     return audios_.size();
   }
   /**
-   * <code>repeated .vidispineproto.Audio audios = 8;</code>
+   * <code>repeated .vidispineproto.Audio audios = 9;</code>
    */
   public com.nent.mam.proto.vidispineproto.Audio getAudios(int index) {
     return audios_.get(index);
   }
   /**
-   * <code>repeated .vidispineproto.Audio audios = 8;</code>
+   * <code>repeated .vidispineproto.Audio audios = 9;</code>
    */
   public com.nent.mam.proto.vidispineproto.AudioOrBuilder getAudiosOrBuilder(
       int index) {
     return audios_.get(index);
   }
 
-  public static final int SUBTITLES_FIELD_NUMBER = 9;
+  public static final int SUBTITLES_FIELD_NUMBER = 10;
   private java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> subtitles_;
   /**
-   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
    */
   public java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> getSubtitlesList() {
     return subtitles_;
   }
   /**
-   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
    */
   public java.util.List<? extends com.nent.mam.proto.vidispineproto.SubtitleOrBuilder> 
       getSubtitlesOrBuilderList() {
     return subtitles_;
   }
   /**
-   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
    */
   public int getSubtitlesCount() {
     return subtitles_.size();
   }
   /**
-   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
    */
   public com.nent.mam.proto.vidispineproto.Subtitle getSubtitles(int index) {
     return subtitles_.get(index);
   }
   /**
-   * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+   * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
    */
   public com.nent.mam.proto.vidispineproto.SubtitleOrBuilder getSubtitlesOrBuilder(
       int index) {
@@ -469,14 +517,17 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < tags_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tags_.getRaw(i));
     }
+    for (int i = 0; i < metadata_.size(); i++) {
+      output.writeMessage(7, metadata_.get(i));
+    }
     for (int i = 0; i < videos_.size(); i++) {
-      output.writeMessage(7, videos_.get(i));
+      output.writeMessage(8, videos_.get(i));
     }
     for (int i = 0; i < audios_.size(); i++) {
-      output.writeMessage(8, audios_.get(i));
+      output.writeMessage(9, audios_.get(i));
     }
     for (int i = 0; i < subtitles_.size(); i++) {
-      output.writeMessage(9, subtitles_.get(i));
+      output.writeMessage(10, subtitles_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -510,17 +561,21 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getTagsList().size();
     }
+    for (int i = 0; i < metadata_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, metadata_.get(i));
+    }
     for (int i = 0; i < videos_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(7, videos_.get(i));
+        .computeMessageSize(8, videos_.get(i));
     }
     for (int i = 0; i < audios_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(8, audios_.get(i));
+        .computeMessageSize(9, audios_.get(i));
     }
     for (int i = 0; i < subtitles_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(9, subtitles_.get(i));
+        .computeMessageSize(10, subtitles_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -550,6 +605,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getOrgFilename());
     result = result && getTagsList()
         .equals(other.getTagsList());
+    result = result && getMetadataList()
+        .equals(other.getMetadataList());
     result = result && getVideosList()
         .equals(other.getVideosList());
     result = result && getAudiosList()
@@ -580,6 +637,10 @@ private static final long serialVersionUID = 0L;
     if (getTagsCount() > 0) {
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
+    }
+    if (getMetadataCount() > 0) {
+      hash = (37 * hash) + METADATA_FIELD_NUMBER;
+      hash = (53 * hash) + getMetadataList().hashCode();
     }
     if (getVideosCount() > 0) {
       hash = (37 * hash) + VIDEOS_FIELD_NUMBER;
@@ -718,6 +779,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getMetadataFieldBuilder();
         getVideosFieldBuilder();
         getAudiosFieldBuilder();
         getSubtitlesFieldBuilder();
@@ -737,21 +799,27 @@ private static final long serialVersionUID = 0L;
 
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000020);
+      if (metadataBuilder_ == null) {
+        metadata_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      } else {
+        metadataBuilder_.clear();
+      }
       if (videosBuilder_ == null) {
         videos_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
       } else {
         videosBuilder_.clear();
       }
       if (audiosBuilder_ == null) {
         audios_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
       } else {
         audiosBuilder_.clear();
       }
       if (subtitlesBuilder_ == null) {
         subtitles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
       } else {
         subtitlesBuilder_.clear();
       }
@@ -789,28 +857,37 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.tags_ = tags_;
-      if (videosBuilder_ == null) {
+      if (metadataBuilder_ == null) {
         if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          videos_ = java.util.Collections.unmodifiableList(videos_);
+          metadata_ = java.util.Collections.unmodifiableList(metadata_);
           bitField0_ = (bitField0_ & ~0x00000040);
+        }
+        result.metadata_ = metadata_;
+      } else {
+        result.metadata_ = metadataBuilder_.build();
+      }
+      if (videosBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          videos_ = java.util.Collections.unmodifiableList(videos_);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.videos_ = videos_;
       } else {
         result.videos_ = videosBuilder_.build();
       }
       if (audiosBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
           audios_ = java.util.Collections.unmodifiableList(audios_);
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.audios_ = audios_;
       } else {
         result.audios_ = audiosBuilder_.build();
       }
       if (subtitlesBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        if (((bitField0_ & 0x00000200) == 0x00000200)) {
           subtitles_ = java.util.Collections.unmodifiableList(subtitles_);
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.subtitles_ = subtitles_;
       } else {
@@ -887,11 +964,37 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
+      if (metadataBuilder_ == null) {
+        if (!other.metadata_.isEmpty()) {
+          if (metadata_.isEmpty()) {
+            metadata_ = other.metadata_;
+            bitField0_ = (bitField0_ & ~0x00000040);
+          } else {
+            ensureMetadataIsMutable();
+            metadata_.addAll(other.metadata_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.metadata_.isEmpty()) {
+          if (metadataBuilder_.isEmpty()) {
+            metadataBuilder_.dispose();
+            metadataBuilder_ = null;
+            metadata_ = other.metadata_;
+            bitField0_ = (bitField0_ & ~0x00000040);
+            metadataBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getMetadataFieldBuilder() : null;
+          } else {
+            metadataBuilder_.addAllMessages(other.metadata_);
+          }
+        }
+      }
       if (videosBuilder_ == null) {
         if (!other.videos_.isEmpty()) {
           if (videos_.isEmpty()) {
             videos_ = other.videos_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureVideosIsMutable();
             videos_.addAll(other.videos_);
@@ -904,7 +1007,7 @@ private static final long serialVersionUID = 0L;
             videosBuilder_.dispose();
             videosBuilder_ = null;
             videos_ = other.videos_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000080);
             videosBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVideosFieldBuilder() : null;
@@ -917,7 +1020,7 @@ private static final long serialVersionUID = 0L;
         if (!other.audios_.isEmpty()) {
           if (audios_.isEmpty()) {
             audios_ = other.audios_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureAudiosIsMutable();
             audios_.addAll(other.audios_);
@@ -930,7 +1033,7 @@ private static final long serialVersionUID = 0L;
             audiosBuilder_.dispose();
             audiosBuilder_ = null;
             audios_ = other.audios_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000100);
             audiosBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAudiosFieldBuilder() : null;
@@ -943,7 +1046,7 @@ private static final long serialVersionUID = 0L;
         if (!other.subtitles_.isEmpty()) {
           if (subtitles_.isEmpty()) {
             subtitles_ = other.subtitles_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureSubtitlesIsMutable();
             subtitles_.addAll(other.subtitles_);
@@ -956,7 +1059,7 @@ private static final long serialVersionUID = 0L;
             subtitlesBuilder_.dispose();
             subtitlesBuilder_ = null;
             subtitles_ = other.subtitles_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00000200);
             subtitlesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSubtitlesFieldBuilder() : null;
@@ -1389,12 +1492,252 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> metadata_ =
+      java.util.Collections.emptyList();
+    private void ensureMetadataIsMutable() {
+      if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+        metadata_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.KeyValue>(metadata_);
+        bitField0_ |= 0x00000040;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> metadataBuilder_;
+
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> getMetadataList() {
+      if (metadataBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(metadata_);
+      } else {
+        return metadataBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public int getMetadataCount() {
+      if (metadataBuilder_ == null) {
+        return metadata_.size();
+      } else {
+        return metadataBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValue getMetadata(int index) {
+      if (metadataBuilder_ == null) {
+        return metadata_.get(index);
+      } else {
+        return metadataBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder setMetadata(
+        int index, com.nent.mam.proto.vidispineproto.KeyValue value) {
+      if (metadataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMetadataIsMutable();
+        metadata_.set(index, value);
+        onChanged();
+      } else {
+        metadataBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder setMetadata(
+        int index, com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        metadata_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        metadataBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder addMetadata(com.nent.mam.proto.vidispineproto.KeyValue value) {
+      if (metadataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMetadataIsMutable();
+        metadata_.add(value);
+        onChanged();
+      } else {
+        metadataBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder addMetadata(
+        int index, com.nent.mam.proto.vidispineproto.KeyValue value) {
+      if (metadataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMetadataIsMutable();
+        metadata_.add(index, value);
+        onChanged();
+      } else {
+        metadataBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder addMetadata(
+        com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        metadata_.add(builderForValue.build());
+        onChanged();
+      } else {
+        metadataBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder addMetadata(
+        int index, com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        metadata_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        metadataBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder addAllMetadata(
+        java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.KeyValue> values) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, metadata_);
+        onChanged();
+      } else {
+        metadataBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder clearMetadata() {
+      if (metadataBuilder_ == null) {
+        metadata_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000040);
+        onChanged();
+      } else {
+        metadataBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public Builder removeMetadata(int index) {
+      if (metadataBuilder_ == null) {
+        ensureMetadataIsMutable();
+        metadata_.remove(index);
+        onChanged();
+      } else {
+        metadataBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValue.Builder getMetadataBuilder(
+        int index) {
+      return getMetadataFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValueOrBuilder getMetadataOrBuilder(
+        int index) {
+      if (metadataBuilder_ == null) {
+        return metadata_.get(index);  } else {
+        return metadataBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public java.util.List<? extends com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
+         getMetadataOrBuilderList() {
+      if (metadataBuilder_ != null) {
+        return metadataBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(metadata_);
+      }
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValue.Builder addMetadataBuilder() {
+      return getMetadataFieldBuilder().addBuilder(
+          com.nent.mam.proto.vidispineproto.KeyValue.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public com.nent.mam.proto.vidispineproto.KeyValue.Builder addMetadataBuilder(
+        int index) {
+      return getMetadataFieldBuilder().addBuilder(
+          index, com.nent.mam.proto.vidispineproto.KeyValue.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .vidispineproto.KeyValue metadata = 7;</code>
+     */
+    public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue.Builder> 
+         getMetadataBuilderList() {
+      return getMetadataFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
+        getMetadataFieldBuilder() {
+      if (metadataBuilder_ == null) {
+        metadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder>(
+                metadata_,
+                ((bitField0_ & 0x00000040) == 0x00000040),
+                getParentForChildren(),
+                isClean());
+        metadata_ = null;
+      }
+      return metadataBuilder_;
+    }
+
     private java.util.List<com.nent.mam.proto.vidispineproto.Video> videos_ =
       java.util.Collections.emptyList();
     private void ensureVideosIsMutable() {
-      if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (!((bitField0_ & 0x00000080) == 0x00000080)) {
         videos_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Video>(videos_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -1402,7 +1745,7 @@ private static final long serialVersionUID = 0L;
         com.nent.mam.proto.vidispineproto.Video, com.nent.mam.proto.vidispineproto.Video.Builder, com.nent.mam.proto.vidispineproto.VideoOrBuilder> videosBuilder_;
 
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.Video> getVideosList() {
       if (videosBuilder_ == null) {
@@ -1412,7 +1755,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public int getVideosCount() {
       if (videosBuilder_ == null) {
@@ -1422,7 +1765,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public com.nent.mam.proto.vidispineproto.Video getVideos(int index) {
       if (videosBuilder_ == null) {
@@ -1432,7 +1775,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder setVideos(
         int index, com.nent.mam.proto.vidispineproto.Video value) {
@@ -1449,7 +1792,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder setVideos(
         int index, com.nent.mam.proto.vidispineproto.Video.Builder builderForValue) {
@@ -1463,7 +1806,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder addVideos(com.nent.mam.proto.vidispineproto.Video value) {
       if (videosBuilder_ == null) {
@@ -1479,7 +1822,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder addVideos(
         int index, com.nent.mam.proto.vidispineproto.Video value) {
@@ -1496,7 +1839,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder addVideos(
         com.nent.mam.proto.vidispineproto.Video.Builder builderForValue) {
@@ -1510,7 +1853,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder addVideos(
         int index, com.nent.mam.proto.vidispineproto.Video.Builder builderForValue) {
@@ -1524,7 +1867,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder addAllVideos(
         java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.Video> values) {
@@ -1539,12 +1882,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder clearVideos() {
       if (videosBuilder_ == null) {
         videos_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         videosBuilder_.clear();
@@ -1552,7 +1895,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public Builder removeVideos(int index) {
       if (videosBuilder_ == null) {
@@ -1565,14 +1908,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public com.nent.mam.proto.vidispineproto.Video.Builder getVideosBuilder(
         int index) {
       return getVideosFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public com.nent.mam.proto.vidispineproto.VideoOrBuilder getVideosOrBuilder(
         int index) {
@@ -1582,7 +1925,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public java.util.List<? extends com.nent.mam.proto.vidispineproto.VideoOrBuilder> 
          getVideosOrBuilderList() {
@@ -1593,14 +1936,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public com.nent.mam.proto.vidispineproto.Video.Builder addVideosBuilder() {
       return getVideosFieldBuilder().addBuilder(
           com.nent.mam.proto.vidispineproto.Video.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public com.nent.mam.proto.vidispineproto.Video.Builder addVideosBuilder(
         int index) {
@@ -1608,7 +1951,7 @@ private static final long serialVersionUID = 0L;
           index, com.nent.mam.proto.vidispineproto.Video.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.Video videos = 7;</code>
+     * <code>repeated .vidispineproto.Video videos = 8;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.Video.Builder> 
          getVideosBuilderList() {
@@ -1621,7 +1964,7 @@ private static final long serialVersionUID = 0L;
         videosBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.nent.mam.proto.vidispineproto.Video, com.nent.mam.proto.vidispineproto.Video.Builder, com.nent.mam.proto.vidispineproto.VideoOrBuilder>(
                 videos_,
-                ((bitField0_ & 0x00000040) == 0x00000040),
+                ((bitField0_ & 0x00000080) == 0x00000080),
                 getParentForChildren(),
                 isClean());
         videos_ = null;
@@ -1632,9 +1975,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.nent.mam.proto.vidispineproto.Audio> audios_ =
       java.util.Collections.emptyList();
     private void ensureAudiosIsMutable() {
-      if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (!((bitField0_ & 0x00000100) == 0x00000100)) {
         audios_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Audio>(audios_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -1642,7 +1985,7 @@ private static final long serialVersionUID = 0L;
         com.nent.mam.proto.vidispineproto.Audio, com.nent.mam.proto.vidispineproto.Audio.Builder, com.nent.mam.proto.vidispineproto.AudioOrBuilder> audiosBuilder_;
 
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.Audio> getAudiosList() {
       if (audiosBuilder_ == null) {
@@ -1652,7 +1995,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public int getAudiosCount() {
       if (audiosBuilder_ == null) {
@@ -1662,7 +2005,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public com.nent.mam.proto.vidispineproto.Audio getAudios(int index) {
       if (audiosBuilder_ == null) {
@@ -1672,7 +2015,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder setAudios(
         int index, com.nent.mam.proto.vidispineproto.Audio value) {
@@ -1689,7 +2032,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder setAudios(
         int index, com.nent.mam.proto.vidispineproto.Audio.Builder builderForValue) {
@@ -1703,7 +2046,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder addAudios(com.nent.mam.proto.vidispineproto.Audio value) {
       if (audiosBuilder_ == null) {
@@ -1719,7 +2062,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder addAudios(
         int index, com.nent.mam.proto.vidispineproto.Audio value) {
@@ -1736,7 +2079,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder addAudios(
         com.nent.mam.proto.vidispineproto.Audio.Builder builderForValue) {
@@ -1750,7 +2093,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder addAudios(
         int index, com.nent.mam.proto.vidispineproto.Audio.Builder builderForValue) {
@@ -1764,7 +2107,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder addAllAudios(
         java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.Audio> values) {
@@ -1779,12 +2122,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder clearAudios() {
       if (audiosBuilder_ == null) {
         audios_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         audiosBuilder_.clear();
@@ -1792,7 +2135,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public Builder removeAudios(int index) {
       if (audiosBuilder_ == null) {
@@ -1805,14 +2148,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public com.nent.mam.proto.vidispineproto.Audio.Builder getAudiosBuilder(
         int index) {
       return getAudiosFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public com.nent.mam.proto.vidispineproto.AudioOrBuilder getAudiosOrBuilder(
         int index) {
@@ -1822,7 +2165,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public java.util.List<? extends com.nent.mam.proto.vidispineproto.AudioOrBuilder> 
          getAudiosOrBuilderList() {
@@ -1833,14 +2176,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public com.nent.mam.proto.vidispineproto.Audio.Builder addAudiosBuilder() {
       return getAudiosFieldBuilder().addBuilder(
           com.nent.mam.proto.vidispineproto.Audio.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public com.nent.mam.proto.vidispineproto.Audio.Builder addAudiosBuilder(
         int index) {
@@ -1848,7 +2191,7 @@ private static final long serialVersionUID = 0L;
           index, com.nent.mam.proto.vidispineproto.Audio.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.Audio audios = 8;</code>
+     * <code>repeated .vidispineproto.Audio audios = 9;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.Audio.Builder> 
          getAudiosBuilderList() {
@@ -1861,7 +2204,7 @@ private static final long serialVersionUID = 0L;
         audiosBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.nent.mam.proto.vidispineproto.Audio, com.nent.mam.proto.vidispineproto.Audio.Builder, com.nent.mam.proto.vidispineproto.AudioOrBuilder>(
                 audios_,
-                ((bitField0_ & 0x00000080) == 0x00000080),
+                ((bitField0_ & 0x00000100) == 0x00000100),
                 getParentForChildren(),
                 isClean());
         audios_ = null;
@@ -1872,9 +2215,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> subtitles_ =
       java.util.Collections.emptyList();
     private void ensureSubtitlesIsMutable() {
-      if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (!((bitField0_ & 0x00000200) == 0x00000200)) {
         subtitles_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.Subtitle>(subtitles_);
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
        }
     }
 
@@ -1882,7 +2225,7 @@ private static final long serialVersionUID = 0L;
         com.nent.mam.proto.vidispineproto.Subtitle, com.nent.mam.proto.vidispineproto.Subtitle.Builder, com.nent.mam.proto.vidispineproto.SubtitleOrBuilder> subtitlesBuilder_;
 
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.Subtitle> getSubtitlesList() {
       if (subtitlesBuilder_ == null) {
@@ -1892,7 +2235,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public int getSubtitlesCount() {
       if (subtitlesBuilder_ == null) {
@@ -1902,7 +2245,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public com.nent.mam.proto.vidispineproto.Subtitle getSubtitles(int index) {
       if (subtitlesBuilder_ == null) {
@@ -1912,7 +2255,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder setSubtitles(
         int index, com.nent.mam.proto.vidispineproto.Subtitle value) {
@@ -1929,7 +2272,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder setSubtitles(
         int index, com.nent.mam.proto.vidispineproto.Subtitle.Builder builderForValue) {
@@ -1943,7 +2286,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder addSubtitles(com.nent.mam.proto.vidispineproto.Subtitle value) {
       if (subtitlesBuilder_ == null) {
@@ -1959,7 +2302,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder addSubtitles(
         int index, com.nent.mam.proto.vidispineproto.Subtitle value) {
@@ -1976,7 +2319,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder addSubtitles(
         com.nent.mam.proto.vidispineproto.Subtitle.Builder builderForValue) {
@@ -1990,7 +2333,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder addSubtitles(
         int index, com.nent.mam.proto.vidispineproto.Subtitle.Builder builderForValue) {
@@ -2004,7 +2347,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder addAllSubtitles(
         java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.Subtitle> values) {
@@ -2019,12 +2362,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder clearSubtitles() {
       if (subtitlesBuilder_ == null) {
         subtitles_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
         subtitlesBuilder_.clear();
@@ -2032,7 +2375,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public Builder removeSubtitles(int index) {
       if (subtitlesBuilder_ == null) {
@@ -2045,14 +2388,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public com.nent.mam.proto.vidispineproto.Subtitle.Builder getSubtitlesBuilder(
         int index) {
       return getSubtitlesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public com.nent.mam.proto.vidispineproto.SubtitleOrBuilder getSubtitlesOrBuilder(
         int index) {
@@ -2062,7 +2405,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public java.util.List<? extends com.nent.mam.proto.vidispineproto.SubtitleOrBuilder> 
          getSubtitlesOrBuilderList() {
@@ -2073,14 +2416,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public com.nent.mam.proto.vidispineproto.Subtitle.Builder addSubtitlesBuilder() {
       return getSubtitlesFieldBuilder().addBuilder(
           com.nent.mam.proto.vidispineproto.Subtitle.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public com.nent.mam.proto.vidispineproto.Subtitle.Builder addSubtitlesBuilder(
         int index) {
@@ -2088,7 +2431,7 @@ private static final long serialVersionUID = 0L;
           index, com.nent.mam.proto.vidispineproto.Subtitle.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.Subtitle subtitles = 9;</code>
+     * <code>repeated .vidispineproto.Subtitle subtitles = 10;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.Subtitle.Builder> 
          getSubtitlesBuilderList() {
@@ -2101,7 +2444,7 @@ private static final long serialVersionUID = 0L;
         subtitlesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.nent.mam.proto.vidispineproto.Subtitle, com.nent.mam.proto.vidispineproto.Subtitle.Builder, com.nent.mam.proto.vidispineproto.SubtitleOrBuilder>(
                 subtitles_,
-                ((bitField0_ & 0x00000100) == 0x00000100),
+                ((bitField0_ & 0x00000200) == 0x00000200),
                 getParentForChildren(),
                 isClean());
         subtitles_ = null;
