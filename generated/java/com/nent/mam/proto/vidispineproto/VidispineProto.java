@@ -119,37 +119,37 @@ public final class VidispineProto {
       ".KeyValue\"&\n\010KeyValue\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
       "lue\030\002 \001(\t\",\n\007ShapeIn\022\017\n\007item_id\030\001 \001(\t\022\020\n" +
       "\010shape_id\030\002 \001(\t\"0\n\010ShapeOut\022$\n\005shape\030\001 \001" +
-      "(\0132\025.vidispineproto.Shape\"\225\002\n\005Shape\022\017\n\007i" +
+      "(\0132\025.vidispineproto.Shape\"\227\002\n\005Shape\022\017\n\007i" +
       "tem_id\030\001 \001(\t\022\020\n\010shape_id\030\002 \001(\t\022\017\n\007versio" +
-      "n\030\003 \001(\005\022\r\n\005title\030\004 \001(\t\022\024\n\014org_filename\030\005" +
-      " \001(\t\022\014\n\004tags\030\006 \003(\t\022*\n\010metadata\030\007 \003(\0132\030.v" +
-      "idispineproto.KeyValue\022%\n\006videos\030\010 \003(\0132\025" +
-      ".vidispineproto.Video\022%\n\006audios\030\t \003(\0132\025." +
-      "vidispineproto.Audio\022+\n\tsubtitles\030\n \003(\0132" +
-      "\030.vidispineproto.Subtitle\"a\n\005Audio\022\n\n\002id" +
-      "\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rchannel_coun" +
-      "t\030\003 \001(\005\022#\n\005files\030\004 \003(\0132\024.vidispineproto." +
-      "File\"8\n\005Video\022\n\n\002id\030\001 \001(\t\022#\n\005files\030\002 \003(\013" +
-      "2\024.vidispineproto.File\"M\n\010Subtitle\022\n\n\002id" +
-      "\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022#\n\005files\030\003 \003(\0132" +
-      "\024.vidispineproto.File\"X\n\004File\022\n\n\002id\030\001 \001(" +
-      "\t\022\022\n\nstorage_id\030\002 \001(\t\022\024\n\014org_filename\030\003 " +
-      "\001(\t\022\014\n\004size\030\004 \001(\003\022\014\n\004hash\030\005 \001(\t\"\027\n\005JobIn" +
-      "\022\016\n\006job_id\030\001 \001(\t\"*\n\006JobOut\022 \n\003job\030\001 \001(\0132" +
-      "\023.vidispineproto.Job\"n\n\003Job\022\n\n\002id\030\001 \001(\t\022" +
-      "\014\n\004user\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022\014\n\004type\030\004 " +
-      "\001(\t\022\014\n\004prio\030\005 \001(\t\022\017\n\007started\030\006 \001(\003\022\020\n\010fi" +
-      "nished\030\007 \001(\003\";\n\010ExportIn\022\017\n\007item_id\030\001 \001(" +
-      "\t\022\020\n\010shape_id\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\033\n\tExp" +
-      "ortOut\022\016\n\006job_id\030\001 \001(\t2\211\002\n\tVidispine\0229\n\006" +
-      "GetJob\022\025.vidispineproto.JobIn\032\026.vidispin" +
-      "eproto.JobOut\"\000\022<\n\007GetItem\022\026.vidispinepr" +
-      "oto.ItemIn\032\027.vidispineproto.ItemOut\"\000\022?\n" +
-      "\010GetShape\022\027.vidispineproto.ShapeIn\032\030.vid" +
-      "ispineproto.ShapeOut\"\000\022B\n\tExportIMF\022\030.vi" +
-      "dispineproto.ExportIn\032\031.vidispineproto.E" +
-      "xportOut\"\000B5\n!com.nent.mam.proto.vidispi" +
-      "neprotoB\016VidispineProtoP\001b\006proto3"
+      "n\030\003 \001(\005\022\r\n\005title\030\004 \001(\t\022\026\n\016shape_filename" +
+      "\030\005 \001(\t\022\014\n\004tags\030\006 \003(\t\022*\n\010metadata\030\007 \003(\0132\030" +
+      ".vidispineproto.KeyValue\022%\n\006videos\030\010 \003(\013" +
+      "2\025.vidispineproto.Video\022%\n\006audios\030\t \003(\0132" +
+      "\025.vidispineproto.Audio\022+\n\tsubtitles\030\n \003(" +
+      "\0132\030.vidispineproto.Subtitle\"a\n\005Audio\022\n\n\002" +
+      "id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rchannel_co" +
+      "unt\030\003 \001(\005\022#\n\005files\030\004 \003(\0132\024.vidispineprot" +
+      "o.File\"8\n\005Video\022\n\n\002id\030\001 \001(\t\022#\n\005files\030\002 \003" +
+      "(\0132\024.vidispineproto.File\"M\n\010Subtitle\022\n\n\002" +
+      "id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022#\n\005files\030\003 \003(" +
+      "\0132\024.vidispineproto.File\"X\n\004File\022\n\n\002id\030\001 " +
+      "\001(\t\022\022\n\nstorage_id\030\002 \001(\t\022\024\n\014org_filename\030" +
+      "\003 \001(\t\022\014\n\004size\030\004 \001(\003\022\014\n\004hash\030\005 \001(\t\"\027\n\005Job" +
+      "In\022\016\n\006job_id\030\001 \001(\t\"*\n\006JobOut\022 \n\003job\030\001 \001(" +
+      "\0132\023.vidispineproto.Job\"n\n\003Job\022\n\n\002id\030\001 \001(" +
+      "\t\022\014\n\004user\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022\014\n\004type\030" +
+      "\004 \001(\t\022\014\n\004prio\030\005 \001(\t\022\017\n\007started\030\006 \001(\003\022\020\n\010" +
+      "finished\030\007 \001(\003\";\n\010ExportIn\022\017\n\007item_id\030\001 " +
+      "\001(\t\022\020\n\010shape_id\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\033\n\tE" +
+      "xportOut\022\016\n\006job_id\030\001 \001(\t2\211\002\n\tVidispine\0229" +
+      "\n\006GetJob\022\025.vidispineproto.JobIn\032\026.vidisp" +
+      "ineproto.JobOut\"\000\022<\n\007GetItem\022\026.vidispine" +
+      "proto.ItemIn\032\027.vidispineproto.ItemOut\"\000\022" +
+      "?\n\010GetShape\022\027.vidispineproto.ShapeIn\032\030.v" +
+      "idispineproto.ShapeOut\"\000\022B\n\tExportIMF\022\030." +
+      "vidispineproto.ExportIn\032\031.vidispineproto" +
+      ".ExportOut\"\000B5\n!com.nent.mam.proto.vidis" +
+      "pineprotoB\016VidispineProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -210,7 +210,7 @@ public final class VidispineProto {
     internal_static_vidispineproto_Shape_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_Shape_descriptor,
-        new java.lang.String[] { "ItemId", "ShapeId", "Version", "Title", "OrgFilename", "Tags", "Metadata", "Videos", "Audios", "Subtitles", });
+        new java.lang.String[] { "ItemId", "ShapeId", "Version", "Title", "ShapeFilename", "Tags", "Metadata", "Videos", "Audios", "Subtitles", });
     internal_static_vidispineproto_Audio_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_vidispineproto_Audio_fieldAccessorTable = new

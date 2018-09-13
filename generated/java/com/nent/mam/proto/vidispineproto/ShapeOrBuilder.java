@@ -43,14 +43,14 @@ public interface ShapeOrBuilder extends
       getTitleBytes();
 
   /**
-   * <code>string org_filename = 5;</code>
+   * <code>string shape_filename = 5;</code>
    */
-  java.lang.String getOrgFilename();
+  java.lang.String getShapeFilename();
   /**
-   * <code>string org_filename = 5;</code>
+   * <code>string shape_filename = 5;</code>
    */
   com.google.protobuf.ByteString
-      getOrgFilenameBytes();
+      getShapeFilenameBytes();
 
   /**
    * <code>repeated string tags = 6;</code>

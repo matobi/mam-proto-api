@@ -20,7 +20,7 @@ private static final long serialVersionUID = 0L;
     shapeId_ = "";
     version_ = 0;
     title_ = "";
-    orgFilename_ = "";
+    shapeFilename_ = "";
     tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     metadata_ = java.util.Collections.emptyList();
     videos_ = java.util.Collections.emptyList();
@@ -85,7 +85,7 @@ private static final long serialVersionUID = 0L;
           case 42: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            orgFilename_ = s;
+            shapeFilename_ = s;
             break;
           }
           case 50: {
@@ -284,34 +284,34 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ORG_FILENAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object orgFilename_;
+  public static final int SHAPE_FILENAME_FIELD_NUMBER = 5;
+  private volatile java.lang.Object shapeFilename_;
   /**
-   * <code>string org_filename = 5;</code>
+   * <code>string shape_filename = 5;</code>
    */
-  public java.lang.String getOrgFilename() {
-    java.lang.Object ref = orgFilename_;
+  public java.lang.String getShapeFilename() {
+    java.lang.Object ref = shapeFilename_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      orgFilename_ = s;
+      shapeFilename_ = s;
       return s;
     }
   }
   /**
-   * <code>string org_filename = 5;</code>
+   * <code>string shape_filename = 5;</code>
    */
   public com.google.protobuf.ByteString
-      getOrgFilenameBytes() {
-    java.lang.Object ref = orgFilename_;
+      getShapeFilenameBytes() {
+    java.lang.Object ref = shapeFilename_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      orgFilename_ = b;
+      shapeFilename_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -511,8 +511,8 @@ private static final long serialVersionUID = 0L;
     if (!getTitleBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, title_);
     }
-    if (!getOrgFilenameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, orgFilename_);
+    if (!getShapeFilenameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, shapeFilename_);
     }
     for (int i = 0; i < tags_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tags_.getRaw(i));
@@ -550,8 +550,8 @@ private static final long serialVersionUID = 0L;
     if (!getTitleBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, title_);
     }
-    if (!getOrgFilenameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, orgFilename_);
+    if (!getShapeFilenameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, shapeFilename_);
     }
     {
       int dataSize = 0;
@@ -601,8 +601,8 @@ private static final long serialVersionUID = 0L;
         == other.getVersion());
     result = result && getTitle()
         .equals(other.getTitle());
-    result = result && getOrgFilename()
-        .equals(other.getOrgFilename());
+    result = result && getShapeFilename()
+        .equals(other.getShapeFilename());
     result = result && getTagsList()
         .equals(other.getTagsList());
     result = result && getMetadataList()
@@ -632,8 +632,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getVersion();
     hash = (37 * hash) + TITLE_FIELD_NUMBER;
     hash = (53 * hash) + getTitle().hashCode();
-    hash = (37 * hash) + ORG_FILENAME_FIELD_NUMBER;
-    hash = (53 * hash) + getOrgFilename().hashCode();
+    hash = (37 * hash) + SHAPE_FILENAME_FIELD_NUMBER;
+    hash = (53 * hash) + getShapeFilename().hashCode();
     if (getTagsCount() > 0) {
       hash = (37 * hash) + TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getTagsList().hashCode();
@@ -795,7 +795,7 @@ private static final long serialVersionUID = 0L;
 
       title_ = "";
 
-      orgFilename_ = "";
+      shapeFilename_ = "";
 
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000020);
@@ -851,7 +851,7 @@ private static final long serialVersionUID = 0L;
       result.shapeId_ = shapeId_;
       result.version_ = version_;
       result.title_ = title_;
-      result.orgFilename_ = orgFilename_;
+      result.shapeFilename_ = shapeFilename_;
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         tags_ = tags_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -950,8 +950,8 @@ private static final long serialVersionUID = 0L;
         title_ = other.title_;
         onChanged();
       }
-      if (!other.getOrgFilename().isEmpty()) {
-        orgFilename_ = other.orgFilename_;
+      if (!other.getShapeFilename().isEmpty()) {
+        shapeFilename_ = other.shapeFilename_;
         onChanged();
       }
       if (!other.tags_.isEmpty()) {
@@ -1329,71 +1329,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object orgFilename_ = "";
+    private java.lang.Object shapeFilename_ = "";
     /**
-     * <code>string org_filename = 5;</code>
+     * <code>string shape_filename = 5;</code>
      */
-    public java.lang.String getOrgFilename() {
-      java.lang.Object ref = orgFilename_;
+    public java.lang.String getShapeFilename() {
+      java.lang.Object ref = shapeFilename_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        orgFilename_ = s;
+        shapeFilename_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string org_filename = 5;</code>
+     * <code>string shape_filename = 5;</code>
      */
     public com.google.protobuf.ByteString
-        getOrgFilenameBytes() {
-      java.lang.Object ref = orgFilename_;
+        getShapeFilenameBytes() {
+      java.lang.Object ref = shapeFilename_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        orgFilename_ = b;
+        shapeFilename_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string org_filename = 5;</code>
+     * <code>string shape_filename = 5;</code>
      */
-    public Builder setOrgFilename(
+    public Builder setShapeFilename(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      orgFilename_ = value;
+      shapeFilename_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string org_filename = 5;</code>
+     * <code>string shape_filename = 5;</code>
      */
-    public Builder clearOrgFilename() {
+    public Builder clearShapeFilename() {
       
-      orgFilename_ = getDefaultInstance().getOrgFilename();
+      shapeFilename_ = getDefaultInstance().getShapeFilename();
       onChanged();
       return this;
     }
     /**
-     * <code>string org_filename = 5;</code>
+     * <code>string shape_filename = 5;</code>
      */
-    public Builder setOrgFilenameBytes(
+    public Builder setShapeFilenameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      orgFilename_ = value;
+      shapeFilename_ = value;
       onChanged();
       return this;
     }

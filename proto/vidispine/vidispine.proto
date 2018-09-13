@@ -58,7 +58,7 @@ message Shape {
 	string shape_id = 2;
   int32 version = 3;
 	string title = 4;
-	string org_filename = 5;
+	string shape_filename = 5;
   repeated string tags = 6;
   repeated KeyValue metadata = 7; 
   repeated Video videos = 8;
