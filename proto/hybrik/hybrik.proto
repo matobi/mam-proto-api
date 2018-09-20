@@ -42,7 +42,7 @@ message RenditionsOut {
 message Rendition {
   string dir = 1;
   string filename = 2;
-  string filetype = 3;
+  string mediatype = 3;
 }
 
 //////////////////////

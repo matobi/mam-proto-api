@@ -28,12 +28,12 @@ public interface RenditionOrBuilder extends
       getFilenameBytes();
 
   /**
-   * <code>string filetype = 3;</code>
+   * <code>string mediatype = 3;</code>
    */
-  java.lang.String getFiletype();
+  java.lang.String getMediatype();
   /**
-   * <code>string filetype = 3;</code>
+   * <code>string mediatype = 3;</code>
    */
   com.google.protobuf.ByteString
-      getFiletypeBytes();
+      getMediatypeBytes();
 }

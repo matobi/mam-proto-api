@@ -18,7 +18,7 @@ private static final long serialVersionUID = 0L;
   private Rendition() {
     dir_ = "";
     filename_ = "";
-    filetype_ = "";
+    mediatype_ = "";
   }
 
   @java.lang.Override
@@ -67,7 +67,7 @@ private static final long serialVersionUID = 0L;
           case 26: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            filetype_ = s;
+            mediatype_ = s;
             break;
           }
         }
@@ -162,34 +162,34 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int FILETYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object filetype_;
+  public static final int MEDIATYPE_FIELD_NUMBER = 3;
+  private volatile java.lang.Object mediatype_;
   /**
-   * <code>string filetype = 3;</code>
+   * <code>string mediatype = 3;</code>
    */
-  public java.lang.String getFiletype() {
-    java.lang.Object ref = filetype_;
+  public java.lang.String getMediatype() {
+    java.lang.Object ref = mediatype_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      filetype_ = s;
+      mediatype_ = s;
       return s;
     }
   }
   /**
-   * <code>string filetype = 3;</code>
+   * <code>string mediatype = 3;</code>
    */
   public com.google.protobuf.ByteString
-      getFiletypeBytes() {
-    java.lang.Object ref = filetype_;
+      getMediatypeBytes() {
+    java.lang.Object ref = mediatype_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      filetype_ = b;
+      mediatype_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -214,8 +214,8 @@ private static final long serialVersionUID = 0L;
     if (!getFilenameBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, filename_);
     }
-    if (!getFiletypeBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, filetype_);
+    if (!getMediatypeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, mediatype_);
     }
     unknownFields.writeTo(output);
   }
@@ -231,8 +231,8 @@ private static final long serialVersionUID = 0L;
     if (!getFilenameBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, filename_);
     }
-    if (!getFiletypeBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, filetype_);
+    if (!getMediatypeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, mediatype_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -254,8 +254,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDir());
     result = result && getFilename()
         .equals(other.getFilename());
-    result = result && getFiletype()
-        .equals(other.getFiletype());
+    result = result && getMediatype()
+        .equals(other.getMediatype());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -271,8 +271,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDir().hashCode();
     hash = (37 * hash) + FILENAME_FIELD_NUMBER;
     hash = (53 * hash) + getFilename().hashCode();
-    hash = (37 * hash) + FILETYPE_FIELD_NUMBER;
-    hash = (53 * hash) + getFiletype().hashCode();
+    hash = (37 * hash) + MEDIATYPE_FIELD_NUMBER;
+    hash = (53 * hash) + getMediatype().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -406,7 +406,7 @@ private static final long serialVersionUID = 0L;
 
       filename_ = "";
 
-      filetype_ = "";
+      mediatype_ = "";
 
       return this;
     }
@@ -432,7 +432,7 @@ private static final long serialVersionUID = 0L;
       com.nent.mam.proto.hybrikproto.Rendition result = new com.nent.mam.proto.hybrikproto.Rendition(this);
       result.dir_ = dir_;
       result.filename_ = filename_;
-      result.filetype_ = filetype_;
+      result.mediatype_ = mediatype_;
       onBuilt();
       return result;
     }
@@ -482,8 +482,8 @@ private static final long serialVersionUID = 0L;
         filename_ = other.filename_;
         onChanged();
       }
-      if (!other.getFiletype().isEmpty()) {
-        filetype_ = other.filetype_;
+      if (!other.getMediatype().isEmpty()) {
+        mediatype_ = other.mediatype_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -651,71 +651,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object filetype_ = "";
+    private java.lang.Object mediatype_ = "";
     /**
-     * <code>string filetype = 3;</code>
+     * <code>string mediatype = 3;</code>
      */
-    public java.lang.String getFiletype() {
-      java.lang.Object ref = filetype_;
+    public java.lang.String getMediatype() {
+      java.lang.Object ref = mediatype_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        filetype_ = s;
+        mediatype_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string filetype = 3;</code>
+     * <code>string mediatype = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getFiletypeBytes() {
-      java.lang.Object ref = filetype_;
+        getMediatypeBytes() {
+      java.lang.Object ref = mediatype_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        filetype_ = b;
+        mediatype_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string filetype = 3;</code>
+     * <code>string mediatype = 3;</code>
      */
-    public Builder setFiletype(
+    public Builder setMediatype(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      filetype_ = value;
+      mediatype_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string filetype = 3;</code>
+     * <code>string mediatype = 3;</code>
      */
-    public Builder clearFiletype() {
+    public Builder clearMediatype() {
       
-      filetype_ = getDefaultInstance().getFiletype();
+      mediatype_ = getDefaultInstance().getMediatype();
       onChanged();
       return this;
     }
     /**
-     * <code>string filetype = 3;</code>
+     * <code>string mediatype = 3;</code>
      */
-    public Builder setFiletypeBytes(
+    public Builder setMediatypeBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      filetype_ = value;
+      mediatype_ = value;
       onChanged();
       return this;
     }

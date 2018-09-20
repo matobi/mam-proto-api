@@ -70,17 +70,17 @@ public final class HybrikProto {
       "\020\n\010finished\030\005 \001(\003\022\020\n\010progress\030\006 \001(\005\"\036\n\014R" +
       "enditionsIn\022\016\n\006job_id\030\001 \001(\t\";\n\rRendition" +
       "sOut\022*\n\nrenditions\030\001 \003(\0132\026.hybrikproto.R" +
-      "endition\"<\n\tRendition\022\013\n\003dir\030\001 \001(\t\022\020\n\010fi" +
-      "lename\030\002 \001(\t\022\020\n\010filetype\030\003 \001(\t\":\n\013Create" +
-      "JobIn\022\013\n\003dir\030\001 \001(\t\022\014\n\004file\030\002 \001(\t\022\020\n\010hous" +
-      "e_id\030\003 \001(\t\"\036\n\014CreateJobOut\022\016\n\006job_id\030\001 \001" +
-      "(\t2\313\001\n\006Hybrik\0223\n\006GetJob\022\022.hybrikproto.Jo" +
-      "bIn\032\023.hybrikproto.JobOut\"\000\022H\n\rGetRenditi" +
-      "ons\022\031.hybrikproto.RenditionsIn\032\032.hybrikp" +
-      "roto.RenditionsOut\"\000\022B\n\tCreateJob\022\030.hybr" +
-      "ikproto.CreateJobIn\032\031.hybrikproto.Create" +
-      "JobOut\"\000B/\n\036com.nent.mam.proto.hybrikpro" +
-      "toB\013HybrikProtoP\001b\006proto3"
+      "endition\"=\n\tRendition\022\013\n\003dir\030\001 \001(\t\022\020\n\010fi" +
+      "lename\030\002 \001(\t\022\021\n\tmediatype\030\003 \001(\t\":\n\013Creat" +
+      "eJobIn\022\013\n\003dir\030\001 \001(\t\022\014\n\004file\030\002 \001(\t\022\020\n\010hou" +
+      "se_id\030\003 \001(\t\"\036\n\014CreateJobOut\022\016\n\006job_id\030\001 " +
+      "\001(\t2\313\001\n\006Hybrik\0223\n\006GetJob\022\022.hybrikproto.J" +
+      "obIn\032\023.hybrikproto.JobOut\"\000\022H\n\rGetRendit" +
+      "ions\022\031.hybrikproto.RenditionsIn\032\032.hybrik" +
+      "proto.RenditionsOut\"\000\022B\n\tCreateJob\022\030.hyb" +
+      "rikproto.CreateJobIn\032\031.hybrikproto.Creat" +
+      "eJobOut\"\000B/\n\036com.nent.mam.proto.hybrikpr" +
+      "otoB\013HybrikProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -129,7 +129,7 @@ public final class HybrikProto {
     internal_static_hybrikproto_Rendition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hybrikproto_Rendition_descriptor,
-        new java.lang.String[] { "Dir", "Filename", "Filetype", });
+        new java.lang.String[] { "Dir", "Filename", "Mediatype", });
     internal_static_hybrikproto_CreateJobIn_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_hybrikproto_CreateJobIn_fieldAccessorTable = new
