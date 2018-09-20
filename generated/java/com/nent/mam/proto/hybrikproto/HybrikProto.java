@@ -30,6 +30,21 @@ public final class HybrikProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_hybrikproto_Job_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hybrikproto_RenditionsIn_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hybrikproto_RenditionsIn_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hybrikproto_RenditionsOut_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hybrikproto_RenditionsOut_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_hybrikproto_Rendition_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_hybrikproto_Rendition_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_hybrikproto_CreateJobIn_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -52,14 +67,20 @@ public final class HybrikProto {
       "job_id\030\001 \001(\t\"\'\n\006JobOut\022\035\n\003job\030\001 \001(\0132\020.hy" +
       "brikproto.Job\"d\n\003Job\022\n\n\002id\030\001 \001(\t\022\014\n\004name" +
       "\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022\017\n\007started\030\004 \001(\003\022" +
-      "\020\n\010finished\030\005 \001(\003\022\020\n\010progress\030\006 \001(\005\":\n\013C" +
-      "reateJobIn\022\013\n\003dir\030\001 \001(\t\022\014\n\004file\030\002 \001(\t\022\020\n" +
-      "\010house_id\030\003 \001(\t\"\036\n\014CreateJobOut\022\016\n\006job_i" +
-      "d\030\001 \001(\t2\201\001\n\006Hybrik\0223\n\006GetJob\022\022.hybrikpro" +
-      "to.JobIn\032\023.hybrikproto.JobOut\"\000\022B\n\tCreat" +
-      "eJob\022\030.hybrikproto.CreateJobIn\032\031.hybrikp" +
-      "roto.CreateJobOut\"\000B/\n\036com.nent.mam.prot" +
-      "o.hybrikprotoB\013HybrikProtoP\001b\006proto3"
+      "\020\n\010finished\030\005 \001(\003\022\020\n\010progress\030\006 \001(\005\"\036\n\014R" +
+      "enditionsIn\022\016\n\006job_id\030\001 \001(\t\";\n\rRendition" +
+      "sOut\022*\n\nrenditions\030\001 \003(\0132\026.hybrikproto.R" +
+      "endition\"<\n\tRendition\022\013\n\003dir\030\001 \001(\t\022\020\n\010fi" +
+      "lename\030\002 \001(\t\022\020\n\010filetype\030\003 \001(\t\":\n\013Create" +
+      "JobIn\022\013\n\003dir\030\001 \001(\t\022\014\n\004file\030\002 \001(\t\022\020\n\010hous" +
+      "e_id\030\003 \001(\t\"\036\n\014CreateJobOut\022\016\n\006job_id\030\001 \001" +
+      "(\t2\313\001\n\006Hybrik\0223\n\006GetJob\022\022.hybrikproto.Jo" +
+      "bIn\032\023.hybrikproto.JobOut\"\000\022H\n\rGetRenditi" +
+      "ons\022\031.hybrikproto.RenditionsIn\032\032.hybrikp" +
+      "roto.RenditionsOut\"\000\022B\n\tCreateJob\022\030.hybr" +
+      "ikproto.CreateJobIn\032\031.hybrikproto.Create" +
+      "JobOut\"\000B/\n\036com.nent.mam.proto.hybrikpro" +
+      "toB\013HybrikProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -91,14 +112,32 @@ public final class HybrikProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hybrikproto_Job_descriptor,
         new java.lang.String[] { "Id", "Name", "Status", "Started", "Finished", "Progress", });
-    internal_static_hybrikproto_CreateJobIn_descriptor =
+    internal_static_hybrikproto_RenditionsIn_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_hybrikproto_RenditionsIn_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hybrikproto_RenditionsIn_descriptor,
+        new java.lang.String[] { "JobId", });
+    internal_static_hybrikproto_RenditionsOut_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_hybrikproto_RenditionsOut_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hybrikproto_RenditionsOut_descriptor,
+        new java.lang.String[] { "Renditions", });
+    internal_static_hybrikproto_Rendition_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_hybrikproto_Rendition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_hybrikproto_Rendition_descriptor,
+        new java.lang.String[] { "Dir", "Filename", "Filetype", });
+    internal_static_hybrikproto_CreateJobIn_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_hybrikproto_CreateJobIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hybrikproto_CreateJobIn_descriptor,
         new java.lang.String[] { "Dir", "File", "HouseId", });
     internal_static_hybrikproto_CreateJobOut_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_hybrikproto_CreateJobOut_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hybrikproto_CreateJobOut_descriptor,

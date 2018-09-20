@@ -8,6 +8,7 @@ option java_outer_classname = "HybrikProto";
 
 service Hybrik {
   rpc GetJob(JobIn) returns (JobOut) {}
+  rpc GetRenditions(RenditionsIn) returns (RenditionsOut) {}
   rpc CreateJob(CreateJobIn) returns (CreateJobOut) {}
 }
 
@@ -26,6 +27,22 @@ message Job {
   int64 started = 4;
   int64 finished = 5;
   int32 progress = 6;
+}
+
+//////////////////////
+
+message RenditionsIn {
+  string job_id = 1;
+}
+
+message RenditionsOut {
+  repeated Rendition renditions = 1;
+}
+
+message Rendition {
+  string dir = 1;
+  string filename = 2;
+  string filetype = 3;
 }
 
 //////////////////////
