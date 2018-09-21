@@ -16,9 +16,11 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ImportRenditionIn() {
-    itemId_ = "";
+    orgItemId_ = "";
+    orgShapeId_ = "";
+    orgVersion_ = 0;
+    packageName_ = "";
     files_ = java.util.Collections.emptyList();
-    metadata_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -55,25 +57,33 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            itemId_ = s;
+            orgItemId_ = s;
             break;
           }
           case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            orgShapeId_ = s;
+            break;
+          }
+          case 24: {
+
+            orgVersion_ = input.readInt32();
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            packageName_ = s;
+            break;
+          }
+          case 42: {
+            if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
               files_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.RenditionFile>();
-              mutable_bitField0_ |= 0x00000002;
+              mutable_bitField0_ |= 0x00000010;
             }
             files_.add(
                 input.readMessage(com.nent.mam.proto.vidispineproto.RenditionFile.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-              metadata_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.KeyValue>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            metadata_.add(
-                input.readMessage(com.nent.mam.proto.vidispineproto.KeyValue.parser(), extensionRegistry));
             break;
           }
         }
@@ -84,11 +94,8 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
         files_ = java.util.Collections.unmodifiableList(files_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-        metadata_ = java.util.Collections.unmodifiableList(metadata_);
       }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
@@ -107,108 +114,170 @@ private static final long serialVersionUID = 0L;
   }
 
   private int bitField0_;
-  public static final int ITEM_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object itemId_;
+  public static final int ORG_ITEM_ID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object orgItemId_;
   /**
-   * <code>string item_id = 1;</code>
+   * <code>string org_item_id = 1;</code>
    */
-  public java.lang.String getItemId() {
-    java.lang.Object ref = itemId_;
+  public java.lang.String getOrgItemId() {
+    java.lang.Object ref = orgItemId_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      itemId_ = s;
+      orgItemId_ = s;
       return s;
     }
   }
   /**
-   * <code>string item_id = 1;</code>
+   * <code>string org_item_id = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getItemIdBytes() {
-    java.lang.Object ref = itemId_;
+      getOrgItemIdBytes() {
+    java.lang.Object ref = orgItemId_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      itemId_ = b;
+      orgItemId_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int FILES_FIELD_NUMBER = 2;
+  public static final int ORG_SHAPE_ID_FIELD_NUMBER = 2;
+  private volatile java.lang.Object orgShapeId_;
+  /**
+   * <code>string org_shape_id = 2;</code>
+   */
+  public java.lang.String getOrgShapeId() {
+    java.lang.Object ref = orgShapeId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      orgShapeId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string org_shape_id = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getOrgShapeIdBytes() {
+    java.lang.Object ref = orgShapeId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      orgShapeId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ORG_VERSION_FIELD_NUMBER = 3;
+  private int orgVersion_;
+  /**
+   * <code>int32 org_version = 3;</code>
+   */
+  public int getOrgVersion() {
+    return orgVersion_;
+  }
+
+  public static final int PACKAGE_NAME_FIELD_NUMBER = 4;
+  private volatile java.lang.Object packageName_;
+  /**
+   * <code>string package_name = 4;</code>
+   */
+  public java.lang.String getPackageName() {
+    java.lang.Object ref = packageName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      packageName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string package_name = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getPackageNameBytes() {
+    java.lang.Object ref = packageName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      packageName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int FILES_FIELD_NUMBER = 5;
   private java.util.List<com.nent.mam.proto.vidispineproto.RenditionFile> files_;
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   public java.util.List<com.nent.mam.proto.vidispineproto.RenditionFile> getFilesList() {
     return files_;
   }
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   public java.util.List<? extends com.nent.mam.proto.vidispineproto.RenditionFileOrBuilder> 
       getFilesOrBuilderList() {
     return files_;
   }
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   public int getFilesCount() {
     return files_.size();
   }
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   public com.nent.mam.proto.vidispineproto.RenditionFile getFiles(int index) {
     return files_.get(index);
   }
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   public com.nent.mam.proto.vidispineproto.RenditionFileOrBuilder getFilesOrBuilder(
       int index) {
     return files_.get(index);
-  }
-
-  public static final int METADATA_FIELD_NUMBER = 3;
-  private java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> metadata_;
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> getMetadataList() {
-    return metadata_;
-  }
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  public java.util.List<? extends com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
-      getMetadataOrBuilderList() {
-    return metadata_;
-  }
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  public int getMetadataCount() {
-    return metadata_.size();
-  }
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  public com.nent.mam.proto.vidispineproto.KeyValue getMetadata(int index) {
-    return metadata_.get(index);
-  }
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  public com.nent.mam.proto.vidispineproto.KeyValueOrBuilder getMetadataOrBuilder(
-      int index) {
-    return metadata_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -223,14 +292,20 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getItemIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, itemId_);
+    if (!getOrgItemIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, orgItemId_);
+    }
+    if (!getOrgShapeIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, orgShapeId_);
+    }
+    if (orgVersion_ != 0) {
+      output.writeInt32(3, orgVersion_);
+    }
+    if (!getPackageNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, packageName_);
     }
     for (int i = 0; i < files_.size(); i++) {
-      output.writeMessage(2, files_.get(i));
-    }
-    for (int i = 0; i < metadata_.size(); i++) {
-      output.writeMessage(3, metadata_.get(i));
+      output.writeMessage(5, files_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -240,16 +315,22 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getItemIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, itemId_);
+    if (!getOrgItemIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, orgItemId_);
+    }
+    if (!getOrgShapeIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, orgShapeId_);
+    }
+    if (orgVersion_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, orgVersion_);
+    }
+    if (!getPackageNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, packageName_);
     }
     for (int i = 0; i < files_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(2, files_.get(i));
-    }
-    for (int i = 0; i < metadata_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(3, metadata_.get(i));
+        .computeMessageSize(5, files_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -267,12 +348,16 @@ private static final long serialVersionUID = 0L;
     com.nent.mam.proto.vidispineproto.ImportRenditionIn other = (com.nent.mam.proto.vidispineproto.ImportRenditionIn) obj;
 
     boolean result = true;
-    result = result && getItemId()
-        .equals(other.getItemId());
+    result = result && getOrgItemId()
+        .equals(other.getOrgItemId());
+    result = result && getOrgShapeId()
+        .equals(other.getOrgShapeId());
+    result = result && (getOrgVersion()
+        == other.getOrgVersion());
+    result = result && getPackageName()
+        .equals(other.getPackageName());
     result = result && getFilesList()
         .equals(other.getFilesList());
-    result = result && getMetadataList()
-        .equals(other.getMetadataList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -284,15 +369,17 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + ITEM_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getItemId().hashCode();
+    hash = (37 * hash) + ORG_ITEM_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getOrgItemId().hashCode();
+    hash = (37 * hash) + ORG_SHAPE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getOrgShapeId().hashCode();
+    hash = (37 * hash) + ORG_VERSION_FIELD_NUMBER;
+    hash = (53 * hash) + getOrgVersion();
+    hash = (37 * hash) + PACKAGE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getPackageName().hashCode();
     if (getFilesCount() > 0) {
       hash = (37 * hash) + FILES_FIELD_NUMBER;
       hash = (53 * hash) + getFilesList().hashCode();
-    }
-    if (getMetadataCount() > 0) {
-      hash = (37 * hash) + METADATA_FIELD_NUMBER;
-      hash = (53 * hash) + getMetadataList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -420,24 +507,23 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getFilesFieldBuilder();
-        getMetadataFieldBuilder();
       }
     }
     public Builder clear() {
       super.clear();
-      itemId_ = "";
+      orgItemId_ = "";
+
+      orgShapeId_ = "";
+
+      orgVersion_ = 0;
+
+      packageName_ = "";
 
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
         filesBuilder_.clear();
-      }
-      if (metadataBuilder_ == null) {
-        metadata_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      } else {
-        metadataBuilder_.clear();
       }
       return this;
     }
@@ -463,24 +549,18 @@ private static final long serialVersionUID = 0L;
       com.nent.mam.proto.vidispineproto.ImportRenditionIn result = new com.nent.mam.proto.vidispineproto.ImportRenditionIn(this);
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
-      result.itemId_ = itemId_;
+      result.orgItemId_ = orgItemId_;
+      result.orgShapeId_ = orgShapeId_;
+      result.orgVersion_ = orgVersion_;
+      result.packageName_ = packageName_;
       if (filesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
           files_ = java.util.Collections.unmodifiableList(files_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.files_ = files_;
       } else {
         result.files_ = filesBuilder_.build();
-      }
-      if (metadataBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          metadata_ = java.util.Collections.unmodifiableList(metadata_);
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.metadata_ = metadata_;
-      } else {
-        result.metadata_ = metadataBuilder_.build();
       }
       result.bitField0_ = to_bitField0_;
       onBuilt();
@@ -524,15 +604,26 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.nent.mam.proto.vidispineproto.ImportRenditionIn other) {
       if (other == com.nent.mam.proto.vidispineproto.ImportRenditionIn.getDefaultInstance()) return this;
-      if (!other.getItemId().isEmpty()) {
-        itemId_ = other.itemId_;
+      if (!other.getOrgItemId().isEmpty()) {
+        orgItemId_ = other.orgItemId_;
+        onChanged();
+      }
+      if (!other.getOrgShapeId().isEmpty()) {
+        orgShapeId_ = other.orgShapeId_;
+        onChanged();
+      }
+      if (other.getOrgVersion() != 0) {
+        setOrgVersion(other.getOrgVersion());
+      }
+      if (!other.getPackageName().isEmpty()) {
+        packageName_ = other.packageName_;
         onChanged();
       }
       if (filesBuilder_ == null) {
         if (!other.files_.isEmpty()) {
           if (files_.isEmpty()) {
             files_ = other.files_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureFilesIsMutable();
             files_.addAll(other.files_);
@@ -545,38 +636,12 @@ private static final long serialVersionUID = 0L;
             filesBuilder_.dispose();
             filesBuilder_ = null;
             files_ = other.files_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             filesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFilesFieldBuilder() : null;
           } else {
             filesBuilder_.addAllMessages(other.files_);
-          }
-        }
-      }
-      if (metadataBuilder_ == null) {
-        if (!other.metadata_.isEmpty()) {
-          if (metadata_.isEmpty()) {
-            metadata_ = other.metadata_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureMetadataIsMutable();
-            metadata_.addAll(other.metadata_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.metadata_.isEmpty()) {
-          if (metadataBuilder_.isEmpty()) {
-            metadataBuilder_.dispose();
-            metadataBuilder_ = null;
-            metadata_ = other.metadata_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-            metadataBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getMetadataFieldBuilder() : null;
-          } else {
-            metadataBuilder_.addAllMessages(other.metadata_);
           }
         }
       }
@@ -608,71 +673,235 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object itemId_ = "";
+    private java.lang.Object orgItemId_ = "";
     /**
-     * <code>string item_id = 1;</code>
+     * <code>string org_item_id = 1;</code>
      */
-    public java.lang.String getItemId() {
-      java.lang.Object ref = itemId_;
+    public java.lang.String getOrgItemId() {
+      java.lang.Object ref = orgItemId_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        itemId_ = s;
+        orgItemId_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string item_id = 1;</code>
+     * <code>string org_item_id = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getItemIdBytes() {
-      java.lang.Object ref = itemId_;
+        getOrgItemIdBytes() {
+      java.lang.Object ref = orgItemId_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        itemId_ = b;
+        orgItemId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string item_id = 1;</code>
+     * <code>string org_item_id = 1;</code>
      */
-    public Builder setItemId(
+    public Builder setOrgItemId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      itemId_ = value;
+      orgItemId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string item_id = 1;</code>
+     * <code>string org_item_id = 1;</code>
      */
-    public Builder clearItemId() {
+    public Builder clearOrgItemId() {
       
-      itemId_ = getDefaultInstance().getItemId();
+      orgItemId_ = getDefaultInstance().getOrgItemId();
       onChanged();
       return this;
     }
     /**
-     * <code>string item_id = 1;</code>
+     * <code>string org_item_id = 1;</code>
      */
-    public Builder setItemIdBytes(
+    public Builder setOrgItemIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      itemId_ = value;
+      orgItemId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object orgShapeId_ = "";
+    /**
+     * <code>string org_shape_id = 2;</code>
+     */
+    public java.lang.String getOrgShapeId() {
+      java.lang.Object ref = orgShapeId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        orgShapeId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string org_shape_id = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getOrgShapeIdBytes() {
+      java.lang.Object ref = orgShapeId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        orgShapeId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string org_shape_id = 2;</code>
+     */
+    public Builder setOrgShapeId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      orgShapeId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string org_shape_id = 2;</code>
+     */
+    public Builder clearOrgShapeId() {
+      
+      orgShapeId_ = getDefaultInstance().getOrgShapeId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string org_shape_id = 2;</code>
+     */
+    public Builder setOrgShapeIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      orgShapeId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int orgVersion_ ;
+    /**
+     * <code>int32 org_version = 3;</code>
+     */
+    public int getOrgVersion() {
+      return orgVersion_;
+    }
+    /**
+     * <code>int32 org_version = 3;</code>
+     */
+    public Builder setOrgVersion(int value) {
+      
+      orgVersion_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 org_version = 3;</code>
+     */
+    public Builder clearOrgVersion() {
+      
+      orgVersion_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object packageName_ = "";
+    /**
+     * <code>string package_name = 4;</code>
+     */
+    public java.lang.String getPackageName() {
+      java.lang.Object ref = packageName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        packageName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string package_name = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPackageNameBytes() {
+      java.lang.Object ref = packageName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        packageName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string package_name = 4;</code>
+     */
+    public Builder setPackageName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      packageName_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string package_name = 4;</code>
+     */
+    public Builder clearPackageName() {
+      
+      packageName_ = getDefaultInstance().getPackageName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string package_name = 4;</code>
+     */
+    public Builder setPackageNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      packageName_ = value;
       onChanged();
       return this;
     }
@@ -680,9 +909,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.nent.mam.proto.vidispineproto.RenditionFile> files_ =
       java.util.Collections.emptyList();
     private void ensureFilesIsMutable() {
-      if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (!((bitField0_ & 0x00000010) == 0x00000010)) {
         files_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.RenditionFile>(files_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -690,7 +919,11 @@ private static final long serialVersionUID = 0L;
         com.nent.mam.proto.vidispineproto.RenditionFile, com.nent.mam.proto.vidispineproto.RenditionFile.Builder, com.nent.mam.proto.vidispineproto.RenditionFileOrBuilder> filesBuilder_;
 
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.RenditionFile> getFilesList() {
       if (filesBuilder_ == null) {
@@ -700,7 +933,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public int getFilesCount() {
       if (filesBuilder_ == null) {
@@ -710,7 +947,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public com.nent.mam.proto.vidispineproto.RenditionFile getFiles(int index) {
       if (filesBuilder_ == null) {
@@ -720,7 +961,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder setFiles(
         int index, com.nent.mam.proto.vidispineproto.RenditionFile value) {
@@ -737,7 +982,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder setFiles(
         int index, com.nent.mam.proto.vidispineproto.RenditionFile.Builder builderForValue) {
@@ -751,7 +1000,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder addFiles(com.nent.mam.proto.vidispineproto.RenditionFile value) {
       if (filesBuilder_ == null) {
@@ -767,7 +1020,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder addFiles(
         int index, com.nent.mam.proto.vidispineproto.RenditionFile value) {
@@ -784,7 +1041,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder addFiles(
         com.nent.mam.proto.vidispineproto.RenditionFile.Builder builderForValue) {
@@ -798,7 +1059,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder addFiles(
         int index, com.nent.mam.proto.vidispineproto.RenditionFile.Builder builderForValue) {
@@ -812,7 +1077,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder addAllFiles(
         java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.RenditionFile> values) {
@@ -827,12 +1096,16 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder clearFiles() {
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         filesBuilder_.clear();
@@ -840,7 +1113,11 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public Builder removeFiles(int index) {
       if (filesBuilder_ == null) {
@@ -853,14 +1130,22 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public com.nent.mam.proto.vidispineproto.RenditionFile.Builder getFilesBuilder(
         int index) {
       return getFilesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public com.nent.mam.proto.vidispineproto.RenditionFileOrBuilder getFilesOrBuilder(
         int index) {
@@ -870,7 +1155,11 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public java.util.List<? extends com.nent.mam.proto.vidispineproto.RenditionFileOrBuilder> 
          getFilesOrBuilderList() {
@@ -881,14 +1170,22 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public com.nent.mam.proto.vidispineproto.RenditionFile.Builder addFilesBuilder() {
       return getFilesFieldBuilder().addBuilder(
           com.nent.mam.proto.vidispineproto.RenditionFile.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public com.nent.mam.proto.vidispineproto.RenditionFile.Builder addFilesBuilder(
         int index) {
@@ -896,7 +1193,11 @@ private static final long serialVersionUID = 0L;
           index, com.nent.mam.proto.vidispineproto.RenditionFile.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+     * <pre>
+     *repeated KeyValue metadata = 3;
+     * </pre>
+     *
+     * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.RenditionFile.Builder> 
          getFilesBuilderList() {
@@ -909,252 +1210,12 @@ private static final long serialVersionUID = 0L;
         filesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.nent.mam.proto.vidispineproto.RenditionFile, com.nent.mam.proto.vidispineproto.RenditionFile.Builder, com.nent.mam.proto.vidispineproto.RenditionFileOrBuilder>(
                 files_,
-                ((bitField0_ & 0x00000002) == 0x00000002),
+                ((bitField0_ & 0x00000010) == 0x00000010),
                 getParentForChildren(),
                 isClean());
         files_ = null;
       }
       return filesBuilder_;
-    }
-
-    private java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> metadata_ =
-      java.util.Collections.emptyList();
-    private void ensureMetadataIsMutable() {
-      if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-        metadata_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.KeyValue>(metadata_);
-        bitField0_ |= 0x00000004;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> metadataBuilder_;
-
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> getMetadataList() {
-      if (metadataBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(metadata_);
-      } else {
-        return metadataBuilder_.getMessageList();
-      }
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public int getMetadataCount() {
-      if (metadataBuilder_ == null) {
-        return metadata_.size();
-      } else {
-        return metadataBuilder_.getCount();
-      }
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public com.nent.mam.proto.vidispineproto.KeyValue getMetadata(int index) {
-      if (metadataBuilder_ == null) {
-        return metadata_.get(index);
-      } else {
-        return metadataBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder setMetadata(
-        int index, com.nent.mam.proto.vidispineproto.KeyValue value) {
-      if (metadataBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureMetadataIsMutable();
-        metadata_.set(index, value);
-        onChanged();
-      } else {
-        metadataBuilder_.setMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder setMetadata(
-        int index, com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
-      if (metadataBuilder_ == null) {
-        ensureMetadataIsMutable();
-        metadata_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        metadataBuilder_.setMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder addMetadata(com.nent.mam.proto.vidispineproto.KeyValue value) {
-      if (metadataBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureMetadataIsMutable();
-        metadata_.add(value);
-        onChanged();
-      } else {
-        metadataBuilder_.addMessage(value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder addMetadata(
-        int index, com.nent.mam.proto.vidispineproto.KeyValue value) {
-      if (metadataBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureMetadataIsMutable();
-        metadata_.add(index, value);
-        onChanged();
-      } else {
-        metadataBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder addMetadata(
-        com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
-      if (metadataBuilder_ == null) {
-        ensureMetadataIsMutable();
-        metadata_.add(builderForValue.build());
-        onChanged();
-      } else {
-        metadataBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder addMetadata(
-        int index, com.nent.mam.proto.vidispineproto.KeyValue.Builder builderForValue) {
-      if (metadataBuilder_ == null) {
-        ensureMetadataIsMutable();
-        metadata_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        metadataBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder addAllMetadata(
-        java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.KeyValue> values) {
-      if (metadataBuilder_ == null) {
-        ensureMetadataIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, metadata_);
-        onChanged();
-      } else {
-        metadataBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder clearMetadata() {
-      if (metadataBuilder_ == null) {
-        metadata_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-      } else {
-        metadataBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public Builder removeMetadata(int index) {
-      if (metadataBuilder_ == null) {
-        ensureMetadataIsMutable();
-        metadata_.remove(index);
-        onChanged();
-      } else {
-        metadataBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public com.nent.mam.proto.vidispineproto.KeyValue.Builder getMetadataBuilder(
-        int index) {
-      return getMetadataFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public com.nent.mam.proto.vidispineproto.KeyValueOrBuilder getMetadataOrBuilder(
-        int index) {
-      if (metadataBuilder_ == null) {
-        return metadata_.get(index);  } else {
-        return metadataBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public java.util.List<? extends com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
-         getMetadataOrBuilderList() {
-      if (metadataBuilder_ != null) {
-        return metadataBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(metadata_);
-      }
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public com.nent.mam.proto.vidispineproto.KeyValue.Builder addMetadataBuilder() {
-      return getMetadataFieldBuilder().addBuilder(
-          com.nent.mam.proto.vidispineproto.KeyValue.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public com.nent.mam.proto.vidispineproto.KeyValue.Builder addMetadataBuilder(
-        int index) {
-      return getMetadataFieldBuilder().addBuilder(
-          index, com.nent.mam.proto.vidispineproto.KeyValue.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-     */
-    public java.util.List<com.nent.mam.proto.vidispineproto.KeyValue.Builder> 
-         getMetadataBuilderList() {
-      return getMetadataFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
-        getMetadataFieldBuilder() {
-      if (metadataBuilder_ == null) {
-        metadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            com.nent.mam.proto.vidispineproto.KeyValue, com.nent.mam.proto.vidispineproto.KeyValue.Builder, com.nent.mam.proto.vidispineproto.KeyValueOrBuilder>(
-                metadata_,
-                ((bitField0_ & 0x00000004) == 0x00000004),
-                getParentForChildren(),
-                isClean());
-        metadata_ = null;
-      }
-      return metadataBuilder_;
     }
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {

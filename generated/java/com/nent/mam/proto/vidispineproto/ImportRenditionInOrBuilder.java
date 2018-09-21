@@ -8,60 +8,81 @@ public interface ImportRenditionInOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string item_id = 1;</code>
+   * <code>string org_item_id = 1;</code>
    */
-  java.lang.String getItemId();
+  java.lang.String getOrgItemId();
   /**
-   * <code>string item_id = 1;</code>
+   * <code>string org_item_id = 1;</code>
    */
   com.google.protobuf.ByteString
-      getItemIdBytes();
+      getOrgItemIdBytes();
 
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <code>string org_shape_id = 2;</code>
+   */
+  java.lang.String getOrgShapeId();
+  /**
+   * <code>string org_shape_id = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getOrgShapeIdBytes();
+
+  /**
+   * <code>int32 org_version = 3;</code>
+   */
+  int getOrgVersion();
+
+  /**
+   * <code>string package_name = 4;</code>
+   */
+  java.lang.String getPackageName();
+  /**
+   * <code>string package_name = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getPackageNameBytes();
+
+  /**
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   java.util.List<com.nent.mam.proto.vidispineproto.RenditionFile> 
       getFilesList();
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   com.nent.mam.proto.vidispineproto.RenditionFile getFiles(int index);
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   int getFilesCount();
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   java.util.List<? extends com.nent.mam.proto.vidispineproto.RenditionFileOrBuilder> 
       getFilesOrBuilderList();
   /**
-   * <code>repeated .vidispineproto.RenditionFile files = 2;</code>
+   * <pre>
+   *repeated KeyValue metadata = 3;
+   * </pre>
+   *
+   * <code>repeated .vidispineproto.RenditionFile files = 5;</code>
    */
   com.nent.mam.proto.vidispineproto.RenditionFileOrBuilder getFilesOrBuilder(
-      int index);
-
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  java.util.List<com.nent.mam.proto.vidispineproto.KeyValue> 
-      getMetadataList();
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  com.nent.mam.proto.vidispineproto.KeyValue getMetadata(int index);
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  int getMetadataCount();
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  java.util.List<? extends com.nent.mam.proto.vidispineproto.KeyValueOrBuilder> 
-      getMetadataOrBuilderList();
-  /**
-   * <code>repeated .vidispineproto.KeyValue metadata = 3;</code>
-   */
-  com.nent.mam.proto.vidispineproto.KeyValueOrBuilder getMetadataOrBuilder(
       int index);
 }
