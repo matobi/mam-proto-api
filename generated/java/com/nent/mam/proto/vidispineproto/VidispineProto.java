@@ -15,6 +15,21 @@ public final class VidispineProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_vidispineproto_ImportRenditionIn_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_vidispineproto_ImportRenditionIn_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_vidispineproto_ImportRenditionOut_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_vidispineproto_ImportRenditionOut_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_vidispineproto_RenditionFile_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_vidispineproto_RenditionFile_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_vidispineproto_ItemIn_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -108,48 +123,57 @@ public final class VidispineProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017vidispine.proto\022\016vidispineproto\",\n\006Ite" +
-      "mIn\022\017\n\007item_id\030\001 \001(\t\022\021\n\tshape_tag\030\002 \001(\t\"" +
-      "-\n\007ItemOut\022\"\n\004item\030\001 \001(\0132\024.vidispineprot" +
-      "o.Item\"]\n\004Item\022\017\n\007item_id\030\001 \001(\t\022\020\n\010asset" +
-      "_id\030\002 \001(\t\0222\n\rshape_headers\030\003 \003(\0132\033.vidis" +
-      "pineproto.ShapeHeader\"j\n\013ShapeHeader\022\020\n\010" +
-      "shape_id\030\001 \001(\t\022\017\n\007version\030\002 \001(\005\022\014\n\004tags\030" +
-      "\003 \003(\t\022*\n\010metadata\030\004 \003(\0132\030.vidispineproto" +
-      ".KeyValue\"&\n\010KeyValue\022\013\n\003key\030\001 \001(\t\022\r\n\005va" +
-      "lue\030\002 \001(\t\",\n\007ShapeIn\022\017\n\007item_id\030\001 \001(\t\022\020\n" +
-      "\010shape_id\030\002 \001(\t\"0\n\010ShapeOut\022$\n\005shape\030\001 \001" +
-      "(\0132\025.vidispineproto.Shape\"\227\002\n\005Shape\022\017\n\007i" +
-      "tem_id\030\001 \001(\t\022\020\n\010shape_id\030\002 \001(\t\022\017\n\007versio" +
-      "n\030\003 \001(\005\022\r\n\005title\030\004 \001(\t\022\026\n\016shape_filename" +
-      "\030\005 \001(\t\022\014\n\004tags\030\006 \003(\t\022*\n\010metadata\030\007 \003(\0132\030" +
-      ".vidispineproto.KeyValue\022%\n\006videos\030\010 \003(\013" +
-      "2\025.vidispineproto.Video\022%\n\006audios\030\t \003(\0132" +
-      "\025.vidispineproto.Audio\022+\n\tsubtitles\030\n \003(" +
-      "\0132\030.vidispineproto.Subtitle\"a\n\005Audio\022\n\n\002" +
-      "id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rchannel_co" +
-      "unt\030\003 \001(\005\022#\n\005files\030\004 \003(\0132\024.vidispineprot" +
-      "o.File\"8\n\005Video\022\n\n\002id\030\001 \001(\t\022#\n\005files\030\002 \003" +
-      "(\0132\024.vidispineproto.File\"M\n\010Subtitle\022\n\n\002" +
-      "id\030\001 \001(\t\022\020\n\010language\030\002 \001(\t\022#\n\005files\030\003 \003(" +
-      "\0132\024.vidispineproto.File\"X\n\004File\022\n\n\002id\030\001 " +
-      "\001(\t\022\022\n\nstorage_id\030\002 \001(\t\022\024\n\014org_filename\030" +
-      "\003 \001(\t\022\014\n\004size\030\004 \001(\003\022\014\n\004hash\030\005 \001(\t\"\027\n\005Job" +
-      "In\022\016\n\006job_id\030\001 \001(\t\"*\n\006JobOut\022 \n\003job\030\001 \001(" +
-      "\0132\023.vidispineproto.Job\"n\n\003Job\022\n\n\002id\030\001 \001(" +
-      "\t\022\014\n\004user\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022\014\n\004type\030" +
-      "\004 \001(\t\022\014\n\004prio\030\005 \001(\t\022\017\n\007started\030\006 \001(\003\022\020\n\010" +
-      "finished\030\007 \001(\003\";\n\010ExportIn\022\017\n\007item_id\030\001 " +
-      "\001(\t\022\020\n\010shape_id\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\033\n\tE" +
-      "xportOut\022\016\n\006job_id\030\001 \001(\t2\211\002\n\tVidispine\0229" +
-      "\n\006GetJob\022\025.vidispineproto.JobIn\032\026.vidisp" +
-      "ineproto.JobOut\"\000\022<\n\007GetItem\022\026.vidispine" +
-      "proto.ItemIn\032\027.vidispineproto.ItemOut\"\000\022" +
-      "?\n\010GetShape\022\027.vidispineproto.ShapeIn\032\030.v" +
-      "idispineproto.ShapeOut\"\000\022B\n\tExportIMF\022\030." +
-      "vidispineproto.ExportIn\032\031.vidispineproto" +
-      ".ExportOut\"\000B5\n!com.nent.mam.proto.vidis" +
-      "pineprotoB\016VidispineProtoP\001b\006proto3"
+      "\n\017vidispine.proto\022\016vidispineproto\"~\n\021Imp" +
+      "ortRenditionIn\022\017\n\007item_id\030\001 \001(\t\022,\n\005files" +
+      "\030\002 \003(\0132\035.vidispineproto.RenditionFile\022*\n" +
+      "\010metadata\030\003 \003(\0132\030.vidispineproto.KeyValu" +
+      "e\"G\n\022ImportRenditionOut\022\017\n\007item_id\030\001 \001(\t" +
+      "\022\020\n\010shape_id\030\002 \001(\t\022\016\n\006job_id\030\003 \001(\t\"B\n\rRe" +
+      "nditionFile\022\013\n\003dir\030\001 \001(\t\022\020\n\010filename\030\002 \001" +
+      "(\t\022\022\n\nmedia_type\030\003 \001(\t\",\n\006ItemIn\022\017\n\007item" +
+      "_id\030\001 \001(\t\022\021\n\tshape_tag\030\002 \001(\t\"-\n\007ItemOut\022" +
+      "\"\n\004item\030\001 \001(\0132\024.vidispineproto.Item\"]\n\004I" +
+      "tem\022\017\n\007item_id\030\001 \001(\t\022\020\n\010asset_id\030\002 \001(\t\0222" +
+      "\n\rshape_headers\030\003 \003(\0132\033.vidispineproto.S" +
+      "hapeHeader\"j\n\013ShapeHeader\022\020\n\010shape_id\030\001 " +
+      "\001(\t\022\017\n\007version\030\002 \001(\005\022\014\n\004tags\030\003 \003(\t\022*\n\010me" +
+      "tadata\030\004 \003(\0132\030.vidispineproto.KeyValue\"&" +
+      "\n\010KeyValue\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"," +
+      "\n\007ShapeIn\022\017\n\007item_id\030\001 \001(\t\022\020\n\010shape_id\030\002" +
+      " \001(\t\"0\n\010ShapeOut\022$\n\005shape\030\001 \001(\0132\025.vidisp" +
+      "ineproto.Shape\"\227\002\n\005Shape\022\017\n\007item_id\030\001 \001(" +
+      "\t\022\020\n\010shape_id\030\002 \001(\t\022\017\n\007version\030\003 \001(\005\022\r\n\005" +
+      "title\030\004 \001(\t\022\026\n\016shape_filename\030\005 \001(\t\022\014\n\004t" +
+      "ags\030\006 \003(\t\022*\n\010metadata\030\007 \003(\0132\030.vidispinep" +
+      "roto.KeyValue\022%\n\006videos\030\010 \003(\0132\025.vidispin" +
+      "eproto.Video\022%\n\006audios\030\t \003(\0132\025.vidispine" +
+      "proto.Audio\022+\n\tsubtitles\030\n \003(\0132\030.vidispi" +
+      "neproto.Subtitle\"a\n\005Audio\022\n\n\002id\030\001 \001(\t\022\020\n" +
+      "\010language\030\002 \001(\t\022\025\n\rchannel_count\030\003 \001(\005\022#" +
+      "\n\005files\030\004 \003(\0132\024.vidispineproto.File\"8\n\005V" +
+      "ideo\022\n\n\002id\030\001 \001(\t\022#\n\005files\030\002 \003(\0132\024.vidisp" +
+      "ineproto.File\"M\n\010Subtitle\022\n\n\002id\030\001 \001(\t\022\020\n" +
+      "\010language\030\002 \001(\t\022#\n\005files\030\003 \003(\0132\024.vidispi" +
+      "neproto.File\"X\n\004File\022\n\n\002id\030\001 \001(\t\022\022\n\nstor" +
+      "age_id\030\002 \001(\t\022\024\n\014org_filename\030\003 \001(\t\022\014\n\004si" +
+      "ze\030\004 \001(\003\022\014\n\004hash\030\005 \001(\t\"\027\n\005JobIn\022\016\n\006job_i" +
+      "d\030\001 \001(\t\"*\n\006JobOut\022 \n\003job\030\001 \001(\0132\023.vidispi" +
+      "neproto.Job\"n\n\003Job\022\n\n\002id\030\001 \001(\t\022\014\n\004user\030\002" +
+      " \001(\t\022\016\n\006status\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\014\n\004pr" +
+      "io\030\005 \001(\t\022\017\n\007started\030\006 \001(\003\022\020\n\010finished\030\007 " +
+      "\001(\003\";\n\010ExportIn\022\017\n\007item_id\030\001 \001(\t\022\020\n\010shap" +
+      "e_id\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\033\n\tExportOut\022\016\n" +
+      "\006job_id\030\001 \001(\t2\345\002\n\tVidispine\0229\n\006GetJob\022\025." +
+      "vidispineproto.JobIn\032\026.vidispineproto.Jo" +
+      "bOut\"\000\022<\n\007GetItem\022\026.vidispineproto.ItemI" +
+      "n\032\027.vidispineproto.ItemOut\"\000\022?\n\010GetShape" +
+      "\022\027.vidispineproto.ShapeIn\032\030.vidispinepro" +
+      "to.ShapeOut\"\000\022B\n\tExportIMF\022\030.vidispinepr" +
+      "oto.ExportIn\032\031.vidispineproto.ExportOut\"" +
+      "\000\022Z\n\017ImportRendition\022!.vidispineproto.Im" +
+      "portRenditionIn\032\".vidispineproto.ImportR" +
+      "enditionOut\"\000B5\n!com.nent.mam.proto.vidi" +
+      "spineprotoB\016VidispineProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -163,104 +187,122 @@ public final class VidispineProto {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_vidispineproto_ItemIn_descriptor =
+    internal_static_vidispineproto_ImportRenditionIn_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_vidispineproto_ImportRenditionIn_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_vidispineproto_ImportRenditionIn_descriptor,
+        new java.lang.String[] { "ItemId", "Files", "Metadata", });
+    internal_static_vidispineproto_ImportRenditionOut_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_vidispineproto_ImportRenditionOut_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_vidispineproto_ImportRenditionOut_descriptor,
+        new java.lang.String[] { "ItemId", "ShapeId", "JobId", });
+    internal_static_vidispineproto_RenditionFile_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_vidispineproto_RenditionFile_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_vidispineproto_RenditionFile_descriptor,
+        new java.lang.String[] { "Dir", "Filename", "MediaType", });
+    internal_static_vidispineproto_ItemIn_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_vidispineproto_ItemIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ItemIn_descriptor,
         new java.lang.String[] { "ItemId", "ShapeTag", });
     internal_static_vidispineproto_ItemOut_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_vidispineproto_ItemOut_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ItemOut_descriptor,
         new java.lang.String[] { "Item", });
     internal_static_vidispineproto_Item_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_vidispineproto_Item_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_Item_descriptor,
         new java.lang.String[] { "ItemId", "AssetId", "ShapeHeaders", });
     internal_static_vidispineproto_ShapeHeader_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_vidispineproto_ShapeHeader_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ShapeHeader_descriptor,
         new java.lang.String[] { "ShapeId", "Version", "Tags", "Metadata", });
     internal_static_vidispineproto_KeyValue_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_vidispineproto_KeyValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_KeyValue_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_vidispineproto_ShapeIn_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_vidispineproto_ShapeIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ShapeIn_descriptor,
         new java.lang.String[] { "ItemId", "ShapeId", });
     internal_static_vidispineproto_ShapeOut_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_vidispineproto_ShapeOut_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ShapeOut_descriptor,
         new java.lang.String[] { "Shape", });
     internal_static_vidispineproto_Shape_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_vidispineproto_Shape_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_Shape_descriptor,
         new java.lang.String[] { "ItemId", "ShapeId", "Version", "Title", "ShapeFilename", "Tags", "Metadata", "Videos", "Audios", "Subtitles", });
     internal_static_vidispineproto_Audio_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_vidispineproto_Audio_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_Audio_descriptor,
         new java.lang.String[] { "Id", "Language", "ChannelCount", "Files", });
     internal_static_vidispineproto_Video_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_vidispineproto_Video_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_Video_descriptor,
         new java.lang.String[] { "Id", "Files", });
     internal_static_vidispineproto_Subtitle_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_vidispineproto_Subtitle_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_Subtitle_descriptor,
         new java.lang.String[] { "Id", "Language", "Files", });
     internal_static_vidispineproto_File_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_vidispineproto_File_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_File_descriptor,
         new java.lang.String[] { "Id", "StorageId", "OrgFilename", "Size", "Hash", });
     internal_static_vidispineproto_JobIn_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_vidispineproto_JobIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_JobIn_descriptor,
         new java.lang.String[] { "JobId", });
     internal_static_vidispineproto_JobOut_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_vidispineproto_JobOut_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_JobOut_descriptor,
         new java.lang.String[] { "Job", });
     internal_static_vidispineproto_Job_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_vidispineproto_Job_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_Job_descriptor,
         new java.lang.String[] { "Id", "User", "Status", "Type", "Prio", "Started", "Finished", });
     internal_static_vidispineproto_ExportIn_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_vidispineproto_ExportIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ExportIn_descriptor,
         new java.lang.String[] { "ItemId", "ShapeId", "Path", });
     internal_static_vidispineproto_ExportOut_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_vidispineproto_ExportOut_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ExportOut_descriptor,
