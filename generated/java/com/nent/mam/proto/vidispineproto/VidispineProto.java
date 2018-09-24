@@ -123,58 +123,58 @@ public final class VidispineProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017vidispine.proto\022\016vidispineproto\"\227\001\n\021Im" +
+      "\n\017vidispine.proto\022\016vidispineproto\"\230\001\n\021Im" +
       "portRenditionIn\022\023\n\013org_item_id\030\001 \001(\t\022\024\n\014" +
       "org_shape_id\030\002 \001(\t\022\023\n\013org_version\030\003 \001(\005\022" +
-      "\024\n\014package_name\030\004 \001(\t\022,\n\005files\030\005 \003(\0132\035.v" +
-      "idispineproto.RenditionFile\"G\n\022ImportRen" +
-      "ditionOut\022\017\n\007item_id\030\001 \001(\t\022\020\n\010shape_id\030\002" +
-      " \001(\t\022\016\n\006job_id\030\003 \001(\t\"B\n\rRenditionFile\022\013\n" +
-      "\003dir\030\001 \001(\t\022\020\n\010filename\030\002 \001(\t\022\022\n\nmedia_ty" +
-      "pe\030\003 \001(\t\",\n\006ItemIn\022\017\n\007item_id\030\001 \001(\t\022\021\n\ts" +
-      "hape_tag\030\002 \001(\t\"-\n\007ItemOut\022\"\n\004item\030\001 \001(\0132" +
-      "\024.vidispineproto.Item\"]\n\004Item\022\017\n\007item_id" +
-      "\030\001 \001(\t\022\020\n\010asset_id\030\002 \001(\t\0222\n\rshape_header" +
-      "s\030\003 \003(\0132\033.vidispineproto.ShapeHeader\"j\n\013" +
-      "ShapeHeader\022\020\n\010shape_id\030\001 \001(\t\022\017\n\007version" +
-      "\030\002 \001(\005\022\014\n\004tags\030\003 \003(\t\022*\n\010metadata\030\004 \003(\0132\030" +
-      ".vidispineproto.KeyValue\"&\n\010KeyValue\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\",\n\007ShapeIn\022\017\n\007i" +
-      "tem_id\030\001 \001(\t\022\020\n\010shape_id\030\002 \001(\t\"0\n\010ShapeO" +
-      "ut\022$\n\005shape\030\001 \001(\0132\025.vidispineproto.Shape" +
-      "\"\227\002\n\005Shape\022\017\n\007item_id\030\001 \001(\t\022\020\n\010shape_id\030" +
-      "\002 \001(\t\022\017\n\007version\030\003 \001(\005\022\r\n\005title\030\004 \001(\t\022\026\n" +
-      "\016shape_filename\030\005 \001(\t\022\014\n\004tags\030\006 \003(\t\022*\n\010m" +
-      "etadata\030\007 \003(\0132\030.vidispineproto.KeyValue\022" +
-      "%\n\006videos\030\010 \003(\0132\025.vidispineproto.Video\022%" +
-      "\n\006audios\030\t \003(\0132\025.vidispineproto.Audio\022+\n" +
-      "\tsubtitles\030\n \003(\0132\030.vidispineproto.Subtit" +
-      "le\"a\n\005Audio\022\n\n\002id\030\001 \001(\t\022\020\n\010language\030\002 \001(" +
-      "\t\022\025\n\rchannel_count\030\003 \001(\005\022#\n\005files\030\004 \003(\0132" +
-      "\024.vidispineproto.File\"8\n\005Video\022\n\n\002id\030\001 \001" +
-      "(\t\022#\n\005files\030\002 \003(\0132\024.vidispineproto.File\"" +
-      "M\n\010Subtitle\022\n\n\002id\030\001 \001(\t\022\020\n\010language\030\002 \001(" +
-      "\t\022#\n\005files\030\003 \003(\0132\024.vidispineproto.File\"X" +
-      "\n\004File\022\n\n\002id\030\001 \001(\t\022\022\n\nstorage_id\030\002 \001(\t\022\024" +
-      "\n\014org_filename\030\003 \001(\t\022\014\n\004size\030\004 \001(\003\022\014\n\004ha" +
-      "sh\030\005 \001(\t\"\027\n\005JobIn\022\016\n\006job_id\030\001 \001(\t\"*\n\006Job" +
-      "Out\022 \n\003job\030\001 \001(\0132\023.vidispineproto.Job\"n\n" +
-      "\003Job\022\n\n\002id\030\001 \001(\t\022\014\n\004user\030\002 \001(\t\022\016\n\006status" +
-      "\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\014\n\004prio\030\005 \001(\t\022\017\n\007st" +
-      "arted\030\006 \001(\003\022\020\n\010finished\030\007 \001(\003\";\n\010ExportI" +
-      "n\022\017\n\007item_id\030\001 \001(\t\022\020\n\010shape_id\030\002 \001(\t\022\014\n\004" +
-      "path\030\003 \001(\t\"\033\n\tExportOut\022\016\n\006job_id\030\001 \001(\t2" +
-      "\345\002\n\tVidispine\0229\n\006GetJob\022\025.vidispineproto" +
-      ".JobIn\032\026.vidispineproto.JobOut\"\000\022<\n\007GetI" +
-      "tem\022\026.vidispineproto.ItemIn\032\027.vidispinep" +
-      "roto.ItemOut\"\000\022?\n\010GetShape\022\027.vidispinepr" +
-      "oto.ShapeIn\032\030.vidispineproto.ShapeOut\"\000\022" +
-      "B\n\tExportIMF\022\030.vidispineproto.ExportIn\032\031" +
-      ".vidispineproto.ExportOut\"\000\022Z\n\017ImportRen" +
-      "dition\022!.vidispineproto.ImportRenditionI" +
-      "n\032\".vidispineproto.ImportRenditionOut\"\000B" +
-      "5\n!com.nent.mam.proto.vidispineprotoB\016Vi" +
-      "dispineProtoP\001b\006proto3"
+      "\025\n\rshape_package\030\004 \001(\t\022,\n\005files\030\005 \003(\0132\035." +
+      "vidispineproto.RenditionFile\"G\n\022ImportRe" +
+      "nditionOut\022\017\n\007item_id\030\001 \001(\t\022\020\n\010shape_id\030" +
+      "\002 \001(\t\022\016\n\006job_id\030\003 \001(\t\"B\n\rRenditionFile\022\013" +
+      "\n\003dir\030\001 \001(\t\022\020\n\010filename\030\002 \001(\t\022\022\n\nmedia_t" +
+      "ype\030\003 \001(\t\"\031\n\006ItemIn\022\017\n\007item_id\030\001 \001(\t\"-\n\007" +
+      "ItemOut\022\"\n\004item\030\001 \001(\0132\024.vidispineproto.I" +
+      "tem\"]\n\004Item\022\017\n\007item_id\030\001 \001(\t\022\020\n\010asset_id" +
+      "\030\002 \001(\t\0222\n\rshape_headers\030\003 \003(\0132\033.vidispin" +
+      "eproto.ShapeHeader\"j\n\013ShapeHeader\022\020\n\010sha" +
+      "pe_id\030\001 \001(\t\022\017\n\007version\030\002 \001(\005\022\014\n\004tags\030\003 \003" +
+      "(\t\022*\n\010metadata\030\004 \003(\0132\030.vidispineproto.Ke" +
+      "yValue\"&\n\010KeyValue\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
+      "\030\002 \001(\t\",\n\007ShapeIn\022\017\n\007item_id\030\001 \001(\t\022\020\n\010sh" +
+      "ape_id\030\002 \001(\t\"0\n\010ShapeOut\022$\n\005shape\030\001 \001(\0132" +
+      "\025.vidispineproto.Shape\"\227\002\n\005Shape\022\017\n\007item" +
+      "_id\030\001 \001(\t\022\020\n\010shape_id\030\002 \001(\t\022\017\n\007version\030\003" +
+      " \001(\005\022\r\n\005title\030\004 \001(\t\022\026\n\016shape_filename\030\005 " +
+      "\001(\t\022\014\n\004tags\030\006 \003(\t\022*\n\010metadata\030\007 \003(\0132\030.vi" +
+      "dispineproto.KeyValue\022%\n\006videos\030\010 \003(\0132\025." +
+      "vidispineproto.Video\022%\n\006audios\030\t \003(\0132\025.v" +
+      "idispineproto.Audio\022+\n\tsubtitles\030\n \003(\0132\030" +
+      ".vidispineproto.Subtitle\"a\n\005Audio\022\n\n\002id\030" +
+      "\001 \001(\t\022\020\n\010language\030\002 \001(\t\022\025\n\rchannel_count" +
+      "\030\003 \001(\005\022#\n\005files\030\004 \003(\0132\024.vidispineproto.F" +
+      "ile\"8\n\005Video\022\n\n\002id\030\001 \001(\t\022#\n\005files\030\002 \003(\0132" +
+      "\024.vidispineproto.File\"M\n\010Subtitle\022\n\n\002id\030" +
+      "\001 \001(\t\022\020\n\010language\030\002 \001(\t\022#\n\005files\030\003 \003(\0132\024" +
+      ".vidispineproto.File\"X\n\004File\022\n\n\002id\030\001 \001(\t" +
+      "\022\022\n\nstorage_id\030\002 \001(\t\022\024\n\014org_filename\030\003 \001" +
+      "(\t\022\014\n\004size\030\004 \001(\003\022\014\n\004hash\030\005 \001(\t\"\027\n\005JobIn\022" +
+      "\016\n\006job_id\030\001 \001(\t\"*\n\006JobOut\022 \n\003job\030\001 \001(\0132\023" +
+      ".vidispineproto.Job\"n\n\003Job\022\n\n\002id\030\001 \001(\t\022\014" +
+      "\n\004user\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022\014\n\004type\030\004 \001" +
+      "(\t\022\014\n\004prio\030\005 \001(\t\022\017\n\007started\030\006 \001(\003\022\020\n\010fin" +
+      "ished\030\007 \001(\003\";\n\010ExportIn\022\017\n\007item_id\030\001 \001(\t" +
+      "\022\020\n\010shape_id\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\033\n\tExpo" +
+      "rtOut\022\016\n\006job_id\030\001 \001(\t2\345\002\n\tVidispine\0229\n\006G" +
+      "etJob\022\025.vidispineproto.JobIn\032\026.vidispine" +
+      "proto.JobOut\"\000\022<\n\007GetItem\022\026.vidispinepro" +
+      "to.ItemIn\032\027.vidispineproto.ItemOut\"\000\022?\n\010" +
+      "GetShape\022\027.vidispineproto.ShapeIn\032\030.vidi" +
+      "spineproto.ShapeOut\"\000\022B\n\tExportIMF\022\030.vid" +
+      "ispineproto.ExportIn\032\031.vidispineproto.Ex" +
+      "portOut\"\000\022Z\n\017ImportRendition\022!.vidispine" +
+      "proto.ImportRenditionIn\032\".vidispineproto" +
+      ".ImportRenditionOut\"\000B5\n!com.nent.mam.pr" +
+      "oto.vidispineprotoB\016VidispineProtoP\001b\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -193,7 +193,7 @@ public final class VidispineProto {
     internal_static_vidispineproto_ImportRenditionIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ImportRenditionIn_descriptor,
-        new java.lang.String[] { "OrgItemId", "OrgShapeId", "OrgVersion", "PackageName", "Files", });
+        new java.lang.String[] { "OrgItemId", "OrgShapeId", "OrgVersion", "ShapePackage", "Files", });
     internal_static_vidispineproto_ImportRenditionOut_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_vidispineproto_ImportRenditionOut_fieldAccessorTable = new
@@ -211,7 +211,7 @@ public final class VidispineProto {
     internal_static_vidispineproto_ItemIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ItemIn_descriptor,
-        new java.lang.String[] { "ItemId", "ShapeTag", });
+        new java.lang.String[] { "ItemId", });
     internal_static_vidispineproto_ItemOut_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_vidispineproto_ItemOut_fieldAccessorTable = new

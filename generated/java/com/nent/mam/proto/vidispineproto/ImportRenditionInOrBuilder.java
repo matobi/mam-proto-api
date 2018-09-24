@@ -33,14 +33,14 @@ public interface ImportRenditionInOrBuilder extends
   int getOrgVersion();
 
   /**
-   * <code>string package_name = 4;</code>
+   * <code>string shape_package = 4;</code>
    */
-  java.lang.String getPackageName();
+  java.lang.String getShapePackage();
   /**
-   * <code>string package_name = 4;</code>
+   * <code>string shape_package = 4;</code>
    */
   com.google.protobuf.ByteString
-      getPackageNameBytes();
+      getShapePackageBytes();
 
   /**
    * <pre>

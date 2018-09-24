@@ -16,14 +16,4 @@ public interface ItemInOrBuilder extends
    */
   com.google.protobuf.ByteString
       getItemIdBytes();
-
-  /**
-   * <code>string shape_tag = 2;</code>
-   */
-  java.lang.String getShapeTag();
-  /**
-   * <code>string shape_tag = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getShapeTagBytes();
 }

@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private ItemIn() {
     itemId_ = "";
-    shapeTag_ = "";
   }
 
   @java.lang.Override
@@ -55,12 +54,6 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             itemId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            shapeTag_ = s;
             break;
           }
         }
@@ -121,40 +114,6 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SHAPE_TAG_FIELD_NUMBER = 2;
-  private volatile java.lang.Object shapeTag_;
-  /**
-   * <code>string shape_tag = 2;</code>
-   */
-  public java.lang.String getShapeTag() {
-    java.lang.Object ref = shapeTag_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      shapeTag_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string shape_tag = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getShapeTagBytes() {
-    java.lang.Object ref = shapeTag_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      shapeTag_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -170,9 +129,6 @@ private static final long serialVersionUID = 0L;
     if (!getItemIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, itemId_);
     }
-    if (!getShapeTagBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, shapeTag_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -183,9 +139,6 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getItemIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, itemId_);
-    }
-    if (!getShapeTagBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, shapeTag_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -205,8 +158,6 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getItemId()
         .equals(other.getItemId());
-    result = result && getShapeTag()
-        .equals(other.getShapeTag());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -220,8 +171,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ITEM_ID_FIELD_NUMBER;
     hash = (53 * hash) + getItemId().hashCode();
-    hash = (37 * hash) + SHAPE_TAG_FIELD_NUMBER;
-    hash = (53 * hash) + getShapeTag().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -353,8 +302,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       itemId_ = "";
 
-      shapeTag_ = "";
-
       return this;
     }
 
@@ -378,7 +325,6 @@ private static final long serialVersionUID = 0L;
     public com.nent.mam.proto.vidispineproto.ItemIn buildPartial() {
       com.nent.mam.proto.vidispineproto.ItemIn result = new com.nent.mam.proto.vidispineproto.ItemIn(this);
       result.itemId_ = itemId_;
-      result.shapeTag_ = shapeTag_;
       onBuilt();
       return result;
     }
@@ -422,10 +368,6 @@ private static final long serialVersionUID = 0L;
       if (other == com.nent.mam.proto.vidispineproto.ItemIn.getDefaultInstance()) return this;
       if (!other.getItemId().isEmpty()) {
         itemId_ = other.itemId_;
-        onChanged();
-      }
-      if (!other.getShapeTag().isEmpty()) {
-        shapeTag_ = other.shapeTag_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -520,75 +462,6 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       itemId_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object shapeTag_ = "";
-    /**
-     * <code>string shape_tag = 2;</code>
-     */
-    public java.lang.String getShapeTag() {
-      java.lang.Object ref = shapeTag_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        shapeTag_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string shape_tag = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getShapeTagBytes() {
-      java.lang.Object ref = shapeTag_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        shapeTag_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string shape_tag = 2;</code>
-     */
-    public Builder setShapeTag(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      shapeTag_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string shape_tag = 2;</code>
-     */
-    public Builder clearShapeTag() {
-      
-      shapeTag_ = getDefaultInstance().getShapeTag();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string shape_tag = 2;</code>
-     */
-    public Builder setShapeTagBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      shapeTag_ = value;
       onChanged();
       return this;
     }
