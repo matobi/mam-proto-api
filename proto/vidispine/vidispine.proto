@@ -21,7 +21,7 @@ message ImportRenditionIn {
   string org_item_id = 1;
   string org_shape_id = 2;
   int32 org_version = 3;
-  string package_name = 4;
+  string shape_package = 4;
   repeated RenditionFile files = 5;
   //repeated KeyValue metadata = 3;
 }
@@ -42,7 +42,6 @@ message RenditionFile {
 
 message ItemIn {
   string item_id = 1;
-  string shape_tag = 2;
 }
 
 message ItemOut {
