@@ -10,6 +10,7 @@ service Vidispine {
   rpc GetJob(JobIn) returns (JobOut) {}
   rpc GetItem(ItemIn) returns (ItemOut) {}
   rpc GetShape(ShapeIn) returns (ShapeOut) {}
+  rpc DeleteShape(ShapeIn) returns (DeleteShapeOut) {}
   rpc ExportIMF(ExportIn) returns (ExportOut) {}
   rpc ImportRendition(ImportRenditionIn) returns (ImportRenditionOut) {}
 }
@@ -114,6 +115,11 @@ message File {
 	string org_filename = 3;
 	int64 size = 4;
 	string hash = 5;
+}
+
+//////////////////
+
+message DeleteShapeOut {
 }
 
 //////////////////

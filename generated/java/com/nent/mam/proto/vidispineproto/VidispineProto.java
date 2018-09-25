@@ -90,6 +90,11 @@ public final class VidispineProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_vidispineproto_File_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_vidispineproto_DeleteShapeOut_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_vidispineproto_DeleteShapeOut_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_vidispineproto_JobIn_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -156,25 +161,27 @@ public final class VidispineProto {
       "\001 \001(\t\022\020\n\010language\030\002 \001(\t\022#\n\005files\030\003 \003(\0132\024" +
       ".vidispineproto.File\"X\n\004File\022\n\n\002id\030\001 \001(\t" +
       "\022\022\n\nstorage_id\030\002 \001(\t\022\024\n\014org_filename\030\003 \001" +
-      "(\t\022\014\n\004size\030\004 \001(\003\022\014\n\004hash\030\005 \001(\t\"\027\n\005JobIn\022" +
-      "\016\n\006job_id\030\001 \001(\t\"*\n\006JobOut\022 \n\003job\030\001 \001(\0132\023" +
-      ".vidispineproto.Job\"n\n\003Job\022\n\n\002id\030\001 \001(\t\022\014" +
-      "\n\004user\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022\014\n\004type\030\004 \001" +
-      "(\t\022\014\n\004prio\030\005 \001(\t\022\017\n\007started\030\006 \001(\003\022\020\n\010fin" +
-      "ished\030\007 \001(\003\";\n\010ExportIn\022\017\n\007item_id\030\001 \001(\t" +
-      "\022\020\n\010shape_id\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\033\n\tExpo" +
-      "rtOut\022\016\n\006job_id\030\001 \001(\t2\345\002\n\tVidispine\0229\n\006G" +
-      "etJob\022\025.vidispineproto.JobIn\032\026.vidispine" +
-      "proto.JobOut\"\000\022<\n\007GetItem\022\026.vidispinepro" +
-      "to.ItemIn\032\027.vidispineproto.ItemOut\"\000\022?\n\010" +
-      "GetShape\022\027.vidispineproto.ShapeIn\032\030.vidi" +
-      "spineproto.ShapeOut\"\000\022B\n\tExportIMF\022\030.vid" +
-      "ispineproto.ExportIn\032\031.vidispineproto.Ex" +
-      "portOut\"\000\022Z\n\017ImportRendition\022!.vidispine" +
-      "proto.ImportRenditionIn\032\".vidispineproto" +
-      ".ImportRenditionOut\"\000B5\n!com.nent.mam.pr" +
-      "oto.vidispineprotoB\016VidispineProtoP\001b\006pr" +
-      "oto3"
+      "(\t\022\014\n\004size\030\004 \001(\003\022\014\n\004hash\030\005 \001(\t\"\020\n\016Delete" +
+      "ShapeOut\"\027\n\005JobIn\022\016\n\006job_id\030\001 \001(\t\"*\n\006Job" +
+      "Out\022 \n\003job\030\001 \001(\0132\023.vidispineproto.Job\"n\n" +
+      "\003Job\022\n\n\002id\030\001 \001(\t\022\014\n\004user\030\002 \001(\t\022\016\n\006status" +
+      "\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\014\n\004prio\030\005 \001(\t\022\017\n\007st" +
+      "arted\030\006 \001(\003\022\020\n\010finished\030\007 \001(\003\";\n\010ExportI" +
+      "n\022\017\n\007item_id\030\001 \001(\t\022\020\n\010shape_id\030\002 \001(\t\022\014\n\004" +
+      "path\030\003 \001(\t\"\033\n\tExportOut\022\016\n\006job_id\030\001 \001(\t2" +
+      "\257\003\n\tVidispine\0229\n\006GetJob\022\025.vidispineproto" +
+      ".JobIn\032\026.vidispineproto.JobOut\"\000\022<\n\007GetI" +
+      "tem\022\026.vidispineproto.ItemIn\032\027.vidispinep" +
+      "roto.ItemOut\"\000\022?\n\010GetShape\022\027.vidispinepr" +
+      "oto.ShapeIn\032\030.vidispineproto.ShapeOut\"\000\022" +
+      "H\n\013DeleteShape\022\027.vidispineproto.ShapeIn\032" +
+      "\036.vidispineproto.DeleteShapeOut\"\000\022B\n\tExp" +
+      "ortIMF\022\030.vidispineproto.ExportIn\032\031.vidis" +
+      "pineproto.ExportOut\"\000\022Z\n\017ImportRendition" +
+      "\022!.vidispineproto.ImportRenditionIn\032\".vi" +
+      "dispineproto.ImportRenditionOut\"\000B5\n!com" +
+      ".nent.mam.proto.vidispineprotoB\016Vidispin" +
+      "eProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -278,32 +285,38 @@ public final class VidispineProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_File_descriptor,
         new java.lang.String[] { "Id", "StorageId", "OrgFilename", "Size", "Hash", });
-    internal_static_vidispineproto_JobIn_descriptor =
+    internal_static_vidispineproto_DeleteShapeOut_descriptor =
       getDescriptor().getMessageTypes().get(15);
+    internal_static_vidispineproto_DeleteShapeOut_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_vidispineproto_DeleteShapeOut_descriptor,
+        new java.lang.String[] { });
+    internal_static_vidispineproto_JobIn_descriptor =
+      getDescriptor().getMessageTypes().get(16);
     internal_static_vidispineproto_JobIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_JobIn_descriptor,
         new java.lang.String[] { "JobId", });
     internal_static_vidispineproto_JobOut_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_vidispineproto_JobOut_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_JobOut_descriptor,
         new java.lang.String[] { "Job", });
     internal_static_vidispineproto_Job_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_vidispineproto_Job_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_Job_descriptor,
         new java.lang.String[] { "Id", "User", "Status", "Type", "Prio", "Started", "Finished", });
     internal_static_vidispineproto_ExportIn_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_vidispineproto_ExportIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ExportIn_descriptor,
         new java.lang.String[] { "ItemId", "ShapeId", "Path", });
     internal_static_vidispineproto_ExportOut_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_vidispineproto_ExportOut_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_ExportOut_descriptor,
