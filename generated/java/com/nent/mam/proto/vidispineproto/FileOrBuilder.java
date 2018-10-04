@@ -28,26 +28,36 @@ public interface FileOrBuilder extends
       getStorageIdBytes();
 
   /**
-   * <code>string org_filename = 3;</code>
+   * <code>string uri = 3;</code>
+   */
+  java.lang.String getUri();
+  /**
+   * <code>string uri = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getUriBytes();
+
+  /**
+   * <code>string org_filename = 4;</code>
    */
   java.lang.String getOrgFilename();
   /**
-   * <code>string org_filename = 3;</code>
+   * <code>string org_filename = 4;</code>
    */
   com.google.protobuf.ByteString
       getOrgFilenameBytes();
 
   /**
-   * <code>int64 size = 4;</code>
+   * <code>int64 size = 5;</code>
    */
   long getSize();
 
   /**
-   * <code>string hash = 5;</code>
+   * <code>string hash = 6;</code>
    */
   java.lang.String getHash();
   /**
-   * <code>string hash = 5;</code>
+   * <code>string hash = 6;</code>
    */
   com.google.protobuf.ByteString
       getHashBytes();

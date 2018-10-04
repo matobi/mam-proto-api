@@ -111,10 +111,11 @@ message Subtitle {
 
 message File {
 	string id = 1;
-	string storage_id = 2;
-	string org_filename = 3;
-	int64 size = 4;
-	string hash = 5;
+  string storage_id = 2;
+  string uri = 3;
+	string org_filename = 4;
+	int64 size = 5;
+	string hash = 6;
 }
 
 //////////////////
