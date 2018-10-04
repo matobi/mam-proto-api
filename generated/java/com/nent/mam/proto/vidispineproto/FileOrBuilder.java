@@ -38,26 +38,36 @@ public interface FileOrBuilder extends
       getUriBytes();
 
   /**
-   * <code>string org_filename = 4;</code>
+   * <code>string filename = 4;</code>
+   */
+  java.lang.String getFilename();
+  /**
+   * <code>string filename = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getFilenameBytes();
+
+  /**
+   * <code>string org_filename = 5;</code>
    */
   java.lang.String getOrgFilename();
   /**
-   * <code>string org_filename = 4;</code>
+   * <code>string org_filename = 5;</code>
    */
   com.google.protobuf.ByteString
       getOrgFilenameBytes();
 
   /**
-   * <code>int64 size = 5;</code>
+   * <code>int64 size = 6;</code>
    */
   long getSize();
 
   /**
-   * <code>string hash = 6;</code>
+   * <code>string hash = 7;</code>
    */
   java.lang.String getHash();
   /**
-   * <code>string hash = 6;</code>
+   * <code>string hash = 7;</code>
    */
   com.google.protobuf.ByteString
       getHashBytes();

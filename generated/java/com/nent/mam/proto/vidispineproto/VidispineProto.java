@@ -159,29 +159,30 @@ public final class VidispineProto {
       "ile\"8\n\005Video\022\n\n\002id\030\001 \001(\t\022#\n\005files\030\002 \003(\0132" +
       "\024.vidispineproto.File\"M\n\010Subtitle\022\n\n\002id\030" +
       "\001 \001(\t\022\020\n\010language\030\002 \001(\t\022#\n\005files\030\003 \003(\0132\024" +
-      ".vidispineproto.File\"e\n\004File\022\n\n\002id\030\001 \001(\t" +
-      "\022\022\n\nstorage_id\030\002 \001(\t\022\013\n\003uri\030\003 \001(\t\022\024\n\014org" +
-      "_filename\030\004 \001(\t\022\014\n\004size\030\005 \001(\003\022\014\n\004hash\030\006 " +
-      "\001(\t\"\020\n\016DeleteShapeOut\"\027\n\005JobIn\022\016\n\006job_id" +
-      "\030\001 \001(\t\"*\n\006JobOut\022 \n\003job\030\001 \001(\0132\023.vidispin" +
-      "eproto.Job\"n\n\003Job\022\n\n\002id\030\001 \001(\t\022\014\n\004user\030\002 " +
-      "\001(\t\022\016\n\006status\030\003 \001(\t\022\014\n\004type\030\004 \001(\t\022\014\n\004pri" +
-      "o\030\005 \001(\t\022\017\n\007started\030\006 \001(\003\022\020\n\010finished\030\007 \001" +
-      "(\003\";\n\010ExportIn\022\017\n\007item_id\030\001 \001(\t\022\020\n\010shape" +
-      "_id\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\"\033\n\tExportOut\022\016\n\006" +
-      "job_id\030\001 \001(\t2\257\003\n\tVidispine\0229\n\006GetJob\022\025.v" +
-      "idispineproto.JobIn\032\026.vidispineproto.Job" +
-      "Out\"\000\022<\n\007GetItem\022\026.vidispineproto.ItemIn" +
-      "\032\027.vidispineproto.ItemOut\"\000\022?\n\010GetShape\022" +
-      "\027.vidispineproto.ShapeIn\032\030.vidispineprot" +
-      "o.ShapeOut\"\000\022H\n\013DeleteShape\022\027.vidispinep" +
-      "roto.ShapeIn\032\036.vidispineproto.DeleteShap" +
-      "eOut\"\000\022B\n\tExportIMF\022\030.vidispineproto.Exp" +
-      "ortIn\032\031.vidispineproto.ExportOut\"\000\022Z\n\017Im" +
-      "portRendition\022!.vidispineproto.ImportRen" +
-      "ditionIn\032\".vidispineproto.ImportRenditio" +
-      "nOut\"\000B5\n!com.nent.mam.proto.vidispinepr" +
-      "otoB\016VidispineProtoP\001b\006proto3"
+      ".vidispineproto.File\"w\n\004File\022\n\n\002id\030\001 \001(\t" +
+      "\022\022\n\nstorage_id\030\002 \001(\t\022\013\n\003uri\030\003 \001(\t\022\020\n\010fil" +
+      "ename\030\004 \001(\t\022\024\n\014org_filename\030\005 \001(\t\022\014\n\004siz" +
+      "e\030\006 \001(\003\022\014\n\004hash\030\007 \001(\t\"\020\n\016DeleteShapeOut\"" +
+      "\027\n\005JobIn\022\016\n\006job_id\030\001 \001(\t\"*\n\006JobOut\022 \n\003jo" +
+      "b\030\001 \001(\0132\023.vidispineproto.Job\"n\n\003Job\022\n\n\002i" +
+      "d\030\001 \001(\t\022\014\n\004user\030\002 \001(\t\022\016\n\006status\030\003 \001(\t\022\014\n" +
+      "\004type\030\004 \001(\t\022\014\n\004prio\030\005 \001(\t\022\017\n\007started\030\006 \001" +
+      "(\003\022\020\n\010finished\030\007 \001(\003\";\n\010ExportIn\022\017\n\007item" +
+      "_id\030\001 \001(\t\022\020\n\010shape_id\030\002 \001(\t\022\014\n\004path\030\003 \001(" +
+      "\t\"\033\n\tExportOut\022\016\n\006job_id\030\001 \001(\t2\257\003\n\tVidis" +
+      "pine\0229\n\006GetJob\022\025.vidispineproto.JobIn\032\026." +
+      "vidispineproto.JobOut\"\000\022<\n\007GetItem\022\026.vid" +
+      "ispineproto.ItemIn\032\027.vidispineproto.Item" +
+      "Out\"\000\022?\n\010GetShape\022\027.vidispineproto.Shape" +
+      "In\032\030.vidispineproto.ShapeOut\"\000\022H\n\013Delete" +
+      "Shape\022\027.vidispineproto.ShapeIn\032\036.vidispi" +
+      "neproto.DeleteShapeOut\"\000\022B\n\tExportIMF\022\030." +
+      "vidispineproto.ExportIn\032\031.vidispineproto" +
+      ".ExportOut\"\000\022Z\n\017ImportRendition\022!.vidisp" +
+      "ineproto.ImportRenditionIn\032\".vidispinepr" +
+      "oto.ImportRenditionOut\"\000B5\n!com.nent.mam" +
+      ".proto.vidispineprotoB\016VidispineProtoP\001b" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -284,7 +285,7 @@ public final class VidispineProto {
     internal_static_vidispineproto_File_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_vidispineproto_File_descriptor,
-        new java.lang.String[] { "Id", "StorageId", "Uri", "OrgFilename", "Size", "Hash", });
+        new java.lang.String[] { "Id", "StorageId", "Uri", "Filename", "OrgFilename", "Size", "Hash", });
     internal_static_vidispineproto_DeleteShapeOut_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_vidispineproto_DeleteShapeOut_fieldAccessorTable = new

@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     id_ = "";
     storageId_ = "";
     uri_ = "";
+    filename_ = "";
     orgFilename_ = "";
     size_ = 0L;
     hash_ = "";
@@ -76,15 +77,21 @@ private static final long serialVersionUID = 0L;
           case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
+            filename_ = s;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
             orgFilename_ = s;
             break;
           }
-          case 40: {
+          case 48: {
 
             size_ = input.readInt64();
             break;
           }
-          case 50: {
+          case 58: {
             java.lang.String s = input.readStringRequireUtf8();
 
             hash_ = s;
@@ -216,10 +223,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ORG_FILENAME_FIELD_NUMBER = 4;
+  public static final int FILENAME_FIELD_NUMBER = 4;
+  private volatile java.lang.Object filename_;
+  /**
+   * <code>string filename = 4;</code>
+   */
+  public java.lang.String getFilename() {
+    java.lang.Object ref = filename_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      filename_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string filename = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getFilenameBytes() {
+    java.lang.Object ref = filename_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      filename_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int ORG_FILENAME_FIELD_NUMBER = 5;
   private volatile java.lang.Object orgFilename_;
   /**
-   * <code>string org_filename = 4;</code>
+   * <code>string org_filename = 5;</code>
    */
   public java.lang.String getOrgFilename() {
     java.lang.Object ref = orgFilename_;
@@ -234,7 +275,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string org_filename = 4;</code>
+   * <code>string org_filename = 5;</code>
    */
   public com.google.protobuf.ByteString
       getOrgFilenameBytes() {
@@ -250,19 +291,19 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int SIZE_FIELD_NUMBER = 5;
+  public static final int SIZE_FIELD_NUMBER = 6;
   private long size_;
   /**
-   * <code>int64 size = 5;</code>
+   * <code>int64 size = 6;</code>
    */
   public long getSize() {
     return size_;
   }
 
-  public static final int HASH_FIELD_NUMBER = 6;
+  public static final int HASH_FIELD_NUMBER = 7;
   private volatile java.lang.Object hash_;
   /**
-   * <code>string hash = 6;</code>
+   * <code>string hash = 7;</code>
    */
   public java.lang.String getHash() {
     java.lang.Object ref = hash_;
@@ -277,7 +318,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string hash = 6;</code>
+   * <code>string hash = 7;</code>
    */
   public com.google.protobuf.ByteString
       getHashBytes() {
@@ -314,14 +355,17 @@ private static final long serialVersionUID = 0L;
     if (!getUriBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, uri_);
     }
+    if (!getFilenameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, filename_);
+    }
     if (!getOrgFilenameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, orgFilename_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, orgFilename_);
     }
     if (size_ != 0L) {
-      output.writeInt64(5, size_);
+      output.writeInt64(6, size_);
     }
     if (!getHashBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, hash_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 7, hash_);
     }
     unknownFields.writeTo(output);
   }
@@ -340,15 +384,18 @@ private static final long serialVersionUID = 0L;
     if (!getUriBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, uri_);
     }
+    if (!getFilenameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, filename_);
+    }
     if (!getOrgFilenameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, orgFilename_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, orgFilename_);
     }
     if (size_ != 0L) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(5, size_);
+        .computeInt64Size(6, size_);
     }
     if (!getHashBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, hash_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, hash_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -372,6 +419,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStorageId());
     result = result && getUri()
         .equals(other.getUri());
+    result = result && getFilename()
+        .equals(other.getFilename());
     result = result && getOrgFilename()
         .equals(other.getOrgFilename());
     result = result && (getSize()
@@ -395,6 +444,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getStorageId().hashCode();
     hash = (37 * hash) + URI_FIELD_NUMBER;
     hash = (53 * hash) + getUri().hashCode();
+    hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+    hash = (53 * hash) + getFilename().hashCode();
     hash = (37 * hash) + ORG_FILENAME_FIELD_NUMBER;
     hash = (53 * hash) + getOrgFilename().hashCode();
     hash = (37 * hash) + SIZE_FIELD_NUMBER;
@@ -537,6 +588,8 @@ private static final long serialVersionUID = 0L;
 
       uri_ = "";
 
+      filename_ = "";
+
       orgFilename_ = "";
 
       size_ = 0L;
@@ -568,6 +621,7 @@ private static final long serialVersionUID = 0L;
       result.id_ = id_;
       result.storageId_ = storageId_;
       result.uri_ = uri_;
+      result.filename_ = filename_;
       result.orgFilename_ = orgFilename_;
       result.size_ = size_;
       result.hash_ = hash_;
@@ -622,6 +676,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUri().isEmpty()) {
         uri_ = other.uri_;
+        onChanged();
+      }
+      if (!other.getFilename().isEmpty()) {
+        filename_ = other.filename_;
         onChanged();
       }
       if (!other.getOrgFilename().isEmpty()) {
@@ -869,9 +927,78 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object filename_ = "";
+    /**
+     * <code>string filename = 4;</code>
+     */
+    public java.lang.String getFilename() {
+      java.lang.Object ref = filename_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filename_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string filename = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilenameBytes() {
+      java.lang.Object ref = filename_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filename_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string filename = 4;</code>
+     */
+    public Builder setFilename(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      filename_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string filename = 4;</code>
+     */
+    public Builder clearFilename() {
+      
+      filename_ = getDefaultInstance().getFilename();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string filename = 4;</code>
+     */
+    public Builder setFilenameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      filename_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object orgFilename_ = "";
     /**
-     * <code>string org_filename = 4;</code>
+     * <code>string org_filename = 5;</code>
      */
     public java.lang.String getOrgFilename() {
       java.lang.Object ref = orgFilename_;
@@ -886,7 +1013,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string org_filename = 4;</code>
+     * <code>string org_filename = 5;</code>
      */
     public com.google.protobuf.ByteString
         getOrgFilenameBytes() {
@@ -902,7 +1029,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string org_filename = 4;</code>
+     * <code>string org_filename = 5;</code>
      */
     public Builder setOrgFilename(
         java.lang.String value) {
@@ -915,7 +1042,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string org_filename = 4;</code>
+     * <code>string org_filename = 5;</code>
      */
     public Builder clearOrgFilename() {
       
@@ -924,7 +1051,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string org_filename = 4;</code>
+     * <code>string org_filename = 5;</code>
      */
     public Builder setOrgFilenameBytes(
         com.google.protobuf.ByteString value) {
@@ -940,13 +1067,13 @@ private static final long serialVersionUID = 0L;
 
     private long size_ ;
     /**
-     * <code>int64 size = 5;</code>
+     * <code>int64 size = 6;</code>
      */
     public long getSize() {
       return size_;
     }
     /**
-     * <code>int64 size = 5;</code>
+     * <code>int64 size = 6;</code>
      */
     public Builder setSize(long value) {
       
@@ -955,7 +1082,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int64 size = 5;</code>
+     * <code>int64 size = 6;</code>
      */
     public Builder clearSize() {
       
@@ -966,7 +1093,7 @@ private static final long serialVersionUID = 0L;
 
     private java.lang.Object hash_ = "";
     /**
-     * <code>string hash = 6;</code>
+     * <code>string hash = 7;</code>
      */
     public java.lang.String getHash() {
       java.lang.Object ref = hash_;
@@ -981,7 +1108,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string hash = 6;</code>
+     * <code>string hash = 7;</code>
      */
     public com.google.protobuf.ByteString
         getHashBytes() {
@@ -997,7 +1124,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string hash = 6;</code>
+     * <code>string hash = 7;</code>
      */
     public Builder setHash(
         java.lang.String value) {
@@ -1010,7 +1137,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string hash = 6;</code>
+     * <code>string hash = 7;</code>
      */
     public Builder clearHash() {
       
@@ -1019,7 +1146,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string hash = 6;</code>
+     * <code>string hash = 7;</code>
      */
     public Builder setHashBytes(
         com.google.protobuf.ByteString value) {

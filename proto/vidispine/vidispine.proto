@@ -113,9 +113,10 @@ message File {
 	string id = 1;
   string storage_id = 2;
   string uri = 3;
-	string org_filename = 4;
-	int64 size = 5;
-	string hash = 6;
+  string filename = 4;
+	string org_filename = 5;
+	int64 size = 6;
+	string hash = 7;
 }
 
 //////////////////
