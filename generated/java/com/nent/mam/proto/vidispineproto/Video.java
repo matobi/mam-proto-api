@@ -17,7 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private Video() {
     id_ = "";
-    bitrate_ = 0L;
+    bitrate_ = 0;
     codec_ = "";
     files_ = java.util.Collections.emptyList();
   }
@@ -61,7 +61,7 @@ private static final long serialVersionUID = 0L;
           }
           case 16: {
 
-            bitrate_ = input.readInt64();
+            bitrate_ = input.readInt32();
             break;
           }
           case 26: {
@@ -142,11 +142,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BITRATE_FIELD_NUMBER = 2;
-  private long bitrate_;
+  private int bitrate_;
   /**
-   * <code>int64 bitrate = 2;</code>
+   * <code>int32 bitrate = 2;</code>
    */
-  public long getBitrate() {
+  public int getBitrate() {
     return bitrate_;
   }
 
@@ -234,8 +234,8 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
-    if (bitrate_ != 0L) {
-      output.writeInt64(2, bitrate_);
+    if (bitrate_ != 0) {
+      output.writeInt32(2, bitrate_);
     }
     if (!getCodecBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, codec_);
@@ -254,9 +254,9 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
-    if (bitrate_ != 0L) {
+    if (bitrate_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt64Size(2, bitrate_);
+        .computeInt32Size(2, bitrate_);
     }
     if (!getCodecBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, codec_);
@@ -303,8 +303,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
     hash = (37 * hash) + BITRATE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        getBitrate());
+    hash = (53 * hash) + getBitrate();
     hash = (37 * hash) + CODEC_FIELD_NUMBER;
     hash = (53 * hash) + getCodec().hashCode();
     if (getFilesCount() > 0) {
@@ -443,7 +442,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = "";
 
-      bitrate_ = 0L;
+      bitrate_ = 0;
 
       codec_ = "";
 
@@ -535,7 +534,7 @@ private static final long serialVersionUID = 0L;
         id_ = other.id_;
         onChanged();
       }
-      if (other.getBitrate() != 0L) {
+      if (other.getBitrate() != 0) {
         setBitrate(other.getBitrate());
       }
       if (!other.getCodec().isEmpty()) {
@@ -665,28 +664,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long bitrate_ ;
+    private int bitrate_ ;
     /**
-     * <code>int64 bitrate = 2;</code>
+     * <code>int32 bitrate = 2;</code>
      */
-    public long getBitrate() {
+    public int getBitrate() {
       return bitrate_;
     }
     /**
-     * <code>int64 bitrate = 2;</code>
+     * <code>int32 bitrate = 2;</code>
      */
-    public Builder setBitrate(long value) {
+    public Builder setBitrate(int value) {
       
       bitrate_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int64 bitrate = 2;</code>
+     * <code>int32 bitrate = 2;</code>
      */
     public Builder clearBitrate() {
       
-      bitrate_ = 0L;
+      bitrate_ = 0;
       onChanged();
       return this;
     }

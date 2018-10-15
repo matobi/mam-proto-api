@@ -93,7 +93,7 @@ message Shape {
 
 message Audio {
   string id = 1;
-  int64 bitrate = 2;
+  int32 bitrate = 2;
   string codec = 3;
   string language = 4;
   int32 channel_count = 5;
@@ -102,7 +102,7 @@ message Audio {
 
 message Video {
   string id = 1;
-  int64 bitrate = 2;
+  int32 bitrate = 2;
   string codec = 3;
 	repeated File files = 4;
 }

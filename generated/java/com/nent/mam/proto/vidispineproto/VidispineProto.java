@@ -154,10 +154,10 @@ public final class VidispineProto {
       "vidispineproto.Video\022%\n\006audios\030\t \003(\0132\025.v" +
       "idispineproto.Audio\022+\n\tsubtitles\030\n \003(\0132\030" +
       ".vidispineproto.Subtitle\"\201\001\n\005Audio\022\n\n\002id" +
-      "\030\001 \001(\t\022\017\n\007bitrate\030\002 \001(\003\022\r\n\005codec\030\003 \001(\t\022\020" +
+      "\030\001 \001(\t\022\017\n\007bitrate\030\002 \001(\005\022\r\n\005codec\030\003 \001(\t\022\020" +
       "\n\010language\030\004 \001(\t\022\025\n\rchannel_count\030\005 \001(\005\022" +
       "#\n\005files\030\006 \003(\0132\024.vidispineproto.File\"X\n\005" +
-      "Video\022\n\n\002id\030\001 \001(\t\022\017\n\007bitrate\030\002 \001(\003\022\r\n\005co" +
+      "Video\022\n\n\002id\030\001 \001(\t\022\017\n\007bitrate\030\002 \001(\005\022\r\n\005co" +
       "dec\030\003 \001(\t\022#\n\005files\030\004 \003(\0132\024.vidispineprot" +
       "o.File\"M\n\010Subtitle\022\n\n\002id\030\001 \001(\t\022\020\n\010langua" +
       "ge\030\002 \001(\t\022#\n\005files\030\003 \003(\0132\024.vidispineproto" +

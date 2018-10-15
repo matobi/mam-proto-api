@@ -18,9 +18,9 @@ public interface AudioOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>int64 bitrate = 2;</code>
+   * <code>int32 bitrate = 2;</code>
    */
-  long getBitrate();
+  int getBitrate();
 
   /**
    * <code>string codec = 3;</code>
