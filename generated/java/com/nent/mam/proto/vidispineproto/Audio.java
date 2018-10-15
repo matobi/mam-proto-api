@@ -17,6 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private Audio() {
     id_ = "";
+    bitrate_ = 0L;
+    codec_ = "";
     language_ = "";
     channelCount_ = 0;
     files_ = java.util.Collections.emptyList();
@@ -59,21 +61,32 @@ private static final long serialVersionUID = 0L;
             id_ = s;
             break;
           }
-          case 18: {
+          case 16: {
+
+            bitrate_ = input.readInt64();
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            codec_ = s;
+            break;
+          }
+          case 34: {
             java.lang.String s = input.readStringRequireUtf8();
 
             language_ = s;
             break;
           }
-          case 24: {
+          case 40: {
 
             channelCount_ = input.readInt32();
             break;
           }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          case 50: {
+            if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
               files_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.File>();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000020;
             }
             files_.add(
                 input.readMessage(com.nent.mam.proto.vidispineproto.File.parser(), extensionRegistry));
@@ -87,7 +100,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
         files_ = java.util.Collections.unmodifiableList(files_);
       }
       this.unknownFields = unknownFields.build();
@@ -141,10 +154,53 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int LANGUAGE_FIELD_NUMBER = 2;
+  public static final int BITRATE_FIELD_NUMBER = 2;
+  private long bitrate_;
+  /**
+   * <code>int64 bitrate = 2;</code>
+   */
+  public long getBitrate() {
+    return bitrate_;
+  }
+
+  public static final int CODEC_FIELD_NUMBER = 3;
+  private volatile java.lang.Object codec_;
+  /**
+   * <code>string codec = 3;</code>
+   */
+  public java.lang.String getCodec() {
+    java.lang.Object ref = codec_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      codec_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string codec = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getCodecBytes() {
+    java.lang.Object ref = codec_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      codec_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int LANGUAGE_FIELD_NUMBER = 4;
   private volatile java.lang.Object language_;
   /**
-   * <code>string language = 2;</code>
+   * <code>string language = 4;</code>
    */
   public java.lang.String getLanguage() {
     java.lang.Object ref = language_;
@@ -159,7 +215,7 @@ private static final long serialVersionUID = 0L;
     }
   }
   /**
-   * <code>string language = 2;</code>
+   * <code>string language = 4;</code>
    */
   public com.google.protobuf.ByteString
       getLanguageBytes() {
@@ -175,44 +231,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHANNEL_COUNT_FIELD_NUMBER = 3;
+  public static final int CHANNEL_COUNT_FIELD_NUMBER = 5;
   private int channelCount_;
   /**
-   * <code>int32 channel_count = 3;</code>
+   * <code>int32 channel_count = 5;</code>
    */
   public int getChannelCount() {
     return channelCount_;
   }
 
-  public static final int FILES_FIELD_NUMBER = 4;
+  public static final int FILES_FIELD_NUMBER = 6;
   private java.util.List<com.nent.mam.proto.vidispineproto.File> files_;
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   public java.util.List<com.nent.mam.proto.vidispineproto.File> getFilesList() {
     return files_;
   }
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   public java.util.List<? extends com.nent.mam.proto.vidispineproto.FileOrBuilder> 
       getFilesOrBuilderList() {
     return files_;
   }
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   public int getFilesCount() {
     return files_.size();
   }
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   public com.nent.mam.proto.vidispineproto.File getFiles(int index) {
     return files_.get(index);
   }
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   public com.nent.mam.proto.vidispineproto.FileOrBuilder getFilesOrBuilder(
       int index) {
@@ -234,14 +290,20 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
     }
+    if (bitrate_ != 0L) {
+      output.writeInt64(2, bitrate_);
+    }
+    if (!getCodecBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, codec_);
+    }
     if (!getLanguageBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, language_);
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, language_);
     }
     if (channelCount_ != 0) {
-      output.writeInt32(3, channelCount_);
+      output.writeInt32(5, channelCount_);
     }
     for (int i = 0; i < files_.size(); i++) {
-      output.writeMessage(4, files_.get(i));
+      output.writeMessage(6, files_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -254,16 +316,23 @@ private static final long serialVersionUID = 0L;
     if (!getIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
     }
+    if (bitrate_ != 0L) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt64Size(2, bitrate_);
+    }
+    if (!getCodecBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, codec_);
+    }
     if (!getLanguageBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, language_);
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, language_);
     }
     if (channelCount_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(3, channelCount_);
+        .computeInt32Size(5, channelCount_);
     }
     for (int i = 0; i < files_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, files_.get(i));
+        .computeMessageSize(6, files_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -283,6 +352,10 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getId()
         .equals(other.getId());
+    result = result && (getBitrate()
+        == other.getBitrate());
+    result = result && getCodec()
+        .equals(other.getCodec());
     result = result && getLanguage()
         .equals(other.getLanguage());
     result = result && (getChannelCount()
@@ -302,6 +375,11 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + ID_FIELD_NUMBER;
     hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + BITRATE_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+        getBitrate());
+    hash = (37 * hash) + CODEC_FIELD_NUMBER;
+    hash = (53 * hash) + getCodec().hashCode();
     hash = (37 * hash) + LANGUAGE_FIELD_NUMBER;
     hash = (53 * hash) + getLanguage().hashCode();
     hash = (37 * hash) + CHANNEL_COUNT_FIELD_NUMBER;
@@ -442,13 +520,17 @@ private static final long serialVersionUID = 0L;
       super.clear();
       id_ = "";
 
+      bitrate_ = 0L;
+
+      codec_ = "";
+
       language_ = "";
 
       channelCount_ = 0;
 
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
         filesBuilder_.clear();
       }
@@ -477,12 +559,14 @@ private static final long serialVersionUID = 0L;
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       result.id_ = id_;
+      result.bitrate_ = bitrate_;
+      result.codec_ = codec_;
       result.language_ = language_;
       result.channelCount_ = channelCount_;
       if (filesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
           files_ = java.util.Collections.unmodifiableList(files_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.files_ = files_;
       } else {
@@ -534,6 +618,13 @@ private static final long serialVersionUID = 0L;
         id_ = other.id_;
         onChanged();
       }
+      if (other.getBitrate() != 0L) {
+        setBitrate(other.getBitrate());
+      }
+      if (!other.getCodec().isEmpty()) {
+        codec_ = other.codec_;
+        onChanged();
+      }
       if (!other.getLanguage().isEmpty()) {
         language_ = other.language_;
         onChanged();
@@ -545,7 +636,7 @@ private static final long serialVersionUID = 0L;
         if (!other.files_.isEmpty()) {
           if (files_.isEmpty()) {
             files_ = other.files_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureFilesIsMutable();
             files_.addAll(other.files_);
@@ -558,7 +649,7 @@ private static final long serialVersionUID = 0L;
             filesBuilder_.dispose();
             filesBuilder_ = null;
             files_ = other.files_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000020);
             filesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFilesFieldBuilder() : null;
@@ -664,9 +755,104 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private long bitrate_ ;
+    /**
+     * <code>int64 bitrate = 2;</code>
+     */
+    public long getBitrate() {
+      return bitrate_;
+    }
+    /**
+     * <code>int64 bitrate = 2;</code>
+     */
+    public Builder setBitrate(long value) {
+      
+      bitrate_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int64 bitrate = 2;</code>
+     */
+    public Builder clearBitrate() {
+      
+      bitrate_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object codec_ = "";
+    /**
+     * <code>string codec = 3;</code>
+     */
+    public java.lang.String getCodec() {
+      java.lang.Object ref = codec_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        codec_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string codec = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCodecBytes() {
+      java.lang.Object ref = codec_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        codec_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string codec = 3;</code>
+     */
+    public Builder setCodec(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      codec_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string codec = 3;</code>
+     */
+    public Builder clearCodec() {
+      
+      codec_ = getDefaultInstance().getCodec();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string codec = 3;</code>
+     */
+    public Builder setCodecBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      codec_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object language_ = "";
     /**
-     * <code>string language = 2;</code>
+     * <code>string language = 4;</code>
      */
     public java.lang.String getLanguage() {
       java.lang.Object ref = language_;
@@ -681,7 +867,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string language = 2;</code>
+     * <code>string language = 4;</code>
      */
     public com.google.protobuf.ByteString
         getLanguageBytes() {
@@ -697,7 +883,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>string language = 2;</code>
+     * <code>string language = 4;</code>
      */
     public Builder setLanguage(
         java.lang.String value) {
@@ -710,7 +896,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string language = 2;</code>
+     * <code>string language = 4;</code>
      */
     public Builder clearLanguage() {
       
@@ -719,7 +905,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>string language = 2;</code>
+     * <code>string language = 4;</code>
      */
     public Builder setLanguageBytes(
         com.google.protobuf.ByteString value) {
@@ -735,13 +921,13 @@ private static final long serialVersionUID = 0L;
 
     private int channelCount_ ;
     /**
-     * <code>int32 channel_count = 3;</code>
+     * <code>int32 channel_count = 5;</code>
      */
     public int getChannelCount() {
       return channelCount_;
     }
     /**
-     * <code>int32 channel_count = 3;</code>
+     * <code>int32 channel_count = 5;</code>
      */
     public Builder setChannelCount(int value) {
       
@@ -750,7 +936,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 channel_count = 3;</code>
+     * <code>int32 channel_count = 5;</code>
      */
     public Builder clearChannelCount() {
       
@@ -762,9 +948,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.nent.mam.proto.vidispineproto.File> files_ =
       java.util.Collections.emptyList();
     private void ensureFilesIsMutable() {
-      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (!((bitField0_ & 0x00000020) == 0x00000020)) {
         files_ = new java.util.ArrayList<com.nent.mam.proto.vidispineproto.File>(files_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -772,7 +958,7 @@ private static final long serialVersionUID = 0L;
         com.nent.mam.proto.vidispineproto.File, com.nent.mam.proto.vidispineproto.File.Builder, com.nent.mam.proto.vidispineproto.FileOrBuilder> filesBuilder_;
 
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.File> getFilesList() {
       if (filesBuilder_ == null) {
@@ -782,7 +968,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public int getFilesCount() {
       if (filesBuilder_ == null) {
@@ -792,7 +978,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public com.nent.mam.proto.vidispineproto.File getFiles(int index) {
       if (filesBuilder_ == null) {
@@ -802,7 +988,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder setFiles(
         int index, com.nent.mam.proto.vidispineproto.File value) {
@@ -819,7 +1005,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder setFiles(
         int index, com.nent.mam.proto.vidispineproto.File.Builder builderForValue) {
@@ -833,7 +1019,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder addFiles(com.nent.mam.proto.vidispineproto.File value) {
       if (filesBuilder_ == null) {
@@ -849,7 +1035,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder addFiles(
         int index, com.nent.mam.proto.vidispineproto.File value) {
@@ -866,7 +1052,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder addFiles(
         com.nent.mam.proto.vidispineproto.File.Builder builderForValue) {
@@ -880,7 +1066,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder addFiles(
         int index, com.nent.mam.proto.vidispineproto.File.Builder builderForValue) {
@@ -894,7 +1080,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder addAllFiles(
         java.lang.Iterable<? extends com.nent.mam.proto.vidispineproto.File> values) {
@@ -909,12 +1095,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder clearFiles() {
       if (filesBuilder_ == null) {
         files_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         filesBuilder_.clear();
@@ -922,7 +1108,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public Builder removeFiles(int index) {
       if (filesBuilder_ == null) {
@@ -935,14 +1121,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public com.nent.mam.proto.vidispineproto.File.Builder getFilesBuilder(
         int index) {
       return getFilesFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public com.nent.mam.proto.vidispineproto.FileOrBuilder getFilesOrBuilder(
         int index) {
@@ -952,7 +1138,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public java.util.List<? extends com.nent.mam.proto.vidispineproto.FileOrBuilder> 
          getFilesOrBuilderList() {
@@ -963,14 +1149,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public com.nent.mam.proto.vidispineproto.File.Builder addFilesBuilder() {
       return getFilesFieldBuilder().addBuilder(
           com.nent.mam.proto.vidispineproto.File.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public com.nent.mam.proto.vidispineproto.File.Builder addFilesBuilder(
         int index) {
@@ -978,7 +1164,7 @@ private static final long serialVersionUID = 0L;
           index, com.nent.mam.proto.vidispineproto.File.getDefaultInstance());
     }
     /**
-     * <code>repeated .vidispineproto.File files = 4;</code>
+     * <code>repeated .vidispineproto.File files = 6;</code>
      */
     public java.util.List<com.nent.mam.proto.vidispineproto.File.Builder> 
          getFilesBuilderList() {
@@ -991,7 +1177,7 @@ private static final long serialVersionUID = 0L;
         filesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.nent.mam.proto.vidispineproto.File, com.nent.mam.proto.vidispineproto.File.Builder, com.nent.mam.proto.vidispineproto.FileOrBuilder>(
                 files_,
-                ((bitField0_ & 0x00000008) == 0x00000008),
+                ((bitField0_ & 0x00000020) == 0x00000020),
                 getParentForChildren(),
                 isClean());
         files_ = null;

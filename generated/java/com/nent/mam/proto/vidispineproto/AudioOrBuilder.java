@@ -18,40 +18,55 @@ public interface AudioOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>string language = 2;</code>
+   * <code>int64 bitrate = 2;</code>
+   */
+  long getBitrate();
+
+  /**
+   * <code>string codec = 3;</code>
+   */
+  java.lang.String getCodec();
+  /**
+   * <code>string codec = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getCodecBytes();
+
+  /**
+   * <code>string language = 4;</code>
    */
   java.lang.String getLanguage();
   /**
-   * <code>string language = 2;</code>
+   * <code>string language = 4;</code>
    */
   com.google.protobuf.ByteString
       getLanguageBytes();
 
   /**
-   * <code>int32 channel_count = 3;</code>
+   * <code>int32 channel_count = 5;</code>
    */
   int getChannelCount();
 
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   java.util.List<com.nent.mam.proto.vidispineproto.File> 
       getFilesList();
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   com.nent.mam.proto.vidispineproto.File getFiles(int index);
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   int getFilesCount();
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   java.util.List<? extends com.nent.mam.proto.vidispineproto.FileOrBuilder> 
       getFilesOrBuilderList();
   /**
-   * <code>repeated .vidispineproto.File files = 4;</code>
+   * <code>repeated .vidispineproto.File files = 6;</code>
    */
   com.nent.mam.proto.vidispineproto.FileOrBuilder getFilesOrBuilder(
       int index);
