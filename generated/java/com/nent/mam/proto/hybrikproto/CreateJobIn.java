@@ -16,9 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private CreateJobIn() {
-    dir_ = "";
-    file_ = "";
-    houseId_ = "";
+    jobSpec_ = "";
   }
 
   @java.lang.Override
@@ -55,19 +53,7 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            dir_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            file_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            houseId_ = s;
+            jobSpec_ = s;
             break;
           }
         }
@@ -94,102 +80,46 @@ private static final long serialVersionUID = 0L;
             com.nent.mam.proto.hybrikproto.CreateJobIn.class, com.nent.mam.proto.hybrikproto.CreateJobIn.Builder.class);
   }
 
-  public static final int DIR_FIELD_NUMBER = 1;
-  private volatile java.lang.Object dir_;
+  public static final int JOB_SPEC_FIELD_NUMBER = 1;
+  private volatile java.lang.Object jobSpec_;
   /**
-   * <code>string dir = 1;</code>
+   * <pre>
+   *string dir = 1;
+   *string file = 2;
+   *string house_id = 3;
+   * </pre>
+   *
+   * <code>string job_spec = 1;</code>
    */
-  public java.lang.String getDir() {
-    java.lang.Object ref = dir_;
+  public java.lang.String getJobSpec() {
+    java.lang.Object ref = jobSpec_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      dir_ = s;
+      jobSpec_ = s;
       return s;
     }
   }
   /**
-   * <code>string dir = 1;</code>
+   * <pre>
+   *string dir = 1;
+   *string file = 2;
+   *string house_id = 3;
+   * </pre>
+   *
+   * <code>string job_spec = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getDirBytes() {
-    java.lang.Object ref = dir_;
+      getJobSpecBytes() {
+    java.lang.Object ref = jobSpec_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      dir_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int FILE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object file_;
-  /**
-   * <code>string file = 2;</code>
-   */
-  public java.lang.String getFile() {
-    java.lang.Object ref = file_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      file_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string file = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getFileBytes() {
-    java.lang.Object ref = file_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      file_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int HOUSE_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object houseId_;
-  /**
-   * <code>string house_id = 3;</code>
-   */
-  public java.lang.String getHouseId() {
-    java.lang.Object ref = houseId_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      houseId_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string house_id = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getHouseIdBytes() {
-    java.lang.Object ref = houseId_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      houseId_ = b;
+      jobSpec_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -208,14 +138,8 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getDirBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, dir_);
-    }
-    if (!getFileBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, file_);
-    }
-    if (!getHouseIdBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, houseId_);
+    if (!getJobSpecBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, jobSpec_);
     }
     unknownFields.writeTo(output);
   }
@@ -225,14 +149,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getDirBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, dir_);
-    }
-    if (!getFileBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, file_);
-    }
-    if (!getHouseIdBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, houseId_);
+    if (!getJobSpecBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, jobSpec_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -250,12 +168,8 @@ private static final long serialVersionUID = 0L;
     com.nent.mam.proto.hybrikproto.CreateJobIn other = (com.nent.mam.proto.hybrikproto.CreateJobIn) obj;
 
     boolean result = true;
-    result = result && getDir()
-        .equals(other.getDir());
-    result = result && getFile()
-        .equals(other.getFile());
-    result = result && getHouseId()
-        .equals(other.getHouseId());
+    result = result && getJobSpec()
+        .equals(other.getJobSpec());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -267,12 +181,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + DIR_FIELD_NUMBER;
-    hash = (53 * hash) + getDir().hashCode();
-    hash = (37 * hash) + FILE_FIELD_NUMBER;
-    hash = (53 * hash) + getFile().hashCode();
-    hash = (37 * hash) + HOUSE_ID_FIELD_NUMBER;
-    hash = (53 * hash) + getHouseId().hashCode();
+    hash = (37 * hash) + JOB_SPEC_FIELD_NUMBER;
+    hash = (53 * hash) + getJobSpec().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -402,11 +312,7 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      dir_ = "";
-
-      file_ = "";
-
-      houseId_ = "";
+      jobSpec_ = "";
 
       return this;
     }
@@ -430,9 +336,7 @@ private static final long serialVersionUID = 0L;
 
     public com.nent.mam.proto.hybrikproto.CreateJobIn buildPartial() {
       com.nent.mam.proto.hybrikproto.CreateJobIn result = new com.nent.mam.proto.hybrikproto.CreateJobIn(this);
-      result.dir_ = dir_;
-      result.file_ = file_;
-      result.houseId_ = houseId_;
+      result.jobSpec_ = jobSpec_;
       onBuilt();
       return result;
     }
@@ -474,16 +378,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.nent.mam.proto.hybrikproto.CreateJobIn other) {
       if (other == com.nent.mam.proto.hybrikproto.CreateJobIn.getDefaultInstance()) return this;
-      if (!other.getDir().isEmpty()) {
-        dir_ = other.dir_;
-        onChanged();
-      }
-      if (!other.getFile().isEmpty()) {
-        file_ = other.file_;
-        onChanged();
-      }
-      if (!other.getHouseId().isEmpty()) {
-        houseId_ = other.houseId_;
+      if (!other.getJobSpec().isEmpty()) {
+        jobSpec_ = other.jobSpec_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -513,209 +409,101 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object dir_ = "";
+    private java.lang.Object jobSpec_ = "";
     /**
-     * <code>string dir = 1;</code>
+     * <pre>
+     *string dir = 1;
+     *string file = 2;
+     *string house_id = 3;
+     * </pre>
+     *
+     * <code>string job_spec = 1;</code>
      */
-    public java.lang.String getDir() {
-      java.lang.Object ref = dir_;
+    public java.lang.String getJobSpec() {
+      java.lang.Object ref = jobSpec_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        dir_ = s;
+        jobSpec_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string dir = 1;</code>
+     * <pre>
+     *string dir = 1;
+     *string file = 2;
+     *string house_id = 3;
+     * </pre>
+     *
+     * <code>string job_spec = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getDirBytes() {
-      java.lang.Object ref = dir_;
+        getJobSpecBytes() {
+      java.lang.Object ref = jobSpec_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        dir_ = b;
+        jobSpec_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string dir = 1;</code>
+     * <pre>
+     *string dir = 1;
+     *string file = 2;
+     *string house_id = 3;
+     * </pre>
+     *
+     * <code>string job_spec = 1;</code>
      */
-    public Builder setDir(
+    public Builder setJobSpec(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      dir_ = value;
+      jobSpec_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string dir = 1;</code>
+     * <pre>
+     *string dir = 1;
+     *string file = 2;
+     *string house_id = 3;
+     * </pre>
+     *
+     * <code>string job_spec = 1;</code>
      */
-    public Builder clearDir() {
+    public Builder clearJobSpec() {
       
-      dir_ = getDefaultInstance().getDir();
+      jobSpec_ = getDefaultInstance().getJobSpec();
       onChanged();
       return this;
     }
     /**
-     * <code>string dir = 1;</code>
+     * <pre>
+     *string dir = 1;
+     *string file = 2;
+     *string house_id = 3;
+     * </pre>
+     *
+     * <code>string job_spec = 1;</code>
      */
-    public Builder setDirBytes(
+    public Builder setJobSpecBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      dir_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object file_ = "";
-    /**
-     * <code>string file = 2;</code>
-     */
-    public java.lang.String getFile() {
-      java.lang.Object ref = file_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        file_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string file = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getFileBytes() {
-      java.lang.Object ref = file_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        file_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string file = 2;</code>
-     */
-    public Builder setFile(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      file_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string file = 2;</code>
-     */
-    public Builder clearFile() {
-      
-      file_ = getDefaultInstance().getFile();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string file = 2;</code>
-     */
-    public Builder setFileBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      file_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object houseId_ = "";
-    /**
-     * <code>string house_id = 3;</code>
-     */
-    public java.lang.String getHouseId() {
-      java.lang.Object ref = houseId_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        houseId_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string house_id = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getHouseIdBytes() {
-      java.lang.Object ref = houseId_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        houseId_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string house_id = 3;</code>
-     */
-    public Builder setHouseId(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      houseId_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string house_id = 3;</code>
-     */
-    public Builder clearHouseId() {
-      
-      houseId_ = getDefaultInstance().getHouseId();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string house_id = 3;</code>
-     */
-    public Builder setHouseIdBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      houseId_ = value;
+      jobSpec_ = value;
       onChanged();
       return this;
     }

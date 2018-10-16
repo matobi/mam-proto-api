@@ -48,9 +48,10 @@ message Rendition {
 //////////////////////
 
 message CreateJobIn {
-  string dir = 1;
-  string file = 2;
-  string house_id = 3;
+  string job_spec = 1;
+  //string dir = 1;
+  //string file = 2;
+  //string house_id = 3;
 }
 
 message CreateJobOut {

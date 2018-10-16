@@ -8,32 +8,24 @@ public interface CreateJobInOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string dir = 1;</code>
+   * <pre>
+   *string dir = 1;
+   *string file = 2;
+   *string house_id = 3;
+   * </pre>
+   *
+   * <code>string job_spec = 1;</code>
    */
-  java.lang.String getDir();
+  java.lang.String getJobSpec();
   /**
-   * <code>string dir = 1;</code>
+   * <pre>
+   *string dir = 1;
+   *string file = 2;
+   *string house_id = 3;
+   * </pre>
+   *
+   * <code>string job_spec = 1;</code>
    */
   com.google.protobuf.ByteString
-      getDirBytes();
-
-  /**
-   * <code>string file = 2;</code>
-   */
-  java.lang.String getFile();
-  /**
-   * <code>string file = 2;</code>
-   */
-  com.google.protobuf.ByteString
-      getFileBytes();
-
-  /**
-   * <code>string house_id = 3;</code>
-   */
-  java.lang.String getHouseId();
-  /**
-   * <code>string house_id = 3;</code>
-   */
-  com.google.protobuf.ByteString
-      getHouseIdBytes();
+      getJobSpecBytes();
 }

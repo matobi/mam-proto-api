@@ -71,16 +71,15 @@ public final class HybrikProto {
       "enditionsIn\022\016\n\006job_id\030\001 \001(\t\";\n\rRendition" +
       "sOut\022*\n\nrenditions\030\001 \003(\0132\026.hybrikproto.R" +
       "endition\"=\n\tRendition\022\013\n\003dir\030\001 \001(\t\022\020\n\010fi" +
-      "lename\030\002 \001(\t\022\021\n\tmediatype\030\003 \001(\t\":\n\013Creat" +
-      "eJobIn\022\013\n\003dir\030\001 \001(\t\022\014\n\004file\030\002 \001(\t\022\020\n\010hou" +
-      "se_id\030\003 \001(\t\"\036\n\014CreateJobOut\022\016\n\006job_id\030\001 " +
-      "\001(\t2\313\001\n\006Hybrik\0223\n\006GetJob\022\022.hybrikproto.J" +
-      "obIn\032\023.hybrikproto.JobOut\"\000\022H\n\rGetRendit" +
-      "ions\022\031.hybrikproto.RenditionsIn\032\032.hybrik" +
-      "proto.RenditionsOut\"\000\022B\n\tCreateJob\022\030.hyb" +
-      "rikproto.CreateJobIn\032\031.hybrikproto.Creat" +
-      "eJobOut\"\000B/\n\036com.nent.mam.proto.hybrikpr" +
-      "otoB\013HybrikProtoP\001b\006proto3"
+      "lename\030\002 \001(\t\022\021\n\tmediatype\030\003 \001(\t\"\037\n\013Creat" +
+      "eJobIn\022\020\n\010job_spec\030\001 \001(\t\"\036\n\014CreateJobOut" +
+      "\022\016\n\006job_id\030\001 \001(\t2\313\001\n\006Hybrik\0223\n\006GetJob\022\022." +
+      "hybrikproto.JobIn\032\023.hybrikproto.JobOut\"\000" +
+      "\022H\n\rGetRenditions\022\031.hybrikproto.Renditio" +
+      "nsIn\032\032.hybrikproto.RenditionsOut\"\000\022B\n\tCr" +
+      "eateJob\022\030.hybrikproto.CreateJobIn\032\031.hybr" +
+      "ikproto.CreateJobOut\"\000B/\n\036com.nent.mam.p" +
+      "roto.hybrikprotoB\013HybrikProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -135,7 +134,7 @@ public final class HybrikProto {
     internal_static_hybrikproto_CreateJobIn_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_hybrikproto_CreateJobIn_descriptor,
-        new java.lang.String[] { "Dir", "File", "HouseId", });
+        new java.lang.String[] { "JobSpec", });
     internal_static_hybrikproto_CreateJobOut_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_hybrikproto_CreateJobOut_fieldAccessorTable = new
